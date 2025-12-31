@@ -585,6 +585,13 @@ img {
   color: var(--text-color-light);
 }
 
+.qualification__location {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  margin-top: var(--mb-0-25);
+}
+
 .qualification__rounder {
   display: inline-block;
   width: 13px;
@@ -606,7 +613,7 @@ img {
 }
 
 .qualification__active[data-content] {
-  display: none;
+  display: block;
 }
 
 .qualification__button.qualification__active {
