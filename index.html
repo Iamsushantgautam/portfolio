@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/mypic2.jpg" />
     <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/newcss.css" />
     <link
@@ -1491,16 +1492,27 @@ This is made by HTML, CSS, Javascript and javascript libraries.
             if (response.ok) {
               form.reset();
               successMsg.style.display = 'block';
+              successMsg.style.color = 'green';
+              successMsg.textContent = 'Your message has been sent successfully!';
+              setTimeout(() => {
+                successMsg.style.display = 'none';
+              }, 10000);
             } else {
               successMsg.style.display = 'block';
               successMsg.style.color = 'red';
               successMsg.textContent = 'There was an error sending your message.';
+              setTimeout(() => {
+                successMsg.style.display = 'none';
+              }, 10000);
             }
           })
           .catch(() => {
             successMsg.style.display = 'block';
             successMsg.style.color = 'red';
             successMsg.textContent = 'There was an error sending your message.';
+            setTimeout(() => {
+              successMsg.style.display = 'none';
+            }, 10000);
           });
         });
       });
