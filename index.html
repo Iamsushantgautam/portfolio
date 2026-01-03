@@ -1372,39 +1372,38 @@ This is made by HTML, CSS, Javascript and javascript libraries.
             </div>
           </div>
 
-          <form action="" class="contact__form grid">
+          <form action="https://formsubmit.co/iamsushantgautam@gmail.com" method="POST" class="contact__form grid">
             <div class="contact__inputs grid">
               <div class="contact__content">
-                <label for="" class="content__label">Name</label>
-                <input type="text" class="contact__input" />
+                <label for="name" class="content__label">Name</label>
+                <input type="text" name="name" id="name" class="contact__input" required />
               </div>
 
               <div class="contact__content">
-                <label for="" class="content__label">Email</label>
-                <input type="Email" class="contact__input" />
+                <label for="email" class="content__label">Email</label>
+                <input type="email" name="email" id="email" class="contact__input" required />
               </div>
             </div>
 
             <div class="contact__content">
-              <label for="" class="content__label">Message</label>
+              <label for="message" class="content__label">Message</label>
               <textarea
-                name=""
-                id=""
+                name="message"
+                id="message"
                 cols="0"
                 rows="7"
                 class="contact__input"
+                required
               ></textarea>
             </div>
 
             <div>
-              <a
-                href=" mailto: iamsushantgautam@gmail.com?subject=Testing out mailto! &body=This is only a test!"
-                class="button button--flex"
-              >
+              <button type="submit" class="button button--flex" id="contact-submit-btn">
                 Send Message
                 <i class="uil uil-message button__icon"></i>
-              </a>
+              </button>
             </div>
+            <div id="contact-success-msg" style="display:none;color:green;margin-top:10px;text-align:center;">Your message has been sent successfully!</div>
           </form>
         </div>
       </section>
@@ -1477,5 +1476,34 @@ This is made by HTML, CSS, Javascript and javascript libraries.
     <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
     <script src="assets/ptj.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact__form');
+        const successMsg = document.getElementById('contact-success-msg');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+          fetch('https://formsubmit.co/ajax/iamsushantgautam@gmail.com', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+            if (response.ok) {
+              form.reset();
+              successMsg.style.display = 'block';
+            } else {
+              successMsg.style.display = 'block';
+              successMsg.style.color = 'red';
+              successMsg.textContent = 'There was an error sending your message.';
+            }
+          })
+          .catch(() => {
+            successMsg.style.display = 'block';
+            successMsg.style.color = 'red';
+            successMsg.textContent = 'There was an error sending your message.';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
