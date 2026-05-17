@@ -24,7 +24,7 @@ const EXTENSION_DATA = {
     { icon: <ShieldCheck size={18} />, label: 'Manifest V3' }
   ],
   tech: 'JavaScript, Chrome Extensions API (Manifest V3), HTML, CSS',
-  github: 'https://github.com/Iamsushantgautam/Chrome-extension/tree/main/shopify%20product%20scraper',
+  github: 'https://github.com/Iamsushantgautam/Chrome-extension-Shopify-Product-Scraper',
   img: extensionMockup
 }
 
