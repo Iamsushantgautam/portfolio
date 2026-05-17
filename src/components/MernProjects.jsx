@@ -38,7 +38,7 @@ const MERN_PROJECTS = [
     period: 'April 2024',
     description: 'An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.',
     img: witcetImg,
-    live: 'https://witcet.online',
+    live: 'https://witcet.vercel.app',
     github: 'https://github.com/Iamsushantgautam/witcet-version-3.0',
     tech: 'Node.js, Express.js, MongoDB, React, Bootstrap, CSS',
   },
