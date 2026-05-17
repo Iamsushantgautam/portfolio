@@ -71,11 +71,6 @@ function FiverrSection() {
               With over 100+ stores built and optimized, I focus on performance, mobile-first design, and seamless user journeys. My goal is to transform your vision into a profitable online business using the best practices in e-commerce strategy.
             </p>
 
-            <div className="fiverr-price-tag">
-              <CheckCircle2 size={24} />
-              <span>Starting from ₹7,800</span>
-            </div>
-
             <div className="fiverr-features">
               {FEATURES.map((feature, idx) => (
                 <div key={idx} className="fiverr-feature-item">
