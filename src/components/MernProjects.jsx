@@ -6,10 +6,22 @@ import '../styles/ProjectsList.css'
 import witcetImg from '../assets/MERN Project/witcet.png'
 import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
 import wittoolImg from '../assets/MERN Project/wittool.png'
+import skillnearImg from '../assets/MERN Project/D-Home.png'
 
 const MERN_PROJECTS = [
   {
     number: '01',
+    category: 'Hyperlocal Marketplace',
+    subtitle: 'SkillNear: Service Platform',
+    period: 'May 2026',
+    description: 'SkillNear is a full-stack hyperlocal service marketplace that connects customers with nearby skilled professionals and local service businesses. Features real-time chat, service booking, reviews, and a responsive dashboard.',
+    img: skillnearImg,
+    live: 'https://skillnear.vercel.app',
+    github: 'https://github.com/Iamsushantgautam/skillnear',
+    tech: 'React, Vite, Node.js, Express, MongoDB, Socket.IO, Cloudinary',
+  },
+  {
+    number: '02',
     category: 'Financial Tracking',
     subtitle: 'Expense Tracker: Web App',
     period: 'July 2025',
@@ -20,7 +32,7 @@ const MERN_PROJECTS = [
     tech: 'HTML, CSS, JavaScript, PHP, SQL, Chart.js',
   },
   {
-    number: '02',
+    number: '03',
     category: 'Digital Utility',
     subtitle: 'Wit Tools: All-in-One Suite',
     period: 'March 2025',
@@ -32,7 +44,7 @@ const MERN_PROJECTS = [
   },
 
   {
-    number: '03',
+    number: '04',
     category: 'Educational Platform',
     subtitle: 'WITCET: Learn & Grow',
     period: 'April 2024',
