@@ -530,12 +530,12 @@
 }
 
 /* Auto-scroll keyframe — translates the img upward to reveal full page */
-/* @keyframes mockup-scroll {
+@keyframes mockup-scroll {
   0%   { transform: translateY(0); }
-  45%  { transform: translateY(calc(-100% + 480px)); }
-  55%  { transform: translateY(calc(-100% + 480px)); }
+  40%  { transform: translateY(calc(-100% + 650px)); }
+  60%  { transform: translateY(calc(-100% + 650px)); }
   100% { transform: translateY(0); }
-} */
+}
 
 /* Screenshot area */
 .plist-browser-screen {
@@ -550,13 +550,19 @@
   width: 100%;
   height: auto;
   display: block;
-  animation: mockup-scroll 8s ease-in-out infinite;
+  animation: mockup-scroll 15s ease-in-out infinite;
   will-change: transform;
 }
 
-/* Pause auto-scroll on hover so user can inspect */
-.plist-browser-mockup:hover .plist-browser-screen .plist-img {
-  animation-play-state: paused;
+/* On desktop (hover support), pause by default and scroll on hover */
+@media (hover: hover) and (pointer: fine) {
+  .plist-browser-screen .plist-img {
+    animation-play-state: paused;
+  }
+  
+  .plist-browser-mockup:hover .plist-browser-screen .plist-img {
+    animation-play-state: running;
+  }
 }
 
 
