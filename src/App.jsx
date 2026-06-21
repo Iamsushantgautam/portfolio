@@ -18,7 +18,27 @@ const UtilityToolsSection = lazy(() => import('./components/UtilityToolsSection'
 const ContactSection = lazy(() => import('./components/ContactSection'))
 const FooterSection = lazy(() => import('./components/FooterSection'))
 
+// Lazy Load Pages
+const ShopifyStorePage = lazy(() => import('./pages/ShopifyStore'))
+
 function App() {
+  const path = window.location.pathname
+
+  // Route: /shopify-store → render the ShopifyStore page
+  if (path === '/shopify-store' || path === '/shopify-store/') {
+    return (
+      <Suspense fallback={<div className="section-loader" />}>
+        <ShopifyStorePage />
+      </Suspense>
+    )
+  }
+
+  // Default: main portfolio page
+  // Global smooth scroll setup with Lenis
+  return <PortfolioHome />
+}
+
+function PortfolioHome() {
   // Global smooth scroll setup with Lenis
   useEffect(() => {
     const lenis = new Lenis({
@@ -74,9 +94,9 @@ function App() {
           <UtilityToolsSection />
         </section>
 
-        <section id="fiverr">
+        {/* <section id="fiverr">
           <FiverrSection />
-        </section>
+        </section> */}
 
         <section id="contact">
           <ContactSection />

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiShopify, SiCanva } from 'react-icons/si'
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiShopify, SiCanva, SiLaravel } from 'react-icons/si'
 import meNoBg from '../assets/me3.svg'
 import '../styles/HeroSection.css'
 
@@ -105,7 +105,18 @@ function HeroSection() {
         variants={fadeIn}
         style={{ y: yImg, x: "-50%" }}
       >
-        <img src={meNoBg} alt="Shopify Developer" />
+        <img
+          src={meNoBg}
+          alt="Shopify Developer"
+          draggable="false"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          style={{
+            pointerEvents: 'none',
+            userSelect: 'none',
+            WebkitUserDrag: 'none'
+          }}
+        />
       </motion.div>
 
 
@@ -114,11 +125,13 @@ function HeroSection() {
         className="hero-intro-text"
         variants={fadeIn}
       >
-        <p className="intro-greeting">Hi, I'm MERN Full Stack and Shopify Developer</p>
-        <p className="intro-title">Computer Science and Engineering Student</p>
-        {/* <p className="intro-desc">
-          A third-year undergraduate engineering student at<br />B.N. College of Engineering and technology, Lucknow.
-        </p> */}
+        <p className="intro-greeting">Full-Stack Developer</p>
+        <div className="intro-chips">
+          <span className="intro-chip chip-laravel">Laravel</span>
+          <span className="intro-chip chip-react">React</span>
+          <span className="intro-chip chip-shopify">Shopify</span>
+        </div>
+        {/* <p className="intro-title">Computer Science &amp; Engineering Student</p> */}
       </motion.div>
 
       {/* Floating Quote in Script Font */}
@@ -152,6 +165,9 @@ function HeroSection() {
       </motion.div>
       <motion.div className="tech-icon floating-canva" variants={fadeIn} style={{ '--rot': '-18deg' }}>
         <SiCanva color="#00C4CC" />
+      </motion.div>
+      <motion.div className="tech-icon floating-laravel" variants={fadeIn} style={{ '--rot': '10deg' }}>
+        <SiLaravel color="#FF2D20" />
       </motion.div>
 
 

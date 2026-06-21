@@ -1,18 +1,24 @@
 /* ============================================
-   ExperienceSection.css - Pop Art Card Layout
+   ExperienceSection.css - Split Scroll Layout
    ============================================ */
 
 .exp-section {
   width: 100%;
-  padding: 10vh 0 15vh 0;
-  /* Padding for start/end spacing */
+  position: relative;
   background: var(--bg-dark, #e8d94b);
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
   background-size: 50px 50px;
-  /* Halftone Dot Pattern */
-  position: relative;
-  z-index: 5;
-  overflow: visible !important; /* Required for sticky children to work */
+  z-index: 10;
+  /* Higher than previous section to prevent overlap */
+  overflow: visible !important;
+}
+
+/* Desktop horizontal scroll needs vertical space */
+@media (min-width: 1025px) {
+  .exp-section {
+    height: 250vh;
+    /* Scroll depth to drive horizontal transition */
+  }
 }
 
 /* ── Giant Background Text ── */
@@ -35,43 +41,50 @@
   font-size: clamp(10rem, 35vw, 45rem);
   font-weight: 1000;
   color: transparent;
-  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.08); /* Dark subtle stroke */
+  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.08);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  transform: translateY(-50%); /* Center the text itself on the sticky line */
+  transform: translateY(-50%);
 }
 
-.exp-sticky-container {
+/* ── Sticky Viewport Container ── */
+.exp-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
-  /* Container for sticky children */
-  height: auto;
+  justify-content: space-between;
+  /* Distribute space to fill screen fully */
+  overflow: hidden;
+  padding: 3.5rem 5% 2rem 5%;
+  /* Spacing from top/bottom */
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* ── Header ── */
+.exp-header-sticky {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 1400px;
   width: 100%;
-  margin: 0 auto;
-  gap: 4rem;
-  padding: 0 5%;
-}
-
-.exp-header {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .exp-eyebrow {
   display: inline-block;
   background: #000;
-  /* Contrast eyebrow */
   font-family: 'Outfit', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   font-weight: 900;
   padding: 0.4rem 1rem;
   border-radius: 4px;
@@ -79,113 +92,109 @@
 
 .exp-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 0.9;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 950;
+  color: #000;
+  line-height: 1;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .exp-title-accent {
   color: #fff;
-  -webkit-text-stroke: 2.5px #000;
-  text-shadow: 8px 8px 0px #000;
+  -webkit-text-stroke: 2px #000;
+  text-shadow: 6px 6px 0px #000;
 }
 
-/* ── Two Column Split Layout ── */
-.exp-split {
+/* ── Split Layout Container ── */
+.exp-split-container {
   display: flex;
-  align-items: flex-start;
-  /* Alignment for sticky */
-  gap: 6rem;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: stretch;
+  position: relative;
+  flex: 1;
 }
 
-/* ── Image Column ── */
-.exp-image-col {
-  flex: 0 0 50%;
+/* ── Left Column (Sticky image mask) ── */
+.exp-left-col {
+  width: 40%;
+  max-width: 560px;
+  z-index: 10;
+  /* Sits on top so cards slide behind it */
+  background: var(--bg-dark, #e8d94b);
+  /* Solid background to mask sliding cards */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+  background-size: 50px 50px;
+  border-right: 6px solid #000;
+  /* Comic book split boundary */
+  box-shadow: 10px 0px 0px rgba(0, 0, 0, 0.05);
+  /* Left-to-right shadow cast */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-right: 1.5rem;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Right Column (Sliding Window Viewport) ── */
+.exp-right-col {
+  width: 60%;
+  max-width: 840px;
+  overflow: hidden;
+  /* Clips cards to keep one card visible */
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 3rem;
+  /* Gives active card breathing room from the divider line */
+}
+
+.exp-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── Card Wrapper (Sized to fit right col viewport) ── */
+.exp-card-wrapper {
+  width: 54vw;
+  /* Exactly 60% of the 90vw content area */
+  max-width: 840px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Vertically center the wrapper */
-  position: sticky;
-  top: 15vh; /* Pins the image 15vh from top */
-  height: fit-content;
-  align-self: flex-start;
-  z-index: 10;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
 }
 
-.exp-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: min(800px, 80vh);
-  /* Best of both worlds: cap by size or viewport height */
-  aspect-ratio: 1;
-}
-
-.exp-image-wrapper::before {
-  content: '';
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  background: var(--accent);
-  /* Massive solid pink circle */
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  border: 4px solid #000;
-  box-shadow: 12px 12px 0px #000;
-}
-
-.exp-image {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /* Drop massive sticker shadow matching the vibes */
-  filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
-}
-
-/* ── Cards Column (Track Wrapper) ── */
-.exp-cards-col {
-  flex: 1;
-  overflow: visible;
-}
-
-/* ── Horizontal Track ── */
-.exp-grid {
-  display: flex;
-  flex-direction: column;
-  /* Vertical flow */
-  gap: 12rem; /* Increased gap for more scroll impact */
-  /* Large gaps for scroll impact */
-  width: 100%;
-  padding-bottom: 10vh;
-  /* Extra space to scroll past the last card */
-}
-
-/* Base Card Style */
+/* ── Card Styling ── */
 .exp-card {
   width: 100%;
   max-width: 600px;
-  flex-shrink: 0;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  /* Left align content for readability */
-  padding: 4rem;
-  border: 5px solid #000;
-  border-radius: 24px;
-  box-shadow: 15px 15px 0px #000;
+  padding: 3rem 2.5rem;
+  border: 4px solid #000;
+  border-radius: 20px;
+  box-shadow: 12px 12px 0px #000;
   background-clip: padding-box;
-  will-change: transform, opacity;
   position: relative;
   overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  box-sizing: border-box;
 }
 
 .exp-card-number-bg {
@@ -195,7 +204,7 @@
   transform: translate(-50%, -50%);
   font-family: 'Outfit', sans-serif;
   font-weight: 1000;
-  font-size: 15rem;
+  font-size: 14rem;
   color: transparent;
   -webkit-text-stroke: 2px rgba(0, 0, 0, 0.05);
   pointer-events: none;
@@ -203,35 +212,28 @@
   line-height: 1;
 }
 
-/* Playful asymmetric rotations mapped statically now */
-.exp-card:nth-child(1) {
-  transform: rotate(-1.5deg);
+/* Asymmetric rotations on desktop */
+@media (min-width: 1025px) {
+  .exp-card-wrapper:nth-child(1) .exp-card {
+    transform: rotate(-1deg);
+  }
+
+  .exp-card-wrapper:nth-child(2) .exp-card {
+    transform: rotate(1deg);
+  }
+
+  .exp-card-wrapper:nth-child(3) .exp-card {
+    transform: rotate(-1.5deg);
+  }
 }
 
-.exp-card:nth-child(2) {
-  transform: rotate(1.5deg);
-}
-
-.exp-card:nth-child(3) {
-  transform: rotate(-1deg);
-}
-
-/* Hover jumps up and drops deeper shadow */
 .exp-card:hover {
-  transform: translate(-10px, -15px) rotate(0deg) !important;
-  box-shadow: 25px 25px 0px #000;
-  z-index: 20;
+  transform: translate(-8px, -12px) rotate(0deg) !important;
+  box-shadow: 20px 20px 0px #000;
+  z-index: 10;
 }
 
-/* Hover scales the icon/button slightly too */
-.exp-card:hover .exp-more {
-  background: #000;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* ── Vibrant Color Themes ── */
-/* Pink Card */
+/* ── Card Themes ── */
 .exp-card.theme-pink {
   background: var(--accent);
   color: #fff;
@@ -244,25 +246,25 @@
 .exp-card.theme-pink .exp-period {
   color: #fff;
   background: #000;
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 50px;
 }
 
 .exp-card.theme-pink .exp-company-wrapper {
   background: #000;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .exp-card.theme-pink .exp-desc {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .exp-card.theme-pink .exp-more {
   background: #000;
   color: #fff;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
   border: 2px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .exp-card.theme-pink .exp-more:hover {
@@ -270,7 +272,6 @@
   color: #000;
 }
 
-/* Cyan Card */
 .exp-card.theme-cyan {
   background: var(--accent-secondary);
   color: #000;
@@ -283,7 +284,7 @@
 .exp-card.theme-cyan .exp-period {
   color: #000;
   background: #fff;
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 50px;
   border: 2px solid #000;
 }
@@ -292,18 +293,18 @@
   background: #fff;
   color: #000;
   border: 2px solid #000;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .exp-card.theme-cyan .exp-desc {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .exp-card.theme-cyan .exp-more {
   background: #000;
   color: #fff;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
   border: 2px solid #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .exp-card.theme-cyan .exp-more:hover {
@@ -311,7 +312,6 @@
   color: #000;
 }
 
-/* White Card */
 .exp-card.theme-white {
   background: #ffffff;
   color: #000;
@@ -324,7 +324,7 @@
 .exp-card.theme-white .exp-period {
   color: #000;
   background: var(--accent-secondary);
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 50px;
   border: 2px solid #000;
 }
@@ -333,18 +333,18 @@
   background: var(--accent);
   color: #fff;
   border: 2px solid #000;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .exp-card.theme-white .exp-desc {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .exp-card.theme-white .exp-more {
   background: var(--accent);
   color: #fff;
-  box-shadow: 4px 4px 0px #000;
   border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
 }
 
 .exp-card.theme-white .exp-more:hover {
@@ -352,33 +352,33 @@
   color: #fff;
 }
 
-/* ── Typographic Styling ── */
+/* ── Content Styling ── */
 .exp-main {
-  flex: 1;
-  padding-right: 3rem;
-  /* Spacing before the view button */
+  width: 100%;
+  z-index: 1;
 }
 
 .exp-top {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
 }
 
 .exp-role {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .exp-period {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -387,13 +387,13 @@
 
 .exp-company-wrapper {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  margin-bottom: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1.2rem;
 }
 
 .exp-company {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -401,10 +401,10 @@
 
 .exp-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   font-weight: 600;
-  max-width: 600px;
+  margin: 0;
 }
 
 .exp-more {
@@ -413,155 +413,157 @@
   justify-content: center;
   gap: 0.5rem;
   font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  padding: 1rem 2rem;
+  letter-spacing: 0.1em;
+  padding: 0.8rem 1.6rem;
   border-radius: 50px;
-  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.exp-card:hover .exp-more {
+  transform: scale(1.03);
+}
+
+/* ── Polaroid Styling ── */
+.exp-intro-polaroid {
+  background: #fff;
+  border: 3px solid #000;
+  padding: 1rem 1rem 1.8rem 1rem;
+  box-shadow: 6px 6px 0px #000;
+  transform: rotate(-3deg);
+  width: 280px;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.exp-intro-polaroid::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  width: 100px;
+  height: 28px;
+  background: rgba(255, 235, 59, 0.85);
+  /* Taped look */
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.exp-intro-polaroid:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+.exp-intro-img-frame {
+  width: 100%;
+  height: 180px;
+  background: var(--accent);
+  border: 3px solid #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exp-intro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(6px 6px 0px rgba(0, 0, 0, 0.4));
+}
+
+.exp-intro-caption {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 800;
+}
+
+.exp-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent-secondary);
+  color: #000;
+  border: 3px solid #000;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 4px 4px 0px #000;
   transition: all 0.2s ease;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .exp-section {
-    padding-bottom: 5rem;
-  }
-  
-  .exp-split {
-    flex-direction: column;
-    gap: 5rem;
+.exp-scroll-hint:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.exp-scroll-hint .arrow {
+  display: inline-block;
+  animation: bounceRight 0.8s infinite alternate;
+}
+
+@keyframes bounceRight {
+  0% {
+    transform: translateX(0);
   }
 
-  .exp-image-col {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: auto;
-    display: flex;
+  100% {
+    transform: translateX(6px);
   }
 }
 
-/* ── Tablet Center Layout (769px to 1080px) ──────────────── */
-@media screen and (min-width: 769px) and (max-width: 1080px) {
-  .exp-section {
-    padding: 5rem 0;
-  }
-
-  .exp-split {
-    align-items: center;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .exp-grid {
-    align-items: center;
-    gap: 4rem;
-    padding-bottom: 5vh;
-  }
-
-  .exp-card {
-    margin: 0 auto;
-    width: 95%;
-  }
-
-  .exp-image-col {
-    display: none;
-  }
+/* ── Timeline Progress Indicator ── */
+.exp-progress-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 10;
 }
 
-@media (max-width: 1024px) {
-  .exp-card {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 3rem;
-  }
-
-  .exp-main {
-    padding-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .exp-more {
-    align-self: flex-start;
-  }
+.exp-progress-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #000;
 }
 
-@media (max-width: 768px) {
-  .exp-section {
-    padding: 6rem 5%;
-  }
-
-  .exp-header {
-    text-align: center;
-  }
-
-  .exp-image-col {
-    display: none;
-  }
-
-  .exp-image-wrapper {
-    max-width: 95vw;
-  }
-
-  .exp-title {
-    font-size: 3rem;
-  }
-
-  .exp-title-accent {
-    -webkit-text-stroke: 1.5px #000;
-    text-shadow: 4px 4px 0px #000;
-  }
-
-  .exp-grid {
-    gap: 3rem;
-  }
-
-  .exp-card {
-    padding: 2.5rem 1.5rem;
-    border-width: 4px;
-    box-shadow: 6px 6px 0px #000;
-  }
-
-  /* Dial back rotations lightly on mobile */
-  .exp-card:nth-child(1) {
-    transform: rotate(-1deg);
-  }
-
-  .exp-card:nth-child(2) {
-    transform: rotate(1deg);
-  }
-
-  .exp-card:nth-child(3) {
-    transform: rotate(0deg);
-  }
-
-  .exp-top {
-    gap: 0.8rem;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .exp-role {
-    font-size: 1.6rem;
-  }
-
-  .exp-company {
-    font-size: 0.85rem;
-  }
-
-  .exp-period {
-    font-size: 0.75rem;
-  }
-
-  .exp-desc {
-    font-size: 0.95rem;
-  }
+.exp-progress-bar-track {
+  width: 100%;
+  height: 14px;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
 }
 
-/* ── Experience Summary Modal (Pop Art Style) ── */
+.exp-progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-right: 3px solid #000;
+}
+
+/* ── Modal Pop-Art Style ── */
 .exp-modal-overlay {
   position: fixed;
   top: 0;
@@ -580,37 +582,62 @@
 .exp-modal {
   background: #ffffff;
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
   border-radius: 20px;
-  /* Matching card radius */
-  padding: 3.5rem;
+  padding: 3rem 2.5rem;
   border: 5px solid #000;
-  /* Bold Pop Art border */
-  box-shadow: 20px 20px 0px #000;
-  /* Flat deep shadow */
+  box-shadow: 15px 15px 0px #000;
   position: relative;
-  overflow: visible;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+}
+
+.exp-modal-content {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 0.8rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-secondary) #f0f0f0;
+}
+
+/* Custom retro scrollbar matching the Pop-Art theme */
+.exp-modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.exp-modal-content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border: 3px solid #000;
+  border-radius: 4px;
+}
+
+.exp-modal-content::-webkit-scrollbar-thumb {
+  background: var(--accent-secondary);
+  border: 3px solid #000;
+  border-radius: 4px;
 }
 
 .exp-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .exp-modal-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: #000;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   background: var(--accent-secondary);
-  /* Cyan background block */
-  padding: 0.5rem 1.2rem;
-  border: 4px solid #000;
-  box-shadow: 6px 6px 0px #000;
+  padding: 0.4rem 1rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  margin: 0;
 }
 
 .exp-modal-close {
@@ -618,8 +645,8 @@
   border: 3px solid #000;
   cursor: pointer;
   color: #fff;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 4px solid #000;
   display: flex;
@@ -627,77 +654,197 @@
   justify-content: center;
   transition: all 0.2s ease;
   position: absolute;
-  top: -25px;
-  right: -25px;
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  top: -22px;
+  right: -22px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .exp-modal-close:hover {
   transform: rotate(90deg) scale(1.1);
   background: var(--accent);
-  /* Turn pink on hover */
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 3px 3px 0px #000;
 }
 
 .exp-modal-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
 .exp-modal-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .exp-modal-icon {
   background: #000;
   color: #fff;
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   border: 3px solid #000;
-  box-shadow: 4px 4px 0px var(--accent-secondary);
+  box-shadow: 3px 3px 0px var(--accent-secondary);
 }
 
 .exp-modal-item p {
   font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   line-height: 1.5;
   font-weight: 700;
   color: #000;
+  margin: 0;
 }
 
-/* Responsive Modal */
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE FALLBACKS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .exp-section {
+    padding: 4rem 0;
+    height: auto !important;
+    /* Stack vertically on mobile/tablet */
+  }
+
+  .exp-bg-text-container {
+    display: none;
+  }
+
+  .exp-sticky-wrapper {
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+    padding: 2rem 5% 0 5%;
+  }
+
+  .exp-header-sticky {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .exp-split-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 3rem;
+  }
+
+  .exp-left-col {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    border-right: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .exp-intro-polaroid {
+    width: 280px;
+    transform: none !important;
+  }
+
+  .exp-right-col {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    /* Enable swipeable scroll on mobile */
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 10%;
+    /* Centers the active card */
+    -webkit-overflow-scrolling: touch;
+    padding-left: 0;
+    padding-right: 0;
+    scrollbar-width: none;
+    /* Hide scrollbars */
+  }
+
+  .exp-right-col::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-track {
+    flex-direction: row !important;
+    /* Keep horizontal on mobile */
+    width: max-content;
+    transform: none !important;
+    /* Block framer motion slide effect */
+    gap: 1.5rem;
+    padding: 0 10% 2rem 10%;
+    /* Bottom padding prevents shadow clippings */
+    box-sizing: border-box;
+  }
+
+  .exp-card-wrapper {
+    width: 80vw !important;
+    max-width: 500px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 0;
+  }
+
+  .exp-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: auto;
+    transform: none !important;
+    padding: 2.5rem 2rem;
+  }
+
+  .exp-card-number-bg {
+    font-size: 10rem;
+  }
+
+  .exp-top {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .exp-more {
+    width: 100%;
+  }
+
+  .exp-progress-container {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .exp-card {
+    padding: 2.0rem 1.5rem;
+    border-width: 3px;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .exp-card:hover {
+    box-shadow: 10px 10px 0px #000;
+  }
+
+  .exp-title {
+    font-size: 2.8rem;
+  }
+
+  .exp-title-accent {
+    -webkit-text-stroke: 1.5px #000;
+    text-shadow: 4px 4px 0px #000;
+  }
+
   .exp-modal {
-    padding: 2.5rem 1.5rem;
-    width: 90%;
+    padding: 2rem 1.5rem;
   }
 
   .exp-modal-close {
     top: -15px;
     right: -15px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .exp-modal-title {
-    font-size: 1.6rem;
-  }
-
-  .exp-modal-item p {
-    font-size: 1.05rem;
-  }
-
-  .exp-modal-icon {
-    width: 32px;
-    height: 32px;
   }
 }

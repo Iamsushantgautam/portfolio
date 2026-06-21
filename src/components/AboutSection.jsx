@@ -81,25 +81,24 @@ function AboutSection() {
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">BACKGROUND</h3>
               <p className="about-text">
-                I'M A FINAL-YEAR CSE UNDERGRADUATE, PASSIONATE ABOUT TECHNOLOGY AND AN AVID READER. I HAVE A SELF-MOTIVATED AND CAN-DO ATTITUDE, THRIVING IN CHALLENGING AND DYNAMIC ENVIRONMENTS.
+                I AM A B.TECH GRADUATE IN COMPUTER SCIENCE & ENGINEERING, PASSIONATE ABOUT TECHNOLOGY AND AN AVID READER. I HAVE A SELF-MOTIVATED AND CAN-DO ATTITUDE, THRIVING IN CHALLENGING AND DYNAMIC ENVIRONMENTS.
               </p>
             </ScrollReveal>
 
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">EXPERIENCE</h3>
               <p className="about-text">
-                I HAVE ACQUIRED OVER 8+ MONTHS OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
-
+                I HAVE ACQUIRED OVER 11+ MONTHS OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
               </p>
             </ScrollReveal>
 
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">SPECIALTIES</h3>
               <ul className="about-specialties-list">
-                <li>WEB DEVELOPMENT</li>
+                <li>LARAVEL DEVELOPMENT</li>
+                <li>REACT & MERN STACK</li>
                 <li>SHOPIFY DEVELOPMENT</li>
-                <li>APP INTEGRATIONS</li>
-                <li>API ARCHITECTURE</li>
+                <li>API INTEGRATIONS</li>
                 <li>CONVERSION RATE OPTIMISATION</li>
                 <li>PROBLEM SOLVING</li>
               </ul>

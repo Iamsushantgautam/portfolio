@@ -215,6 +215,40 @@
 }
 
 
+/* ── Tech Chips Row ── */
+.intro-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.intro-chip {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 1.1rem;
+  border: 3px solid #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.intro-chip:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.chip-laravel  { background: #F05340; color: #fff; }
+.chip-react    { background: #00bcd4; color: #000; }
+.chip-shopify  { background: #96bf48; color: #000; }
+
+
 .intro-desc {
   font-family: 'Inter', sans-serif;
   font-size: clamp(1rem, 1.3vw, 1.35rem);
@@ -322,6 +356,11 @@
   top: 12%;
   left: 12%;
   z-index: 100;
+}
+
+.floating-laravel {
+  top: 30%;
+  left: 3%;
 }
 
 /* ── Tablet/Small Laptop Layout (769px to 1080px) ──────────────── */

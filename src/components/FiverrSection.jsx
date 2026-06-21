@@ -1,17 +1,18 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { ShoppingBag, Zap, RefreshCw, Layout, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ExternalLink, CheckCircle2, Layout, Zap, RefreshCw, ShoppingBag } from 'lucide-react'
 import '../styles/FiverrSection.css'
 
 // Using the image path provided by the user
 import fiverrImg from '../assets/fiverr/shopify-fiverr.png'
+import portfolioData from '../../public/api/portfolio.json'
 
-const FEATURES = [
-  { icon: <Layout size={20} />, text: 'Custom Shopify Design' },
-  { icon: <Zap size={20} />, text: 'High-Converting Layouts' },
-  { icon: <RefreshCw size={20} />, text: 'WooCommerce Migration' },
-  { icon: <ShoppingBag size={20} />, text: 'Dropshipping Automation' },
-]
+const iconMap = {
+  Layout,
+  Zap,
+  RefreshCw,
+  ShoppingBag,
+}
 
 function FiverrSection() {
   const containerRef = useRef(null)
@@ -72,12 +73,15 @@ function FiverrSection() {
             </p>
 
             <div className="fiverr-features">
-              {FEATURES.map((feature, idx) => (
-                <div key={idx} className="fiverr-feature-item">
-                  {feature.icon}
-                  <span>{feature.text}</span>
-                </div>
-              ))}
+              {portfolioData.fiverrFeatures.map((feature, idx) => {
+                const IconComponent = iconMap[feature.icon] || Zap
+                return (
+                  <div key={idx} className="fiverr-feature-item">
+                    <IconComponent size={20} />
+                    <span>{feature.text}</span>
+                  </div>
+                )
+              })}
             </div>
 
             <p className="plist-description">

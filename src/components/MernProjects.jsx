@@ -2,59 +2,19 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowUpRight, Github, Globe } from 'lucide-react'
 import '../styles/ProjectsList.css'
+import portfolioData from '../../public/api/portfolio.json'
 
 import witcetImg from '../assets/MERN Project/witcet.png'
 import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
 import wittoolImg from '../assets/MERN Project/wittool.png'
 import skillnearImg from '../assets/MERN Project/D-Home.png'
 
-const MERN_PROJECTS = [
-  {
-    number: '01',
-    category: 'Hyperlocal Marketplace',
-    subtitle: 'SkillNear: Service Platform',
-    period: 'May 2026',
-    description: 'SkillNear is a full-stack hyperlocal service marketplace that connects customers with nearby skilled professionals and local service businesses. Features real-time chat, service booking, reviews, and a responsive dashboard.',
-    img: skillnearImg,
-    live: 'https://skillnear.vercel.app',
-    github: 'https://github.com/Iamsushantgautam/skillnear',
-    tech: 'React, Vite, Node.js, Express, MongoDB, Socket.IO, Cloudinary',
-  },
-  {
-    number: '02',
-    category: 'Financial Tracking',
-    subtitle: 'Expense Tracker: Web App',
-    period: 'July 2025',
-    description: 'Developed a professional web-based expense tracker with secure authentication, budget tracking, visual analytics, and CSV export functionality. Built interactive charts using Chart.js to visualize spending patterns and monthly reports, with backend logic in PHP and SQL for robust data management.',
-    img: expenseTrackerImg,
-    live: 'https://expensive-tracker.page.gd',
-    github: 'https://github.com/Iamsushantgautam/Expense-Tracker-Web-Application',
-    tech: 'HTML, CSS, JavaScript, PHP, SQL, Chart.js',
-  },
-  {
-    number: '03',
-    category: 'Digital Utility',
-    subtitle: 'Wit Tools: All-in-One Suite',
-    period: 'March 2025',
-    description: 'Built a powerful all-in-one digital utility platform featuring image processing, PDF tools including compression, merging, page numbering, watermarking, and a passport photo maker. Designed for fast, client-side processing with an intuitive categorized UI and mobile-responsive accordion navigation.',
-    img: wittoolImg,
-    live: 'https://wit-tools.sushant.online',
-    github: 'https://github.com/Iamsushantgautam/Wit-Tools',
-    tech: 'React',
-  },
-
-  {
-    number: '04',
-    category: 'Educational Platform',
-    subtitle: 'WITCET: Learn & Grow',
-    period: 'April 2024',
-    description: 'An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.',
-    img: witcetImg,
-    live: 'https://witcet.vercel.app',
-    github: 'https://github.com/Iamsushantgautam/witcet-version-3.0',
-    tech: 'Node.js, Express.js, MongoDB, React, Bootstrap, CSS',
-  },
-]
+const imgMap = {
+  '/assets/MERN Project/witcet.png': witcetImg,
+  '/assets/MERN Project/portfolio3-full.png': expenseTrackerImg,
+  '/assets/MERN Project/wittool.png': wittoolImg,
+  '/assets/MERN Project/D-Home.png': skillnearImg,
+}
 
 function ProjectItem({ project, index }) {
   const isEven = index % 2 !== 0
@@ -131,7 +91,7 @@ function ProjectItem({ project, index }) {
           {/* Screenshot */}
           <div className="plist-browser-screen">
             <img
-              src={project.img}
+              src={imgMap[project.img] || project.img}
               alt={project.subtitle}
               className="plist-img"
             />
@@ -181,7 +141,7 @@ function MernProjects() {
           <h1 className="plist-section-title">MERN <span className="plist-title-accent">Projects</span></h1>
         </motion.div>
 
-        {MERN_PROJECTS.map((project, idx) => (
+        {portfolioData.mernProjects.map((project, idx) => (
           <ProjectItem key={project.number} project={project} index={idx} />
         ))}
       </div>

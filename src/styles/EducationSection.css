@@ -1,16 +1,13 @@
 /* ============================================
-   EducationSection.css
+   EducationSection.css — Timeline Style
    ============================================ */
 
 .ed-section {
   width: 100%;
   min-height: 100vh;
   background-color: #E91E63;
-  /* High-energy Pink */
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px);
   background-size: 40px 40px;
-  /* Halftone Dot Effect */
-
   display: flex;
   flex-direction: column;
   padding: 10rem 5%;
@@ -45,70 +42,18 @@
   letter-spacing: -0.02em;
 }
 
+/* ── Container ── */
 .ed-container {
   max-width: 1400px;
-  /* Made slightly wider to fit the side-by-side layout comfortably */
   width: 100%;
   margin: 0 auto;
-}
-
-.ed-header {
-  margin-bottom: 5rem;
   position: relative;
-  z-index: 3;
-}
-
-.ed-split {
-  display: flex;
-  gap: 5rem;
-  align-items: flex-start;
-}
-
-.ed-image-col {
-  flex: 0 0 45%;
-  position: sticky;
-  top: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 2;
-  height: fit-content;
 }
 
-.ed-cards-col {
-  flex: 1;
-  padding-bottom: 5rem;
-}
-
-.ed-image-wrapper {
-  width: 100%;
-  max-width: 450px;
-  position: relative;
-}
-
-.ed-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
-  z-index: 1;
-  position: relative;
-}
-
-/* Yellow circle backdrop for sticky image */
-.ed-image-wrapper::before {
-  content: '';
-  position: absolute;
-  width: 90%;
-  aspect-ratio: 1;
-  background: #FFEB3B;
-  border: 6px solid #000;
-  box-shadow: 10px 10px 0px #000;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
+/* ── Header ── */
+.ed-header {
+  margin-bottom: 4rem;
 }
 
 .ed-eyebrow {
@@ -134,6 +79,7 @@
   line-height: 1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  margin-bottom: 0.8rem;
 }
 
 .ed-title-accent {
@@ -142,235 +88,312 @@
   text-shadow: 8px 8px 0px #000;
 }
 
-/* ── Pop Art Timeline Layout ── */
-.ed-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-  position: relative;
-  z-index: 2;
-  padding-left: 1.5rem;
-}
-
-.ed-timeline-item {
-  position: relative;
-  background: #ffffff;
-  border: 5px solid #000000;
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2.5rem;
-  box-shadow: 15px 15px 0px #000000;
-}
-
-/* The Timeline Indicator Dot (Optional, removed to match Exp Section cleaner scroll) */
-.ed-timeline-item::before {
-  display: none;
-}
-
-.ed-timeline-item:hover {
-  transform: translate(-10px, -10px);
-  box-shadow: 25px 25px 0px #000000;
-}
-
-.ed-card-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-  width: 100px;
-}
-
-.ed-icon-wrap {
-  width: 65px;
-  height: 65px;
-  background: var(--accent-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 4px solid #000;
-  box-shadow: 4px 4px 0px #000;
-}
-
-.ed-icon-wrap svg {
-  color: #fff;
-}
-
-.ed-period {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.ed-card-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.ed-type {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 950;
-  color: #000;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.ed-institution {
+.ed-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: var(--accent);
-  font-weight: 900;
-  line-height: 1.3;
-}
-
-.ed-details {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #222;
-  font-weight: 600;
-  line-height: 1.6;
-}
-
-.ed-details-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
   margin-top: 0.5rem;
 }
 
-.ed-badge {
-  background: var(--accent-secondary);
-  color: #000;
-  padding: 0.4rem 1rem;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.85rem;
-  border: 4px solid #000;
-  box-shadow: 4px 4px 0px #000;
-  white-space: nowrap;
+/* ── Split Layout ── */
+.ed-split {
+  display: flex;
+  gap: 5rem;
+  align-items: flex-start;
 }
 
-.ed-card-glow {
+.ed-cards-col {
+  flex: 1;
+  padding-bottom: 5rem;
+}
+
+.ed-image-col {
+  flex: 0 0 42%;
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.ed-image-wrapper {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ed-image-wrapper:hover {
+  transform: translateY(-20px) scale(1.05) rotate(2deg);
+}
+
+.ed-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.85));
+  position: relative;
+  z-index: 1;
+  transition: filter 0.4s ease;
+}
+
+.ed-image-wrapper:hover .ed-image {
+  filter: drop-shadow(25px 25px 0px rgba(0, 0, 0, 0.95));
+}
+
+.ed-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #FFEB3B;
+  border: 8px solid #000;
+  box-shadow: 16px 16px 0px #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.4s ease, 
+              box-shadow 0.4s ease;
+}
+
+.ed-image-wrapper:hover::before {
+  background-color: var(--accent-secondary);
+  box-shadow: 24px 24px 0px #000;
+  transform: translate(-48%, -40%) scale(1.08);
+}
+
+/* ══════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════ */
+.ed-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Each Timeline Row ── */
+.ed-tl-item {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
+
+/* ── Icon Column (contains circle + vertical line) ── */
+.ed-tl-icon-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 72px;
+}
+
+/* The circular yellow icon */
+.ed-tl-icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FFEB3B;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+  color: #000;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Vertical connecting line below the icon */
+.ed-tl-icon-col::after {
+  content: '';
+  flex: 1;
+  width: 4px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 2px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  min-height: 32px;
+}
+
+/* Hide the line after the last item */
+.ed-tl-item:last-child .ed-tl-icon-col::after {
   display: none;
 }
 
-/* ── Responsive ── */
-@media screen and (min-width: 769px) and (max-width: 1080px) {
-  .ed-section {
-    padding: 5rem 5%;
-  }
-
-  .ed-split {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .ed-timeline {
-    gap: 2rem;
-  }
-
-  .ed-image-col {
-    display: none;
-  }
+/* ── Card ── */
+.ed-tl-card {
+  flex: 1;
+  background: #ffffff;
+  border: 4px solid #000;
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  box-shadow: 8px 8px 0 #000;
+  margin-left: 1.4rem;
+  margin-bottom: 2.4rem;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.25s ease;
 }
 
+.ed-tl-card:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 13px 13px 0 #000;
+}
+
+.ed-tl-icon-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 6px 6px 0 #000;
+}
+
+/* ── Card top row ── */
+.ed-tl-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.ed-tl-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Type heading – bold black all caps */
+.ed-tl-type {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 1000;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Specialization – pink accent */
+.ed-tl-spec {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  color: #E91E63;
+  margin: 0;
+}
+
+/* Institution – muted gray */
+.ed-tl-inst {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: #444;
+  font-weight: 500;
+  margin: 0.2rem 0 0;
+  line-height: 1.4;
+}
+
+/* Card right column containing badges */
+.ed-tl-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* Period badge – yellow pop-art */
+.ed-tl-badge {
+  flex-shrink: 0;
+  background: #FFEB3B;
+  color: #000;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 1rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+/* Grade badge – cyan pop-art */
+.ed-tl-grade-badge {
+  flex-shrink: 0;
+  background: var(--accent-secondary);
+  color: #000;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 1rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .ed-section-bg-text {
-    font-size: 35vw;
-    top: 10%;
-  }
-
-  .ed-split {
-    gap: 3rem;
-  }
-
-  .ed-image-col {
-    display: none;
-  }
+  .ed-image-col { display: none; }
+  .ed-split { gap: 0; }
+  .ed-section { padding: 7rem 5%; }
 }
 
 @media (max-width: 768px) {
-  .ed-timeline-item {
+  .ed-section { padding: 6rem 5%; }
+  .ed-header { margin-bottom: 3rem; }
+
+  .ed-tl-icon-col { width: 52px; }
+  .ed-tl-icon-circle { width: 46px; height: 46px; }
+
+  .ed-tl-card {
+    padding: 1.4rem 1.4rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+  }
+
+  .ed-tl-card-top {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-
-  .ed-card-side {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .ed-icon-wrap {
-    width: 50px;
-    height: 50px;
-  }
-
-  .ed-type {
-    font-size: 1.6rem;
-  }
-
-  .ed-section {
-    padding: 6rem 5%;
-  }
-
-  .ed-split {
-    flex-direction: column;
-    gap: 4rem;
-  }
-
-  .ed-image-col {
-    display: none;
-  }
-
-  .ed-image {
-    max-width: 80%;
-  }
-
-  .ed-timeline {
-    gap: 2rem;
-    padding-left: 1.5rem;
-  }
-
-  .ed-details-row {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
-    margin-top: 1rem;
+  }
+
+  .ed-tl-card-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: flex-start;
     width: 100%;
+    gap: 0.6rem;
   }
 
-  .ed-badge {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
+  .ed-tl-badge,
+  .ed-tl-grade-badge {
+    align-self: flex-start;
   }
 
-  .ed-timeline-item::before {
-    left: -1.5rem;
-  }
-
-  .ed-title {
-    font-size: 3rem;
-  }
-
+  .ed-title { font-size: 3rem; }
   .ed-title-accent {
     -webkit-text-stroke: 1.5px #000;
-    text-shadow: 4px 4px 0px #000;
+    text-shadow: 4px 4px 0 #000;
   }
+}
+
+@media (max-width: 480px) {
+  .ed-tl-icon-col { width: 44px; }
+  .ed-tl-icon-circle { width: 40px; height: 40px; border-width: 3px; }
+  .ed-tl-card { margin-left: 0.8rem; padding: 1.2rem; }
 }

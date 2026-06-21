@@ -1,0 +1,387 @@
+{
+  "personalInfo": {
+    "name": "Sushant Gautam",
+    "role": "Laravel, MERN & Shopify Developer",
+    "email": "iamsushantgautam@gmail.com",
+    "phone": "+91-6393958548",
+    "github": "https://github.com/Iamsushantgautam",
+    "quote": "Code is not just what you build, it's how it makes you feel."
+  },
+  "education": [
+    {
+      "type": "College",
+      "institution": "B.N College of Engineering and Technology, Lucknow",
+      "period": "2022 - 2026",
+      "specialization": "B.Tech in Computer Science & Engineering",
+      "grade": "8.34 CGPA",
+      "icon": "GraduationCap"
+    },
+    {
+      "type": "Class 12th",
+      "institution": "Bal Nikunj English School, Lucknow",
+      "period": "Completed 2022",
+      "specialization": "Science (PCM) – State Board",
+      "grade": "73.4%",
+      "icon": "BookOpen"
+    },
+    {
+      "type": "High School",
+      "institution": "Bal Nikunj English School, Lucknow",
+      "period": "Completed 2020",
+      "specialization": "General Secondary Education",
+      "grade": "78.6%",
+      "icon": "School"
+    }
+  ],
+  "experiences": [
+    {
+      "number": "01",
+      "title": "Web Specialist Intern",
+      "company": "GrrowEzy, Remote, Bengaluru",
+      "period": "Nov 2025 - Present",
+      "description": "Specializing in Laravel application development, custom Shopify setups, branding assets, and UI/UX optimization for e-commerce.",
+    "summary": [
+      "Designed and optimized Shopify store layouts, visuals, and branding assets",
+      "Developed scalable web applications utilizing Laravel MVC architecture",
+      "Optimized MySQL databases, queries, and relational data structures for peak performance",
+      "Implemented secure user authentication and role-based access control (RBAC)",
+      "Integrated payment gateways, transaction services, and third-party APIs",
+      "Delivered 50+ conversion-focused e-commerce assets for landing and product pages",
+      "Collaborated in a remote team to architect and ship scalable web solutions",
+      "Enhanced user experience (UX) and conversion rate optimization (CRO) metrics"
+    ]
+    },
+    {
+      "number": "02",
+      "title": "Content and Ecommerce Management",
+      "company": "DRS Gems and Jewels Private Limited, Lucknow",
+      "period": "Oct 2025 - Nov 2025",
+      "description": "Managed extensive Shopify product listings and optimized product pages for search visibility and conversion.",
+      "summary": [
+        "Managed 200+ Shopify product listings including inventory updates and pricing accuracy",
+        "Optimized product pages using SEO techniques to improve search visibility",
+        "Created high-converting product visuals and marketing assets",
+        "Supported daily ecommerce operations and performance tracking"
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Shopify Web Development Intern",
+      "company": "Digital Heroes, Lucknow",
+      "period": "Jul 2025 - Sep 2025",
+      "description": "Customized Shopify themes and integrated apps to enhance store functionality and user experience.",
+      "summary": [
+        "Customized Shopify themes using Liquid, HTML, CSS, and JavaScript",
+        "Integrated and configured Shopify apps to enhance store functionality and performance",
+        "Improved page load speed by 25 percent through performance optimization techniques",
+        "Worked on multiple client ecommerce stores, enhancing UI and user experience"
+      ]
+    }
+  ],
+  "shopifyProjects": [
+    {
+      "number": "04",
+      "category": "Taansh Jewels",
+      "subtitle": "Luxury Jewelry E-commerce Store",
+      "description": "A premium jewelry e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
+      "img": "/assets/shopify-store/store1-full.png",
+      "live": "https://taansh-jewels.myshopify.com",
+      "password": "taansh"
+    },
+    {
+      "number": "05",
+      "category": "WelthCo",
+      "subtitle": "Health & Wellness E-commerce Store",
+      "description": "A premium health and wellness e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
+      "img": "/assets/shopify-store/store2-full.png",
+      "live": "https://wellthco.myshopify.com",
+      "password": "sushant"
+    },
+    {
+      "number": "06",
+      "category": "Skinora",
+      "subtitle": "Skincare & Cosmetics E-commerce Store",
+      "description": "A premium skin care e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
+      "img": "/assets/shopify-store/store3-full.png",
+      "live": "https://ps117-skincare-organic-brand-lipcare-etc.myshopify.com",
+      "password": "ps117"
+    },
+    {
+      "number": "07",
+      "category": "Zynr",
+      "subtitle": "Sustainable Fashion E-commerce Store",
+      "description": "A modern sustainable fashion e-commerce store focused on eco-conscious clothing and minimalist design. The storefront blends bold visuals, dark UI aesthetics, and sustainability-driven storytelling to create a strong brand identity while maintaining a smooth shopping experience.",
+      "img": "/assets/shopify-store/store4-full.png",
+      "live": "https://zynr-sustainable-fashion.myshopify.com",
+      "password": "sushant"
+    }
+  ],
+  "mernProjects": [
+    {
+      "number": "01",
+      "category": "Hyperlocal Marketplace",
+      "subtitle": "SkillNear: Service Platform",
+      "period": "May 2026",
+      "description": "SkillNear is a full-stack hyperlocal service marketplace that connects customers with nearby skilled professionals and local service businesses. Features real-time chat, service booking, reviews, and a responsive dashboard.",
+      "img": "/assets/MERN Project/D-Home.png",
+      "live": "https://skillnear.vercel.app",
+      "github": "https://github.com/Iamsushantgautam/skillnear",
+      "tech": "React, Vite, Node.js, Express, MongoDB, Socket.IO, Cloudinary"
+    },
+    {
+      "number": "02",
+      "category": "Financial Tracking",
+      "subtitle": "Expense Tracker: Web App",
+      "period": "July 2025",
+      "description": "Developed a professional web-based expense tracker with secure authentication, budget tracking, visual analytics, and CSV export functionality. Built interactive charts using Chart.js to visualize spending patterns and monthly reports, with backend logic in PHP and SQL for robust data management.",
+      "img": "/assets/MERN Project/portfolio3-full.png",
+      "live": "https://expensive-tracker.page.gd",
+      "github": "https://github.com/Iamsushantgautam/Expense-Tracker-Web-Application",
+      "tech": "HTML, CSS, JavaScript, PHP, SQL, Chart.js"
+    },
+    {
+      "number": "03",
+      "category": "Digital Utility",
+      "subtitle": "Wit Tools: All-in-One Suite",
+      "period": "March 2025",
+      "description": "Built a powerful all-in-one digital utility platform featuring image processing, PDF tools including compression, merging, page numbering, watermarking, and a passport photo maker. Designed for fast, client-side processing with an intuitive categorized UI and mobile-responsive accordion navigation.",
+      "img": "/assets/MERN Project/wittool.png",
+      "live": "https://wit-tools.sushant.online",
+      "github": "https://github.com/Iamsushantgautam/Wit-Tools",
+      "tech": "React"
+    },
+    {
+      "number": "04",
+      "category": "Educational Platform",
+      "subtitle": "WITCET: Learn & Grow",
+      "period": "April 2024",
+      "description": "An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.",
+      "img": "/assets/MERN Project/witcet.png",
+      "live": "https://witcet.vercel.app",
+      "github": "https://github.com/Iamsushantgautam/witcet-version-3.0",
+      "tech": "Node.js, Express.js, MongoDB, React, Bootstrap, CSS"
+    }
+  ],
+  "skills": [
+    {
+      "category": "FRONTEND",
+      "tools": [
+        {
+          "name": "JavaScript",
+          "icon": "jsIcon"
+        },
+        {
+          "name": "React",
+          "icon": "reactIcon"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "SiTailwindcss",
+          "color": "#06B6D4"
+        },
+        {
+          "name": "Bootstrap",
+          "icon": "SiBootstrap",
+          "color": "#7952B3"
+        }
+      ]
+    },
+    {
+      "category": "BACKEND",
+      "tools": [
+        {
+          "name": "Node.js",
+          "icon": "nodeIcon"
+        },
+        {
+          "name": "Express.js",
+          "icon": "SiExpress",
+          "color": "#000000"
+        },
+        {
+          "name": "PHP",
+          "icon": "SiPhp",
+          "color": "#777BB4"
+        },
+        {
+          "name": "Laravel",
+          "icon": "SiLaravel",
+          "color": "#FF2D20"
+        },
+        {
+          "name": "Python",
+          "icon": "SiPython",
+          "color": "#3776AB"
+        }
+      ]
+    },
+    {
+      "category": "DATABASE",
+      "tools": [
+        {
+          "name": "MongoDB",
+          "icon": "SiMongodb",
+          "color": "#47A248"
+        },
+        {
+          "name": "SQL",
+          "icon": "SiMysql",
+          "color": "#4479A1"
+        }
+      ]
+    },
+    {
+      "category": "CORE CONCEPTS",
+      "tools": [
+        {
+          "name": "Data Structures",
+          "icon": "SiLeetcode",
+          "color": "#FFA116"
+        },
+        {
+          "name": "DBMS",
+          "icon": "SiPostgresql",
+          "color": "#4169E1"
+        },
+        {
+          "name": "Operating Systems",
+          "icon": "SiLinux",
+          "color": "#000000"
+        }
+      ]
+    },
+    {
+      "category": "SHOPIFY TECH",
+      "tools": [
+        {
+          "name": "Liquid",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "Theme Customization",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "Store Setup",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "Shopify CLI",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "App Integration",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        }
+      ]
+    },
+    {
+      "category": "Ecommerce Strategy",
+      "tools": [
+        {
+          "name": "CRO",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "SEO",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "Product Optimization",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        },
+        {
+          "name": "Performance Optimization",
+          "icon": "SiShopify",
+          "color": "#95BF47"
+        }
+      ]
+    },
+    {
+      "category": "TOOLS / DESIGN",
+      "tools": [
+        {
+          "name": "Git",
+          "icon": "SiGit",
+          "color": "#F05032"
+        },
+        {
+          "name": "GitHub",
+          "icon": "SiGithub",
+          "color": "#000000"
+        },
+        {
+          "name": "Canva",
+          "icon": "SiCanva",
+          "color": "#00C4CC"
+        },
+        {
+          "name": "AI Image Generation",
+          "icon": "SiOpenai",
+          "color": "#000000"
+        }
+      ]
+    }
+  ],
+  "fiverrFeatures": [
+    {
+      "icon": "Layout",
+      "text": "Custom Shopify Design"
+    },
+    {
+      "icon": "Zap",
+      "text": "High-Converting Layouts"
+    },
+    {
+      "icon": "RefreshCw",
+      "text": "WooCommerce Migration"
+    },
+    {
+      "icon": "ShoppingBag",
+      "text": "Dropshipping Automation"
+    }
+  ],
+  "utilityTools": {
+    "number": "08",
+    "category": "Chrome Extension",
+    "title": "Shopify Product Scraper",
+    "subtitle": "Powerful Data Extraction Utility",
+    "period": "April 2024",
+    "points": [
+      "Developed a Chrome extension to automate extraction of Shopify product data for bulk processing",
+      "Scraped product details including titles, prices, images, and variants using DOM parsing techniques",
+      "Implemented Shopify store detection and collection-based filtering for targeted data extraction",
+      "Built deep scanning functionality and exported data into Shopify-ready CSV format for bulk import"
+    ],
+    "features": [
+      {
+        "icon": "Zap",
+        "label": "Auto-detection"
+      },
+      {
+        "icon": "Database",
+        "label": "Deep Scanning"
+      },
+      {
+        "icon": "BarChart3",
+        "label": "Store Insights"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Manifest V3"
+      }
+    ],
+    "tech": "JavaScript, Chrome Extensions API (Manifest V3), HTML, CSS",
+    "github": "https://github.com/Iamsushantgautam/Chrome-extension-Shopify-Product-Scraper",
+    "live": "https://witscraper.vercel.app/",
+    "img": "/assets/utility-tools/witcraper.png"
+  }
+}

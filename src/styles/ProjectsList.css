@@ -806,3 +806,58 @@
     justify-content: center;
   }
 }
+
+/* ── Page CTA (Dedicated Shopify Store Page Link) ── */
+.plist-page-cta-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.plist-page-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 1000;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: #000;
+  text-decoration: none;
+  border: 4px solid #fff;
+  padding: 1.3rem 3rem;
+  box-shadow: 10px 10px 0 rgba(255,255,255,0.25);
+  transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.plist-page-cta-btn:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 15px 15px 0 rgba(255,255,255,0.3);
+  background: #fff;
+  color: #FF4500;
+  border-color: #000;
+}
+
+.plist-page-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.plist-page-cta-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* ── Section Loader Fallback ── */
+.section-loader {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #FF4500, #e91e63, #00bcd4, #FF4500);
+  background-size: 300% 100%;
+  animation: loader-slide 1.5s linear infinite;
+}
+
+@keyframes loader-slide {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}

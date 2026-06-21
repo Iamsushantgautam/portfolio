@@ -2,50 +2,19 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, Github, Globe, Lock, Copy, Check } from 'lucide-react'
 import '../styles/ProjectsList.css'
+import portfolioData from '../../public/api/portfolio.json'
 
 import storeTaansh from '../assets/shopify-store/store1-full.png'
 import storeWelthCo from '../assets/shopify-store/store2-full.png'
 import storeSkinora from '../assets/shopify-store/store3-full.png'
 import storeZynr from '../assets/shopify-store/store4-full.png'
 
-const SHOPIFY_PROJECTS = [
-  {
-    number: '04',
-    category: 'Taansh Jewels',
-    subtitle: 'Luxury Jewelry E-commerce Store',
-    description: 'A premium jewelry e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.',
-    img: storeTaansh,
-    live: 'https://taansh-jewels.myshopify.com',
-    password: 'taansh',
-  },
-  {
-    number: '05',
-    category: 'WelthCo',
-    subtitle: 'Health & Wellness E-commerce Store',
-    description: 'A premium health and wellness e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.',
-    img: storeWelthCo,
-    live: 'https://wellthco.myshopify.com',
-    password: 'sushant',
-  },
-  {
-    number: '06',
-    category: 'Skinora',
-    subtitle: 'Skincare & Cosmetics E-commerce Store',
-    description: 'A premium skin care e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.',
-    img: storeSkinora,
-    live: 'https://ps117-skincare-organic-brand-lipcare-etc.myshopify.com',
-    password: 'ps117',
-  },
-  {
-    number: '07',
-    category: 'Zynr',
-    subtitle: 'Sustainable Fashion E-commerce Store',
-    description: 'A modern sustainable fashion e-commerce store focused on eco-conscious clothing and minimalist design. The storefront blends bold visuals, dark UI aesthetics, and sustainability-driven storytelling to create a strong brand identity while maintaining a smooth shopping experience.',
-    img: storeZynr,
-    live: 'https://zynr-sustainable-fashion.myshopify.com',
-    password: 'sushant',
-  },
-]
+const imgMap = {
+  '/assets/shopify-store/store1-full.png': storeTaansh,
+  '/assets/shopify-store/store2-full.png': storeWelthCo,
+  '/assets/shopify-store/store3-full.png': storeSkinora,
+  '/assets/shopify-store/store4-full.png': storeZynr,
+}
 
 function ProjectItem({ project, index }) {
   const isEven = index % 2 !== 0
@@ -134,7 +103,7 @@ function ProjectItem({ project, index }) {
         >
           <div className="store-img-scroll-container">
             <motion.img
-              src={project.img}
+              src={imgMap[project.img] || project.img}
               alt={project.subtitle}
               className="plist-img full-height-img"
               style={{ objectPosition: isMobile ? imageObjectPos : 'top' }}
@@ -186,9 +155,10 @@ function ShopifyProjects() {
           <h1 className="plist-section-title">Shopify <span className="plist-title-accent">Stores</span></h1>
         </motion.div>
 
-        {SHOPIFY_PROJECTS.map((project, idx) => (
+        {portfolioData.shopifyProjects.map((project, idx) => (
           <ProjectItem key={project.number} project={project} index={idx} />
         ))}
+
       </div>
     </section>
   )

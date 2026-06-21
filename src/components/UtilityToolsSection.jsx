@@ -1,31 +1,21 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Github, Chrome, Zap, ShieldCheck, BarChart3, Database } from 'lucide-react'
+import { Github, Chrome, Zap, Database, BarChart3, ShieldCheck } from 'lucide-react'
 import '../styles/ProjectsList.css'
+import portfolioData from '../../public/api/portfolio.json'
+import extensionMockup from '../assets/utility-tools/witcraper.png'
 
-import extensionMockup from '../assets/utility-tools/shopify-scraper.png'
+const EXTENSION_DATA = portfolioData.utilityTools
 
-const EXTENSION_DATA = {
-  number: '08',
-  category: 'Chrome Extension',
-  title: 'Shopify Product Scraper',
-  subtitle: 'Powerful Data Extraction Utility',
-  period: 'April 2024',
-  points: [
-    'Developed a Chrome extension to automate extraction of Shopify product data for bulk processing',
-    'Scraped product details including titles, prices, images, and variants using DOM parsing techniques',
-    'Implemented Shopify store detection and collection-based filtering for targeted data extraction',
-    'Built deep scanning functionality and exported data into Shopify-ready CSV format for bulk import'
-  ],
-  features: [
-    { icon: <Zap size={18} />, label: 'Auto-detection' },
-    { icon: <Database size={18} />, label: 'Deep Scanning' },
-    { icon: <BarChart3 size={18} />, label: 'Store Insights' },
-    { icon: <ShieldCheck size={18} />, label: 'Manifest V3' }
-  ],
-  tech: 'JavaScript, Chrome Extensions API (Manifest V3), HTML, CSS',
-  github: 'https://github.com/Iamsushantgautam/Chrome-extension-Shopify-Product-Scraper',
-  img: extensionMockup
+const iconMap = {
+  Zap,
+  Database,
+  BarChart3,
+  ShieldCheck,
+}
+
+const imgMap = {
+  '/assets/utility-tools/witcraper.png': extensionMockup,
 }
 
 function UtilityToolsSection() {
@@ -106,21 +96,26 @@ function UtilityToolsSection() {
             </div> */}
 
             <div className="chrome-feature-grid">
-              {EXTENSION_DATA.features.map((feature, i) => (
-                <div key={i} className="chrome-feature-item">
-                  {feature.icon}
-                  <span>{feature.label}</span>
-                </div>
-              ))}
+              {EXTENSION_DATA.features.map((feature, i) => {
+                const IconComponent = iconMap[feature.icon] || Zap
+                return (
+                  <div key={i} className="chrome-feature-item">
+                    <IconComponent size={18} />
+                    <span>{feature.label}</span>
+                  </div>
+                )
+              })}
             </div>
 
             <div className="plist-btn-group">
               <a href={EXTENSION_DATA.github} target="_blank" rel="noreferrer" className="plist-btn github">
                 <Github size={18} /> View Code
               </a>
-              {/* <button className="plist-btn live" disabled style={{ opacity: 0.7, cursor: 'not-allowed', color: '#666' }}>
-                <Chrome size={18} /> Chrome Store
-              </button> */}
+              {EXTENSION_DATA.live && (
+                <a href={EXTENSION_DATA.live} target="_blank" rel="noreferrer" className="plist-btn live">
+                  <Chrome size={18} /> Preview
+                </a>
+              )}
             </div>
           </motion.div>
 
@@ -128,18 +123,13 @@ function UtilityToolsSection() {
             <motion.div
               className="plist-img-frame"
               style={{
-                y: imageY,
-                borderRadius: '24px',
-                border: '8px solid #000',
-                boxShadow: '20px 20px 0px #000',
-                overflow: 'hidden',
-                background: '#000'
+                y: imageY
               }}
             >
               <img
-                src={EXTENSION_DATA.img}
+                src={imgMap[EXTENSION_DATA.img] || EXTENSION_DATA.img}
                 alt={EXTENSION_DATA.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             </motion.div>
           </div>

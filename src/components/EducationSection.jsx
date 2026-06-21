@@ -1,121 +1,112 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { GraduationCap } from 'lucide-react'
+import { GraduationCap, BookOpen, School } from 'lucide-react'
 import '../styles/EducationSection.css'
 import me4 from '../assets/me3.svg'
+import eduimg from '../assets/edu.png'
+import portfolioData from '../../public/api/portfolio.json'
 
-const EDUCATION = [
-  {
-    type: 'College',
-    institution: 'B.N College of Engineering and Technology, Lucknow',
-    period: '2022 - 2026',
-    specialization: 'Bachelor of Technology in Computer Science',
-    grade: '8.2 CGPA (Pre.)'
-  },
-  {
-    type: 'Class 12th',
-    institution: 'Bal Nikunj English School, Lucknow',
-    period: 'Completed 2022',
-    specialization: 'Science Stream (PCM)',
-    grade: '73.4%'
-  },
-  {
-    type: 'High School',
-    institution: 'Bal Nikunj English School, Lucknow',
-    period: 'Completed 2020',
-    specialization: 'General Secondary Education',
-    grade: '78.6%'
-  },
-]
+const iconMap = {
+  GraduationCap,
+  BookOpen,
+  School,
+}
 
-function EducationItem({ item }) {
+function EducationItem({ item, index }) {
   const itemRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: itemRef,
-    offset: ["0 1.15", "1 1"]
+    offset: ['0 1.1', '0.6 1'],
   })
 
-  const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1])
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1])
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const x = useTransform(scrollYProgress, [0, 1], [60, 0])
+
+  const IconComponent = iconMap[item.icon] || School
 
   return (
     <motion.div
       ref={itemRef}
-      className="ed-timeline-item"
-      style={{ scale, opacity }}
+      className="ed-tl-item"
+      style={{ opacity, x }}
     >
-      <div className="ed-card-side">
-        <div className="ed-icon-wrap">
-          <GraduationCap size={28} />
+      {/* Icon circle on the line */}
+      <div className="ed-tl-icon-col">
+        <div className="ed-tl-icon-circle">
+          <IconComponent size={26} strokeWidth={2} />
         </div>
-        <span className="ed-period">{item.period}</span>
+        {/* Connector line drawn via CSS ::after on the column */}
       </div>
 
-      <div className="ed-card-main">
-        <h3 className="ed-type">{item.type}</h3>
-        <div className="ed-institution">{item.institution}</div>
-        <div className="ed-details-row">
-          <p className="ed-details">{item.specialization}</p>
-          <div className="ed-badge">{item.grade}</div>
+      {/* Card */}
+      <div className="ed-tl-card">
+        <div className="ed-tl-card-top">
+          <div className="ed-tl-card-left">
+            <h3 className="ed-tl-type">{item.type}</h3>
+            <p className="ed-tl-spec">{item.specialization}</p>
+            <p className="ed-tl-inst">{item.institution}</p>
+          </div>
+          <div className="ed-tl-card-right">
+            <span className="ed-tl-badge">{item.period}</span>
+            {item.grade && <span className="ed-tl-grade-badge">{item.grade}</span>}
+          </div>
         </div>
       </div>
-
-      <div className="ed-card-glow" />
     </motion.div>
   )
 }
 
 function EducationSection() {
   const containerRef = useRef(null)
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   })
-
-  // Large background text movement - sync with others
   const bgTextX = useTransform(scrollYProgress, [0, 1], [-100, 100])
-
+  const imgScrollY = useTransform(scrollYProgress, [0, 1], [60, -60])
 
   return (
     <section className="ed-section" ref={containerRef}>
       {/* Giant Background Text */}
       <div className="ed-bg-text-container">
-        <motion.span
-          className="ed-bg-text"
-          style={{ x: bgTextX }}
-        >
+        <motion.span className="ed-bg-text" style={{ x: bgTextX }}>
           EDUCATION // ACADEMICS // LEARNING // COMPUTER SCIENCE // BN CET LUCKNOW //
         </motion.span>
       </div>
 
       <div className="ed-container">
-        {/* Header moved outside split just like Exp Section */}
-        <div className="ed-header">
-          <span className="ed-eyebrow">Intellectual Roots</span>
-          <h2 className="ed-title">My <span className="ed-title-accent">Education</span></h2>
-        </div>
-
         <div className="ed-split">
-          {/* LEFT SIDE: Timeline Cards */}
+          {/* LEFT: Timeline */}
           <div className="ed-cards-col">
+            {/* Header */}
+            <div className="ed-header">
+              <span className="ed-eyebrow">Intellectual Roots</span>
+              <h2 className="ed-title">My <span className="ed-title-accent">Education</span></h2>
+              <p className="ed-subtitle">A journey of learning, growth and achievement</p>
+            </div>
+
             <div className="ed-timeline">
-              {EDUCATION.map((item, index) => (
-                <EducationItem key={index} item={item} />
+              {portfolioData.education.map((item, index) => (
+                <EducationItem key={index} item={item} index={index} />
               ))}
             </div>
           </div>
 
-          {/* RIGHT SIDE: Image (Sticky) */}
+          {/* RIGHT: Sticky Image */}
           <div className="ed-image-col">
             <motion.div
               className="ed-image-wrapper"
               viewport={{ once: true }}
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
+              initial={{ y: 50, scale: 0.8, opacity: 0 }}
+              whileInView={{ y: 0, scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <img src={me4} alt="Sushant Gautam" className="ed-image" />
+              <motion.img 
+                src={eduimg} 
+                alt="Sushant Gautam" 
+                className="ed-image" 
+                style={{ y: imgScrollY }}
+              />
             </motion.div>
           </div>
         </div>

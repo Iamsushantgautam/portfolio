@@ -1,95 +1,35 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ArrowUpRight, X, CheckCircle2 } from 'lucide-react'
-import me3 from '../assets/me3.svg'
+import me3 from '../assets/exp.png'
 import '../styles/ExperienceSection.css'
-
-const EXPERIENCES = [
-  {
-    number: '01',
-    title: 'Web Specialist Intern',
-    company: 'GrrowEzy, Remote, Bengaluru',
-    period: 'Nov 2025 - Present',
-    description: 'Specializing in Shopify store visuals, branding assets, and UI/UX optimization for ecommerce.',
-    summary: [
-      'Designed and optimized Shopify store visuals and branding assets',
-      'Delivered 50+ ecommerce-ready creatives for landing and product pages',
-      'Collaborated in a remote team environment to deliver scalable and user-focused web solutions',
-      'Improved user experience through UI enhancements and CRO techniques'
-    ]
-  },
-  {
-    number: '02',
-    title: 'Content and Ecommerce Management',
-    company: 'DRS Gems and Jewels Private Limited, Lucknow',
-    period: 'Oct 2025 - Nov 2025',
-    description: 'Managed extensive Shopify product listings and optimized product pages for search visibility and conversion.',
-    summary: [
-      'Managed 200+ Shopify product listings including inventory updates and pricing accuracy',
-      'Optimized product pages using SEO techniques to improve search visibility',
-      'Created high-converting product visuals and marketing assets',
-      'Supported daily ecommerce operations and performance tracking'
-    ]
-  },
-  {
-    number: '03',
-    title: 'Shopify Web Development Intern',
-    company: 'Digital Heroes, Lucknow',
-    period: 'Jul 2025 - Sep 2025',
-    description: 'Customized Shopify themes and integrated apps to enhance store functionality and user experience.',
-    summary: [
-      'Customized Shopify themes using Liquid, HTML, CSS, and JavaScript',
-      'Integrated and configured Shopify apps to enhance store functionality and performance',
-      'Improved page load speed by 25 percent through performance optimization techniques',
-      'Worked on multiple client ecommerce stores, enhancing UI and user experience'
-    ]
-  },
-]
+import portfolioData from '../../public/api/portfolio.json'
 
 function ExperienceCard({ exp, index, cardTheme, onOpenModal }) {
-  const cardRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["0 1.2", "1 1"]
-  })
-
-  const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1])
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1])
-  const translateY = useTransform(scrollYProgress, [0, 1], [60, 0])
-
   return (
-    <motion.div
-      ref={cardRef}
-      className={`exp-card ${cardTheme}`}
-      style={{
-        scale,
-        opacity,
-        y: translateY
-      }}
-    >
-      {/* Dynamic Background Number for each card */}
-      <motion.div 
-        className="exp-card-number-bg"
-        style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
-      >
-        {exp.number}
-      </motion.div>
+    <div className="exp-card-wrapper">
+      <div className={`exp-card ${cardTheme}`}>
+        {/* Dynamic Background Number for each card */}
+        <div className="exp-card-number-bg">
+          {exp.number}
+        </div>
 
-      <div className="exp-main">
-        <div className="exp-top">
-          <h3 className="exp-role">{exp.title}</h3>
-          <span className="exp-period">{exp.period}</span>
+        <div className="exp-main">
+          <div className="exp-top">
+            <h3 className="exp-role">{exp.title}</h3>
+            <span className="exp-period">{exp.period}</span>
+          </div>
+          <div className="exp-company-wrapper">
+            <span className="exp-company">{exp.company}</span>
+          </div>
+          <p className="exp-desc">{exp.description}</p>
         </div>
-        <div className="exp-company-wrapper">
-          <span className="exp-company">{exp.company}</span>
-        </div>
-        <p className="exp-desc">{exp.description}</p>
+
+        <button onClick={() => onOpenModal(exp)} className="exp-more">
+          View Summary <ArrowUpRight size={18} strokeWidth={3} />
+        </button>
       </div>
-
-      <button onClick={() => onOpenModal(exp)} className="exp-more">
-        View <ArrowUpRight size={18} strokeWidth={3} />
-      </button>
-    </motion.div>
+    </div>
   )
 }
 
@@ -99,11 +39,15 @@ function ExperienceSection() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end end"]
   })
 
+  // Map vertical scroll progress to horizontal translation
+  // There are 3 cards, so to translate 2 card widths left, we shift by 2/3 (66.66%) of the track width
+  const xTransform = useTransform(scrollYProgress, [0.05, 0.95], ["0%", "-66.66%"], { clamp: true })
+
   // Large background text movement - sync with others
-  const bgTextX = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const bgTextX = useTransform(scrollYProgress, [0.05, 0.95], [150, -150], { clamp: true })
 
   return (
     <section className="exp-section" ref={sectionRef}>
@@ -113,27 +57,36 @@ function ExperienceSection() {
           className="exp-bg-text"
           style={{ x: bgTextX }}
         >
-          EXPERIENCE // JOURNEY // PROFESSIONAL // CAREER // GROWTH // EVOLUTION //
+          EXPERIENCE // JOURNEY // PROFESSIONAL // CAREER // GROWTH //
         </motion.span>
       </div>
 
-      <div className="exp-sticky-container">
-
-        <div className="exp-header">
+      <div className="exp-sticky-wrapper">
+        <div className="exp-header-sticky">
           <span className="exp-eyebrow">Professional Journey</span>
           <h2 className="exp-title">Work <span className="exp-title-accent">Experience</span></h2>
         </div>
 
-        <div className="exp-split">
-          <div className="exp-image-col">
-            <div className="exp-image-wrapper">
-              <img src={me3} alt="My Experience" className="exp-image" loading="lazy" />
+        {/* Split Layout Container */}
+        <div className="exp-split-container">
+
+          {/* Left Column: Polaroid Image (Sticky & Solid Layer) */}
+          <div className="exp-left-col">
+            <div className="exp-intro-polaroid">
+              <div className="exp-intro-img-frame">
+                <img src={me3} alt="Sushant Gautam" className="exp-intro-img" />
+              </div>
+              <div className="exp-intro-caption script-font">
+                Sushant Gautam
+              </div>
             </div>
+
           </div>
 
-          <div className="exp-cards-col">
-            <div className="exp-grid">
-              {EXPERIENCES.map((exp, index) => {
+          {/* Right Column: Sliding Cards Viewport */}
+          <div className="exp-right-col">
+            <motion.div className="exp-track" style={{ x: xTransform }}>
+              {portfolioData.experiences.map((exp, index) => {
                 const themes = ['theme-pink', 'theme-cyan', 'theme-white']
                 const cardTheme = themes[index % themes.length]
 
@@ -147,9 +100,12 @@ function ExperienceSection() {
                   />
                 )
               })}
-            </div>
+            </motion.div>
           </div>
+
         </div>
+
+
       </div>
 
       <AnimatePresence>
@@ -168,7 +124,7 @@ function ExperienceSection() {
                   <X size={24} />
                 </button>
               </div>
-              <div className="exp-modal-content">
+              <div className="exp-modal-content" data-lenis-prevent>
                 <ul className="exp-modal-list">
                   {selectedExp.summary.map((item, i) => (
                     <li key={i} className="exp-modal-item">
