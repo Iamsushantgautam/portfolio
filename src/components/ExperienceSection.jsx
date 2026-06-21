@@ -72,15 +72,7 @@ function ExperienceSection() {
 
           {/* Left Column: Polaroid Image (Sticky & Solid Layer) */}
           <div className="exp-left-col">
-            <div className="exp-intro-polaroid">
-              <div className="exp-intro-img-frame">
-                <img src={me3} alt="Sushant Gautam" className="exp-intro-img" />
-              </div>
-              <div className="exp-intro-caption script-font">
-                Sushant Gautam
-              </div>
-            </div>
-
+            <img src={me3} alt="Sushant Gautam" className="exp-intro-img" />
           </div>
 
           {/* Right Column: Sliding Cards Viewport */}

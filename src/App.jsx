@@ -24,8 +24,8 @@ const ShopifyStorePage = lazy(() => import('./pages/ShopifyStore'))
 function App() {
   const path = window.location.pathname
 
-  // Route: /shopify-store → render the ShopifyStore page
-  if (path === '/shopify-store' || path === '/shopify-store/') {
+  // Route: /shopifystore → render the ShopifyStore page
+  if (path === '/shopifystore' || path === '/shopifystore/') {
     return (
       <Suspense fallback={<div className="section-loader" />}>
         <ShopifyStorePage />
