@@ -51,9 +51,9 @@ function FooterSection() {
       </div>
 
       <div className="footer-container">
-        
+
         {/* Social Banner / Brand */}
-        <motion.div 
+        <motion.div
           className="social-banner"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,26 +70,26 @@ function FooterSection() {
             <a href="https://www.linkedin.com/in/iamushantgautam" target="_blank" rel="noreferrer" className="social-circle circle-linkedin">
               <FaLinkedinIn />
             </a>
-            
+
             {/* Github */}
             <a href="https://github.com/iamsushantgautam" target="_blank" rel="noreferrer" className="social-circle circle-github">
               <FaGithub />
             </a>
-            
+
             {/* Instagram */}
             <a href="https://www.instagram.com/its_sushant01/" target="_blank" rel="noreferrer" className="social-circle circle-instagram">
               <FaInstagram />
             </a>
 
             {/* Fiverr */}
-            <a href="https://www.fiverr.com/sushantkumardev" target="_blank" rel="noreferrer" className="social-circle circle-fiverr">
+            {/* <a href="https://www.fiverr.com/sushantkumardev" target="_blank" rel="noreferrer" className="social-circle circle-fiverr">
               <SiFiverr />
-            </a>
+            </a> */}
           </div>
         </motion.div>
 
         {/* Contact CTA */}
-        <motion.div 
+        <motion.div
           className="contact-area"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ function FooterSection() {
           transition={{ duration: 0.8 }}
         >
           <span className="contact-eyebrow">Looking for a new talent?</span>
-          
+
           <div className="contact-email-wrapper">
             <span className="contact-email">iamsushantgautam@gmail.com</span>
             <button className="copy-btn" onClick={handleCopy} aria-label="Copy Email">
@@ -112,7 +112,7 @@ function FooterSection() {
         </motion.div>
 
         {/* Footer Bottom Info Grid */}
-        <motion.div 
+        <motion.div
           className="footer-bottom-grid"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
