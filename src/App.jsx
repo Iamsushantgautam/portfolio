@@ -86,9 +86,9 @@ function PortfolioHome() {
           <MernProjects />
         </section>
 
-        <section id="shopify">
+        {/* <section id="shopify">
           <ShopifyProjects />
-        </section>
+        </section> */}
 
         <section id="utility-tools">
           <UtilityToolsSection />

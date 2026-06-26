@@ -101,10 +101,10 @@ function EducationSection() {
               whileInView={{ y: 0, scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.img 
-                src={eduimg} 
-                alt="Sushant Gautam" 
-                className="ed-image" 
+              <motion.img
+                src={eduimg}
+                alt="Sushant Gautam"
+                className="ed-image"
                 style={{ y: imgScrollY }}
               />
             </motion.div>
