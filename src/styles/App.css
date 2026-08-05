@@ -61,6 +61,8 @@
   filter: blur(120px);
   z-index: -1;
   opacity: 0.25;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Forces hardware acceleration on GPU */
 }
 
 .blob-1 { background: #e91e63; top: -10%; left: -10%; }

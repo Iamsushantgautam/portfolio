@@ -40,16 +40,16 @@
       "company": "GrrowEzy, Remote, Bengaluru",
       "period": "Nov 2025 - Present",
       "description": "Specializing in Laravel application development, custom Shopify setups, branding assets, and UI/UX optimization for e-commerce.",
-    "summary": [
-      "Designed and optimized Shopify store layouts, visuals, and branding assets",
-      "Developed scalable web applications utilizing Laravel MVC architecture",
-      "Optimized MySQL databases, queries, and relational data structures for peak performance",
-      "Implemented secure user authentication and role-based access control (RBAC)",
-      "Integrated payment gateways, transaction services, and third-party APIs",
-      "Delivered 50+ conversion-focused e-commerce assets for landing and product pages",
-      "Collaborated in a remote team to architect and ship scalable web solutions",
-      "Enhanced user experience (UX) and conversion rate optimization (CRO) metrics"
-    ]
+      "summary": [
+        "Designed and optimized Shopify store layouts, visuals, and branding assets",
+        "Developed scalable web applications utilizing Laravel MVC architecture",
+        "Optimized MySQL databases, queries, and relational data structures for peak performance",
+        "Implemented secure user authentication and role-based access control (RBAC)",
+        "Integrated payment gateways, transaction services, and third-party APIs",
+        "Delivered 50+ conversion-focused e-commerce assets for landing and product pages",
+        "Collaborated in a remote team to architect and ship scalable web solutions",
+        "Enhanced user experience (UX) and conversion rate optimization (CRO) metrics"
+      ]
     },
     {
       "number": "02",
@@ -119,6 +119,17 @@
   "mernProjects": [
     {
       "number": "01",
+      "category": "Pawpertio ",
+      "subtitle": "Pet-Friendly Rentals & Services Platform",
+      "period": "July 2026",
+      "description": "Developed a full-stack pet-friendly rental platform with secure authentication, email OTP verification using Resend API. Built scalable RESTful APIs and database-driven CRUD modules for property listings, bookings, users, blogs. Integrated Cloudinary for media management and optimized MySQL queries for performance.",
+      "img": "/assets/MERN Project/pawpertio.png",
+      "live": "https://pawpertio.onrender.com",
+      "github": "https://github.com/Iamsushantgautam/Pawpertio",
+      "tech": "Laravel 12, PHP, MySQL, Blade, Tailwind CSS, Alpine.js, Filament, Cloudinary, Resend API"
+    },
+    {
+      "number": "02",
       "category": "Hyperlocal Marketplace",
       "subtitle": "SkillNear: Service Platform",
       "period": "May 2026",
@@ -129,22 +140,11 @@
       "tech": "React, Vite, Node.js, Express, MongoDB, Socket.IO, Cloudinary"
     },
     {
-      "number": "02",
-      "category": "Financial Tracking",
-      "subtitle": "Expense Tracker: Web App",
-      "period": "July 2025",
-      "description": "Developed a professional web-based expense tracker with secure authentication, budget tracking, visual analytics, and CSV export functionality. Built interactive charts using Chart.js to visualize spending patterns and monthly reports, with backend logic in PHP and SQL for robust data management.",
-      "img": "/assets/MERN Project/portfolio3-full.png",
-      "live": "https://expensive-tracker.page.gd",
-      "github": "https://github.com/Iamsushantgautam/Expense-Tracker-Web-Application",
-      "tech": "HTML, CSS, JavaScript, PHP, SQL, Chart.js"
-    },
-    {
       "number": "03",
       "category": "Digital Utility",
       "subtitle": "Wit Tools: All-in-One Suite",
-      "period": "March 2025",
-      "description": "Built a powerful all-in-one digital utility platform featuring image processing, PDF tools including compression, merging, page numbering, watermarking, and a passport photo maker. Designed for fast, client-side processing with an intuitive categorized UI and mobile-responsive accordion navigation.",
+      "period": "October 2025",
+      "description": "Developed a web utility platform with PDF, image, and file management tools for productivity and document processing. Implemented features including PDF merge, split, compress, watermark, password protection, and format conversion. Built image processing tools such as background removal, compression, resizing, cropping, and format conversion.",
       "img": "/assets/MERN Project/wittool.png",
       "live": "https://wit-tools.sushant.online",
       "github": "https://github.com/Iamsushantgautam/Wit-Tools",
@@ -173,6 +173,16 @@
         {
           "name": "React",
           "icon": "reactIcon"
+        },
+        {
+          "name": "HTML5",
+          "icon": "SiHtml5",
+          "color": "#E34F26"
+        },
+        {
+          "name": "CSS3",
+          "icon": "SiCss",
+          "color": "#1572B6"
         },
         {
           "name": "Tailwind CSS",
@@ -204,7 +214,7 @@
           "color": "#777BB4"
         },
         {
-          "name": "Laravel",
+          "name": "Laravel 12",
           "icon": "SiLaravel",
           "color": "#FF2D20"
         },
@@ -219,14 +229,39 @@
       "category": "DATABASE",
       "tools": [
         {
+          "name": "MySQL",
+          "icon": "SiMysql",
+          "color": "#4479A1"
+        },
+        {
           "name": "MongoDB",
           "icon": "SiMongodb",
           "color": "#47A248"
+        }
+      ]
+    },
+    {
+      "category": "AUTHENTICATION",
+      "tools": [
+        {
+          "name": "JWT",
+          "icon": "SiJsonwebtokens",
+          "color": "#000000"
         },
         {
-          "name": "SQL",
-          "icon": "SiMysql",
-          "color": "#4479A1"
+          "name": "OAuth",
+          "icon": "SiAuth0",
+          "color": "#EB5424"
+        },
+        {
+          "name": "Email OTP",
+          "icon": "SiGmail",
+          "color": "#EA4335"
+        },
+        {
+          "name": "Resend API",
+          "icon": "SiGmail",
+          "color": "#000000"
         }
       ]
     },
@@ -319,6 +354,11 @@
           "color": "#000000"
         },
         {
+          "name": "Postman",
+          "icon": "SiPostman",
+          "color": "#FF6C37"
+        },
+        {
           "name": "Canva",
           "icon": "SiCanva",
           "color": "#00C4CC"
@@ -354,7 +394,7 @@
     "category": "Chrome Extension",
     "title": "Shopify Product Scraper",
     "subtitle": "Powerful Data Extraction Utility",
-    "period": "April 2024",
+    "period": "July 2025",
     "points": [
       "Developed a Chrome extension to automate extraction of Shopify product data for bulk processing",
       "Scraped product details including titles, prices, images, and variants using DOM parsing techniques",
@@ -380,8 +420,8 @@
       }
     ],
     "tech": "JavaScript, Chrome Extensions API (Manifest V3), HTML, CSS",
-    "github": "https://github.com/Iamsushantgautam/Chrome-extension-Shopify-Product-Scraper",
-    "live": "https://witscraper.vercel.app/",
+    "github": "https://github.com/Iamsushantgautam/WitScraper-Shopify-Product-Scraper",
+    "live": "https://witscraper.vercel.app",
     "img": "/assets/utility-tools/witcraper.png"
   }
 }

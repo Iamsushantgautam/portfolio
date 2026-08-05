@@ -21,6 +21,11 @@ import {
   SiCplusplus,
   SiPhp,
   SiLaravel,
+  SiHtml5,
+  SiCss,
+  SiJsonwebtokens,
+  SiAuth0,
+  SiPostman,
 } from 'react-icons/si'
 import jsIcon from '../assets/icons/javascript.svg'
 import reactIcon from '../assets/icons/react.svg'
@@ -46,7 +51,12 @@ const iconMap = {
   SiOpenai: <SiOpenai color="#000000" />,
   SiBootstrap: <SiBootstrap color="#7952B3" />,
   SiPhp: <SiPhp color="#777BB4" />,
-  SiLaravel: <SiLaravel color="#FF2D20" />
+  SiLaravel: <SiLaravel color="#FF2D20" />,
+  SiHtml5: <SiHtml5 color="#E34F26" />,
+  SiCss: <SiCss color="#1572B6" />,
+  SiJsonwebtokens: <SiJsonwebtokens color="#000000" />,
+  SiAuth0: <SiAuth0 color="#EB5424" />,
+  SiPostman: <SiPostman color="#FF6C37" />
 }
 
 function SkillRow({ item }) {

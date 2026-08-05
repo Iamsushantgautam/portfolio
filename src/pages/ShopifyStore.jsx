@@ -228,12 +228,13 @@ function ShopifyStore() {
   // Setup Lenis smooth scroll for this page
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      lerp: 0.15,
+      lerp: 0.08,             // Buttery smooth interpolation for desktop wheel events
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-      wheelMultiplier: 1.1,
-      touchMultiplier: 2,
+      smoothWheel: true,      // Smooth scrolling for mouse wheel
+      syncTouch: true,        // Sync scroll position on mobile/tablet touch screens
+      syncTouchLerp: 0.08,    // Linear interpolation for touch scrolling
+      touchMultiplier: 1.2,   // Speed modifier for touch events
+      wheelMultiplier: 1.0,   // Speed modifier for wheel events
     })
 
     function raf(time) {

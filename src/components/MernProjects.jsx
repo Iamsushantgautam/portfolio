@@ -8,12 +8,13 @@ import witcetImg from '../assets/MERN Project/witcet.png'
 import expenseTrackerImg from '../assets/MERN Project/portfolio3-full.png'
 import wittoolImg from '../assets/MERN Project/wittool.png'
 import skillnearImg from '../assets/MERN Project/D-Home.png'
-
+import pawpertioImg from '../assets/MERN Project/pawpertio.png'
 const imgMap = {
   '/assets/MERN Project/witcet.png': witcetImg,
   '/assets/MERN Project/portfolio3-full.png': expenseTrackerImg,
   '/assets/MERN Project/wittool.png': wittoolImg,
   '/assets/MERN Project/D-Home.png': skillnearImg,
+  '/assets/MERN Project/pawpertio.png': pawpertioImg,
 }
 
 function ProjectItem({ project, index }) {

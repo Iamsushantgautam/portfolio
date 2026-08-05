@@ -33,8 +33,13 @@ function App() {
     )
   }
 
+  // Redirect to home page if route is not found/recognized
+  if (path !== '/' && path !== '/index.html') {
+    window.location.replace('/')
+    return null
+  }
+
   // Default: main portfolio page
-  // Global smooth scroll setup with Lenis
   return <PortfolioHome />
 }
 
@@ -42,12 +47,13 @@ function PortfolioHome() {
   // Global smooth scroll setup with Lenis
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, /* Slightly faster for snappier feel */
-      lerp: 0.15,    /* More responsive follow-through */
+      lerp: 0.08,             // Buttery smooth interpolation for desktop wheel events
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-      wheelMultiplier: 1.1,
-      touchMultiplier: 2,
+      smoothWheel: true,      // Smooth scrolling for mouse wheel
+      syncTouch: true,        // Sync scroll position on mobile/tablet touch screens
+      syncTouchLerp: 0.08,    // Linear interpolation for touch scrolling
+      touchMultiplier: 1.2,   // Speed modifier for touch events
+      wheelMultiplier: 1.0,   // Speed modifier for wheel events
     })
 
     function raf(time) {

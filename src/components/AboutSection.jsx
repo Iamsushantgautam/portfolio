@@ -88,18 +88,22 @@ function AboutSection() {
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">EXPERIENCE</h3>
               <p className="about-text">
-                I HAVE ACQUIRED OVER 11+ MONTHS OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
+                I HAVE ACQUIRED OVER 1 YEAR OF HANDS-ON EXPERIENCE IN FULL-STACK DEVELOPMENT AND SHOPIFY ECOSYSTEMS.
               </p>
             </ScrollReveal>
 
             <ScrollReveal className="about-block" direction="up">
               <h3 className="about-label">SPECIALTIES</h3>
               <ul className="about-specialties-list">
-                <li>LARAVEL DEVELOPMENT</li>
-                <li>REACT & MERN STACK</li>
+                <li>FULL STACK WEB DEVELOPMENT</li>
+                <li>LARAVEL & PHP DEVELOPMENT</li>
+                <li>REACT.JS & MERN STACK</li>
+                <li>RESTFUL API DEVELOPMENT</li>
+                <li>MYSQL & MONGODB</li>
                 <li>SHOPIFY DEVELOPMENT</li>
-                <li>API INTEGRATIONS</li>
-                <li>CONVERSION RATE OPTIMISATION</li>
+                <li>AUTHENTICATION & AUTHORIZATION</li>
+                <li>RESPONSIVE WEB DESIGN</li>
+                <li>DATABASE OPTIMIZATION</li>
                 <li>PROBLEM SOLVING</li>
               </ul>
             </ScrollReveal>
