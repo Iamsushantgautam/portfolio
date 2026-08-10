@@ -708,8 +708,11 @@
   }
 
   .exp-intro-img {
-    margin-top: -0.5rem;
-    width: 300px;
+    margin: 0.5rem auto 1rem;
+    width: 200px;
+    max-width: 55%;
+    border: none;
+    box-shadow: none;
   }
 
   .exp-intro-polaroid {
@@ -727,6 +730,7 @@
     scroll-padding: 0 calc((100% - var(--card-w)) / 2);
     /* Centers the active card */
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y !important;
     padding-left: 0;
     padding-right: 0;
     scrollbar-width: none;
@@ -750,6 +754,7 @@
     padding: 0 calc((100% - var(--card-w)) / 2) 2rem calc((100% - var(--card-w)) / 2);
     /* Symmetrical padding ensures the active card is perfectly centered */
     box-sizing: border-box;
+    touch-action: pan-x pan-y !important;
   }
 
   .exp-card-wrapper {
@@ -792,7 +797,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1.5rem;
     margin-top: 1.2rem;
     width: 100%;
     z-index: 20;
@@ -859,6 +864,14 @@
 }
 
 @media (max-width: 576px) {
+  .exp-intro-img {
+    width: 160px;
+    max-width: 50%;
+    margin: 0.25rem auto 0.75rem;
+    border: none;
+    box-shadow: none;
+  }
+
   .exp-right-col {
     --card-w: 86vw;
   }

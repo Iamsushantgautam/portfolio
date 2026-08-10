@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowUpRight, X, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react'
-import me3 from '../../../assets/exp.png'
+import expImg from '../../../assets/exp.png'
+import myPic3 from '../../../assets/mypic3.png'
 import '../styles/ExperienceSection.css'
 import portfolioData from '../../../data/portfolio.json'
 
@@ -92,6 +93,31 @@ function ExperienceSection() {
     }
   }
 
+  // Touch swipe gesture handlers for mobile
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+
+  const minSwipeDistance = 40
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    if (distance > minSwipeDistance) {
+      handleNext()
+    } else if (distance < -minSwipeDistance) {
+      handlePrev()
+    }
+  }
+
   const handlePrev = () => {
     const prevIdx = Math.max(activeIndex - 1, 0)
     scrollToCard(prevIdx)
@@ -125,7 +151,7 @@ function ExperienceSection() {
 
           {/* Left Column: Polaroid Image (Sticky & Solid Layer) */}
           <div className="exp-left-col">
-            <img src={me3} alt="Sushant Gautam" className="exp-intro-img" />
+            <img src={isMobile ? myPic3 : expImg} alt="Sushant Gautam" className="exp-intro-img" />
           </div>
 
           {/* Right Column: Sliding Cards Viewport */}
@@ -133,6 +159,10 @@ function ExperienceSection() {
             className="exp-right-col"
             ref={rightColRef}
             onScroll={handleMobileScroll}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            data-lenis-prevent
           >
             <motion.div
               className="exp-track"
@@ -168,17 +198,6 @@ function ExperienceSection() {
             >
               <ChevronLeft size={22} strokeWidth={3} />
             </button>
-
-            <div className="exp-dots">
-              {experiences.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`exp-dot ${idx === activeIndex ? 'active' : ''}`}
-                  onClick={() => scrollToCard(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
 
             <button
               className="exp-nav-btn"

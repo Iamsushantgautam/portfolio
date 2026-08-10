@@ -69,7 +69,7 @@ export default function PortfoliosPage() {
 
   const handlePreviewTheme = (themeId) => {
     sessionStorage.setItem('preview-theme', themeId)
-    window.location.href = '/'
+    window.open(`/?theme=${themeId}`, '_blank')
   }
 
   return (
@@ -78,7 +78,7 @@ export default function PortfoliosPage() {
       <nav className="portfolios-nav">
         <div className="portfolios-nav-inner">
           <button className="portfolios-back-btn" onClick={() => window.location.href = '/'}>
-            <ArrowLeft size={16} strokeWidth={2.5} />
+            <ArrowLeft size={14} strokeWidth={2.5} />
             Back to Portfolio
           </button>
 

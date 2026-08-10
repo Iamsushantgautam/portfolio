@@ -11,6 +11,13 @@ const themes = {
 
 export function getActiveThemeKey() {
   if (typeof window !== 'undefined') {
+    // 0. URL parameter override (e.g. /?theme=theme1 or /?preview=theme1)
+    const params = new URLSearchParams(window.location.search)
+    const urlTheme = params.get('theme') || params.get('preview')
+    if (urlTheme && themes[urlTheme.toLowerCase().trim()]) {
+      return urlTheme.toLowerCase().trim()
+    }
+
     // 1. sessionStorage preview override (no URL params needed)
     const previewTheme = sessionStorage.getItem('preview-theme')
     if (previewTheme && themes[previewTheme.toLowerCase().trim()]) {
