@@ -676,13 +676,14 @@
     top: 0;
     height: auto;
     width: 100%;
-    padding: 0 5%;
+    padding: 2rem 0;
   }
 
   .exp-header-sticky {
     align-items: center;
     text-align: center;
     margin-bottom: 0.5rem;
+    padding: 0 1.5rem;
   }
 
   .exp-eyebrow {
@@ -698,7 +699,7 @@
   .exp-left-col {
     width: 100%;
     max-width: 100%;
-    padding-right: 0;
+    padding: 0 1.5rem;
     border-right: none;
     box-shadow: none;
     background: transparent;
@@ -717,12 +718,13 @@
   }
 
   .exp-right-col {
+    --card-w: min(84vw, 500px);
     width: 100%;
     max-width: 100%;
     overflow-x: auto !important;
     /* Enable swipeable scroll on mobile */
     scroll-snap-type: x mandatory;
-    scroll-padding: 0 10%;
+    scroll-padding: 0 calc((100% - var(--card-w)) / 2);
     /* Centers the active card */
     -webkit-overflow-scrolling: touch;
     padding-left: 0;
@@ -738,19 +740,20 @@
   }
 
   .exp-track {
+    display: flex;
     flex-direction: row !important;
     /* Keep horizontal on mobile */
     width: max-content;
     transform: none !important;
     /* Block framer motion slide effect */
-    gap: 1.5rem;
-    padding: 0 10% 2rem 10%;
-    /* Bottom padding prevents shadow clippings */
+    gap: 1.25rem;
+    padding: 0 calc((100% - var(--card-w)) / 2) 2rem calc((100% - var(--card-w)) / 2);
+    /* Symmetrical padding ensures the active card is perfectly centered */
     box-sizing: border-box;
   }
 
   .exp-card-wrapper {
-    width: 80vw !important;
+    width: var(--card-w) !important;
     max-width: 500px;
     flex-shrink: 0;
     scroll-snap-align: center;
@@ -783,9 +786,83 @@
   .exp-progress-container {
     display: none;
   }
+
+  /* ── Mobile Carousel Controls ── */
+  .exp-mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    width: 100%;
+    z-index: 20;
+    position: relative;
+  }
+
+  .exp-nav-btn {
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000000;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0;
+  }
+
+  .exp-nav-btn:hover:not(:disabled) {
+    background: var(--accent-secondary, #22d3ee);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000000;
+  }
+
+  .exp-nav-btn:active:not(:disabled) {
+    transform: translate(0px, 0px);
+    box-shadow: 2px 2px 0px #000000;
+  }
+
+  .exp-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: 2px 2px 0px #000000;
+  }
+
+  .exp-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .exp-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #000000;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+    box-shadow: 2px 2px 0px #000000;
+  }
+
+  .exp-dot.active {
+    background: var(--accent, #ff2a70);
+    width: 34px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px #000000;
+  }
 }
 
 @media (max-width: 576px) {
+  .exp-right-col {
+    --card-w: 86vw;
+  }
+
   .exp-card {
     padding: 2.0rem 1.5rem;
     border-width: 3px;

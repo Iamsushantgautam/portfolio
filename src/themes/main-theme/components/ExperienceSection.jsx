@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { ArrowUpRight, X, CheckCircle2 } from 'lucide-react'
+import { useRef, useState, useEffect } from 'react'
+import { ArrowUpRight, X, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react'
 import me3 from '../../../assets/exp.png'
 import '../styles/ExperienceSection.css'
 import portfolioData from '../../../data/portfolio.json'
@@ -35,7 +35,21 @@ function ExperienceCard({ exp, index, cardTheme, onOpenModal }) {
 
 function ExperienceSection() {
   const sectionRef = useRef(null)
+  const rightColRef = useRef(null)
   const [selectedExp, setSelectedExp] = useState(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const experiences = portfolioData.experiences || []
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -48,6 +62,45 @@ function ExperienceSection() {
 
   // Large background text movement - sync with others
   const bgTextX = useTransform(scrollYProgress, [0.05, 0.95], [150, -150], { clamp: true })
+
+  // Handle active index detection on scroll for mobile
+  const handleMobileScroll = () => {
+    if (!rightColRef.current || !isMobile || experiences.length === 0) return
+    const container = rightColRef.current
+    const cardWrapper = container.querySelector('.exp-card-wrapper')
+    if (!cardWrapper) return
+    const scrollLeft = container.scrollLeft
+    const step = cardWrapper.offsetWidth + 20 // card width + track gap
+    const newIndex = Math.round(scrollLeft / step)
+    const clampedIndex = Math.min(Math.max(newIndex, 0), experiences.length - 1)
+    if (clampedIndex !== activeIndex) {
+      setActiveIndex(clampedIndex)
+    }
+  }
+
+  const scrollToCard = (index) => {
+    if (!rightColRef.current) return
+    const container = rightColRef.current
+    const cardWrappers = container.querySelectorAll('.exp-card-wrapper')
+    if (cardWrappers[index]) {
+      cardWrappers[index].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      })
+      setActiveIndex(index)
+    }
+  }
+
+  const handlePrev = () => {
+    const prevIdx = Math.max(activeIndex - 1, 0)
+    scrollToCard(prevIdx)
+  }
+
+  const handleNext = () => {
+    const nextIdx = Math.min(activeIndex + 1, experiences.length - 1)
+    scrollToCard(nextIdx)
+  }
 
   return (
     <section className="exp-section" ref={sectionRef}>
@@ -76,9 +129,16 @@ function ExperienceSection() {
           </div>
 
           {/* Right Column: Sliding Cards Viewport */}
-          <div className="exp-right-col">
-            <motion.div className="exp-track" style={{ x: xTransform }}>
-              {(portfolioData.experiences || []).map((exp, index) => {
+          <div
+            className="exp-right-col"
+            ref={rightColRef}
+            onScroll={handleMobileScroll}
+          >
+            <motion.div
+              className="exp-track"
+              style={isMobile ? {} : { x: xTransform }}
+            >
+              {experiences.map((exp, index) => {
                 const themes = ['theme-pink', 'theme-cyan', 'theme-white']
                 const cardTheme = themes[index % themes.length]
 
@@ -97,6 +157,39 @@ function ExperienceSection() {
 
         </div>
 
+        {/* Mobile Carousel Controls */}
+        {isMobile && experiences.length > 0 && (
+          <div className="exp-mobile-controls">
+            <button
+              className="exp-nav-btn"
+              onClick={handlePrev}
+              disabled={activeIndex === 0}
+              aria-label="Previous Experience"
+            >
+              <ChevronLeft size={22} strokeWidth={3} />
+            </button>
+
+            <div className="exp-dots">
+              {experiences.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`exp-dot ${idx === activeIndex ? 'active' : ''}`}
+                  onClick={() => scrollToCard(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              className="exp-nav-btn"
+              onClick={handleNext}
+              disabled={activeIndex === experiences.length - 1}
+              aria-label="Next Experience"
+            >
+              <ChevronRight size={22} strokeWidth={3} />
+            </button>
+          </div>
+        )}
 
       </div>
 
