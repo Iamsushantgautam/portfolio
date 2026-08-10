@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=La+Belle+Aurore&family=Inter:wght@300;400;500;700&display=swap');
+
+:root {
+  --accent: #e91e63; /* Bold Pink */
+  --accent-secondary: #00bcd4; /* Vibrant Cyan */
+  --bg-dark: #e8d94b; /* Vibrant Yellow background */
+  --bg-primary: #ffffff; /* Clean White Break */
+  --text-primary: #000000; /* Solid Black text */
+  --text-secondary: #222222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body, #root {
+  width: 100%;
+  overflow-x: clip; /* Modern clean boundary that doesn't break sticky descendants */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overscroll-behavior: none; /* Stabilizes custom smooth scroll */
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.script-font {
+  font-family: 'La Belle Aurore', cursive;
+}
+
+/* lenis smooth scroll recommended styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* GPU compositing — prevents paint jank on animated sections */
+.main-theme-root section,
+.main-theme-root > div {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Smooth transition base for all interactive elements */
+.main-theme-root a,
+.main-theme-root button {
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  will-change: opacity, transform;
+}
+
+/* ── Touch & Mobile scroll optimizations ─────────────────────────────────── */
+html {
+  /* Prevents 300ms tap delay on mobile */
+  touch-action: manipulation;
+  /* Momentum scrolling on iOS Safari */
+  -webkit-overflow-scrolling: touch;
+  /* Remove scroll anchoring that can cause jumps */
+  overflow-anchor: none;
+}
+
+body {
+  /* Prevent pull-to-refresh & overscroll bounce fighting Lenis */
+  overscroll-behavior-y: none;
+  /* Improve text rendering on all devices */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent text selection jitter during fast scroll gestures */
+.main-theme-root {
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* Re-enable selection on content areas */
+.main-theme-root p,
+.main-theme-root h1,
+.main-theme-root h2,
+.main-theme-root h3,
+.main-theme-root span,
+.main-theme-root li,
+.main-theme-root input,
+.main-theme-root textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Smoother scroll on low-power / reduced-motion devices */
+@media (prefers-reduced-motion: reduce) {
+  .main-theme-root section,
+  .main-theme-root > div {
+    transition: none !important;
+    animation: none !important;
+  }
+}

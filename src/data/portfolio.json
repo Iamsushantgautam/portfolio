@@ -1,5 +1,5 @@
 {
-  "activeTheme": "theme1",
+  "activeTheme": "main-theme",
   "personalInfo": {
     "name": "Sushant Gautam",
     "logotext": "SHK Gautam",
@@ -9,7 +9,39 @@
     "github": "https://github.com/Iamsushantgautam",
     "linkedin": "https://www.linkedin.com/in/sushantgautam2507",
     "instagram": "https://www.instagram.com/its_sushant01/",
-    "quote": "Code is not just what you build, it's how it makes you feel."
+    "quote": "Code is not just what you build, it's how it makes you feel.",
+    "description": "I'm a passionate Full Stack Developer who loves building impactful web applications. I enjoy turning ideas into real products and continuously learning new technologies."
+  },
+  "about": {
+    "background": "I am a B.Tech graduate in Computer Science & Engineering and a Full-Stack Developer passionate about building modern, scalable, and user-friendly web applications. I work with technologies including React.js, Laravel, PHP, Node.js, Express.js, MySQL, MongoDB, and Shopify. I enjoy solving real-world problems through clean code, continuously learning new technologies, and turning ideas into practical digital products.",
+    "experience": "I have acquired over 1 year of hands-on experience in full-stack development and Shopify ecosystems.",
+    "specialties": [
+      "FULL STACK WEB DEVELOPMENT",
+      "LARAVEL & PHP DEVELOPMENT",
+      "REACT.JS & MERN STACK",
+      "RESTFUL API DEVELOPMENT",
+      "MYSQL & MONGODB",
+      "SHOPIFY DEVELOPMENT",
+      "AUTHENTICATION & AUTHORIZATION",
+      "RESPONSIVE WEB DESIGN",
+      "DATABASE OPTIMIZATION",
+      "PROBLEM SOLVING"
+    ],
+    "description": "I'm a Computer Science Engineering undergraduate, passionate about technology, modern frameworks, and web development. I thrive in dynamic environments, with expertise across Laravel MVC, React frontend apps, and custom Shopify store ecosystems.",
+    "stats": [
+      {
+        "value": "8.32",
+        "label": "Aggregate CGPA"
+      },
+      {
+        "value": "5+",
+        "label": "Projects"
+      },
+      {
+        "value": "1 Year",
+        "label": "Experience"
+      }
+    ]
   },
   "education": [
     {
@@ -84,7 +116,7 @@
   ],
   "shopifyProjects": [
     {
-      "number": "04",
+      "number": "01",
       "category": "Taansh Jewels",
       "subtitle": "Luxury Jewelry E-commerce Store",
       "description": "A premium jewelry e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
@@ -95,7 +127,7 @@
       "active": true
     },
     {
-      "number": "05",
+      "number": "02",
       "category": "WelthCo",
       "subtitle": "Health & Wellness E-commerce Store",
       "description": "A premium health and wellness e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
@@ -106,7 +138,7 @@
       "active": true
     },
     {
-      "number": "06",
+      "number": "03",
       "category": "Skinora",
       "subtitle": "Skincare & Cosmetics E-commerce Store",
       "description": "A premium skin care e-commerce storefront designed to deliver a visually rich and conversion-focused shopping experience. The store emphasizes elegance, minimalism, and editorial-style layouts to highlight product craftsmanship and brand storytelling.",
@@ -117,7 +149,7 @@
       "active": true
     },
     {
-      "number": "07",
+      "number": "04",
       "category": "Zynr",
       "subtitle": "Sustainable Fashion E-commerce Store",
       "description": "A modern sustainable fashion e-commerce store focused on eco-conscious clothing and minimalist design. The storefront blends bold visuals, dark UI aesthetics, and sustainability-driven storytelling to create a strong brand identity while maintaining a smooth shopping experience.",
@@ -135,7 +167,7 @@
       "subtitle": "Pet-Friendly Rentals & Services Platform",
       "period": "July 2026",
       "description": "Developed a full-stack pet-friendly rental platform with secure authentication, email OTP verification using Resend API. Built scalable RESTful APIs and database-driven CRUD modules for property listings, bookings, users, blogs. Integrated Cloudinary for media management and optimized MySQL queries for performance.",
-      "img": "/assets/MERN Project/pawpertio.png",
+      "img": "/assets/Projects/pawpertio.png",
       "live": "https://pawpertio.onrender.com",
       "github": "https://github.com/Iamsushantgautam/Pawpertio",
       "tech": "Laravel 12, PHP, MySQL, Blade, Tailwind CSS, Alpine.js, Filament, Cloudinary, Resend API",
@@ -148,7 +180,7 @@
       "subtitle": "SkillNear: Service Platform",
       "period": "May 2026",
       "description": "SkillNear is a full-stack hyperlocal service marketplace that connects customers with nearby skilled professionals and local service businesses. Features real-time chat, service booking, reviews, and a responsive dashboard.",
-      "img": "/assets/MERN Project/D-Home.png",
+      "img": "/assets/Projects/D-Home.png",
       "live": "https://skillnear.vercel.app",
       "github": "https://github.com/Iamsushantgautam/skillnear",
       "tech": "React, Vite, Node.js, Express, MongoDB, Socket.IO, Cloudinary",
@@ -161,7 +193,7 @@
       "subtitle": "Wit Tools: All-in-One Suite",
       "period": "October 2025",
       "description": "Developed a web utility platform with PDF, image, and file management tools for productivity and document processing. Implemented features including PDF merge, split, compress, watermark, password protection, and format conversion. Built image processing tools such as background removal, compression, resizing, cropping, and format conversion.",
-      "img": "/assets/MERN Project/wittool.png",
+      "img": "/assets/Projects/wittool.png",
       "live": "https://wit-tools.sushant.online",
       "github": "https://github.com/Iamsushantgautam/Wit-Tools",
       "tech": "React",
@@ -174,7 +206,7 @@
       "subtitle": "WITCET: Learn & Grow",
       "period": "April 2024",
       "description": "An online education platform offering vast study materials, practice tests, and secure content management. Built with RESTful APIs using Node.js and Express.js for scalable user authentication and implemented MongoDB for efficient, large-scale data storage.",
-      "img": "/assets/MERN Project/witcet.png",
+      "img": "/assets/Projects/witcet.png",
       "live": "https://witcet.vercel.app",
       "github": "https://github.com/Iamsushantgautam/witcet-version-3.0",
       "tech": "Node.js, Express.js, MongoDB, React, Bootstrap, CSS",

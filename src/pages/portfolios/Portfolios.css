@@ -1,0 +1,336 @@
+/* ============================================
+   Portfolios.css — Theme Showcase & Portfolios Base Layout
+   Location: src/pages/portfolios/Portfolios.css
+   ============================================ */
+
+.portfolios-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ── Top Navbar ── */
+.portfolios-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  transition: all 0.3s ease;
+}
+
+.portfolios-nav-inner {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portfolios-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.3rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.portfolios-nav-logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* ── Main Container ── */
+.portfolios-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 130px 5% 80px;
+}
+
+/* ── Header ── */
+.portfolios-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.portfolios-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.45rem 1.2rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.portfolios-title {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.portfolios-subtitle {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.7;
+}
+
+/* ── Grid ── */
+.portfolios-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Portfolio Card Base ── */
+.portfolio-card {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  min-height: 440px;
+  padding: 1.2rem;
+  gap: 1.5rem;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.portfolio-card-banner {
+  width: 46%;
+  height: 100%;
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: transparent !important;
+}
+
+.portfolio-card-img-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+}
+
+.portfolio-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: none;
+}
+
+.portfolio-card-img-overlay {
+  display: none;
+}
+
+.portfolio-card-header-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-card-badge,
+.portfolio-active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.portfolio-card-body {
+  width: 54%;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.portfolio-name {
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.portfolio-tagline {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-colors-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.portfolio-colors-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-colors-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.portfolio-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.portfolio-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.portfolio-select-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.portfolio-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.portfolios-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 5%;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .portfolio-card {
+    flex-direction: column;
+    min-height: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .portfolio-card-banner {
+    width: 100%;
+    height: 240px;
+    min-height: 240px;
+  }
+
+  .portfolio-card-body {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolios-container {
+    padding-top: 100px;
+  }
+
+  .portfolio-actions {
+    flex-direction: column;
+  }
+
+  .portfolio-select-btn,
+  .portfolio-preview-btn {
+    width: 100%;
+  }
+}
+

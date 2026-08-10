@@ -1,0 +1,293 @@
+/* ============================================
+   Theme1.css — Minimalist HSL Shopify Store Styles (Light & Dark)
+   Location: src/pages/shopifystore/Theme1.css
+   ============================================ */
+
+.shopify-theme1 {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--body-color, #121228);
+  color: var(--text-color, #fff);
+}
+
+.shopify-theme1 .sp-navbar {
+  background: rgba(18, 18, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body:not(.dark-theme) .shopify-theme1 .sp-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.shopify-theme1 .sp-back-btn {
+  font-family: 'Poppins', sans-serif;
+  background: var(--container-color, #1e1b4b);
+  color: var(--title-color, #fff);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body:not(.dark-theme) .shopify-theme1 .sp-back-btn {
+  background: #fff;
+  color: #0f172a;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.shopify-theme1 .sp-back-btn:hover {
+  background: var(--first-color, #6366f1);
+  color: #fff;
+  border-color: var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-hire-btn {
+  font-family: 'Poppins', sans-serif;
+  background: var(--first-color, #6366f1);
+  color: #fff;
+  border: 1px solid var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-hire-btn:hover {
+  background: var(--first-color-alt, #4f46e5);
+  transform: translateY(-2px);
+}
+
+.shopify-theme1 .sp-nav-logo {
+  font-family: 'Poppins', sans-serif;
+  color: var(--title-color, #fff);
+}
+
+.shopify-theme1 .sp-nav-logo .logo-dot {
+  color: var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-hero-eyebrow {
+  color: var(--first-color, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.shopify-theme1 .sp-hero-title {
+  color: var(--title-color, #fff);
+}
+
+.shopify-theme1 .sp-hero-title-accent {
+  color: var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-hero-desc {
+  color: var(--text-color, rgba(255, 255, 255, 0.7));
+}
+
+.shopify-theme1 .sp-stat {
+  background: var(--container-color, #1a1a36);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body:not(.dark-theme) .shopify-theme1 .sp-stat {
+  background: #ffffff;
+  border-color: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.shopify-theme1 .sp-stat-value {
+  color: var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-stat-label {
+  color: var(--text-color-light, rgba(255, 255, 255, 0.5));
+}
+
+.shopify-theme1 .sp-stack-marquee {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+body:not(.dark-theme) .shopify-theme1 .sp-stack-marquee {
+  background: rgba(99, 102, 241, 0.04);
+  border-top-color: rgba(99, 102, 241, 0.1);
+  border-bottom-color: rgba(99, 102, 241, 0.1);
+}
+
+.shopify-theme1 .sp-stack-chip {
+  color: var(--title-color, #fff);
+}
+
+.shopify-theme1 .sp-stack-chip-divider {
+  color: var(--first-color, #6366f1);
+}
+
+/* ── Theme 1 Project Cards Grid ── */
+.t1sp-projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.t1sp-project-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2rem;
+  background: var(--container-color, #1a1a36);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-theme) .t1sp-project-card {
+  background: #ffffff;
+  border-color: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.t1sp-project-card--reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.t1sp-img-box {
+  width: 100%;
+  height: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.t1sp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.t1sp-project-card:hover .t1sp-img {
+  transform: scale(1.05);
+}
+
+.t1sp-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.t1sp-number {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--first-color, #6366f1);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.t1sp-title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--title-color, #fff);
+  margin-bottom: 0.3rem;
+}
+
+.t1sp-subtitle {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--first-color, #6366f1);
+  margin-bottom: 1rem;
+}
+
+.t1sp-description {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-color, rgba(255, 255, 255, 0.7));
+  margin-bottom: 1.5rem;
+}
+
+.t1sp-password-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color, #fff);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+
+}
+
+body:not(.dark-theme) .t1sp-password-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+.t1sp-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  background: var(--first-color, #6366f1);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.t1sp-preview-btn:hover {
+  background: var(--first-color-alt, #4f46e5);
+  transform: translateY(-2px);
+}
+
+.shopify-theme1 .sp-footer-tagline span {
+  color: var(--first-color, #6366f1);
+}
+
+.shopify-theme1 .sp-footer-sub {
+  color: var(--text-color, rgba(255, 255, 255, 0.7));
+}
+
+.shopify-theme1 .sp-footer-cta {
+  background: var(--first-color, #6366f1);
+  color: #fff;
+}
+
+.shopify-theme1 .sp-footer-cta:hover {
+  background: var(--first-color-alt, #4f46e5);
+  transform: translateY(-3px);
+}
+
+.shopify-theme1 .sp-footer-copy {
+  color: var(--text-color-light, rgba(255, 255, 255, 0.4));
+}
+
+@media (max-width: 850px) {
+  .t1sp-project-card,
+  .t1sp-project-card--reverse {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .t1sp-project-card {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .t1sp-img-box {
+    height: 220px;
+  }
+
+  .t1sp-title {
+    font-size: 1.4rem;
+  }
+
+  .t1sp-preview-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

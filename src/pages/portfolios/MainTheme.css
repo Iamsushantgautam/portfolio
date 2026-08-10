@@ -1,0 +1,298 @@
+/* ============================================
+   MainTheme.css — Neo-Brutalist Pop Art Styles
+   Location: src/pages/portfolios/MainTheme.css
+   ============================================ */
+
+/* ── Page Root with Pop-Art Matrix Grid & Ambient Glows ── */
+.portfolios-main-theme {
+  background-color: #09090e;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(255, 0, 122, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(232, 217, 75, 0.1) 0%, transparent 50%),
+    radial-gradient(rgba(232, 217, 75, 0.08) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Top Navbar (Glassmorphic Neo-Brutalist) ── */
+.portfolios-main-theme .portfolios-nav {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 2px solid rgba(232, 217, 75, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.portfolios-main-theme .portfolios-back-btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background: #161622;
+  border: 2.5px solid #E8D94B;
+  box-shadow: 4px 4px 0px #000000;
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolios-main-theme .portfolios-back-btn:hover {
+  background: #E8D94B;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 6px 6px 0px #000000;
+  transform: translate(-3px, -3px);
+}
+
+.portfolios-main-theme .portfolios-back-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.portfolios-main-theme .portfolios-nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 1000;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px #000000;
+}
+
+.portfolios-main-theme .portfolios-nav-logo .logo-dot {
+  color: #E8D94B;
+  display: inline-block;
+  animation: logoPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #E8D94B); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 10px #E8D94B); }
+}
+
+/* ── Hero Eyebrow Pill ── */
+.portfolios-main-theme .portfolios-hero-eyebrow {
+  color: #E8D94B;
+  background: rgba(232, 217, 75, 0.12);
+  border: 2px solid #E8D94B;
+  box-shadow: 4px 4px 0px rgba(232, 217, 75, 0.25);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  padding: 0.5rem 1.4rem;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Title Pop-Art Typography ── */
+.portfolios-main-theme .portfolios-title {
+  color: #ffffff;
+  text-shadow: 4px 4px 0px #000000;
+}
+
+.portfolios-main-theme .portfolios-title-accent {
+  background: linear-gradient(135deg, #E8D94B 0%, #FF4500 50%, #FF007A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #ffffff;
+  filter: drop-shadow(5px 5px 0px #000000);
+}
+
+.portfolios-main-theme .portfolios-subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ── Portfolio Cards (3D Neo-Brutalist) ── */
+.portfolios-main-theme .portfolio-card {
+  background: #111118;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0px #000000;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolios-main-theme .portfolio-card:hover {
+  border-color: #E8D94B;
+  transform: translate(-6px, -6px);
+  box-shadow: 14px 14px 0px #000000, 0 0 35px rgba(232, 217, 75, 0.2);
+}
+
+.portfolios-main-theme .portfolio-card.is-active-card {
+  border: 3.5px solid #E8D94B;
+  box-shadow: 10px 10px 0px #000000, 0 0 45px rgba(232, 217, 75, 0.35);
+  animation: activeGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes activeGlow {
+  0% { box-shadow: 10px 10px 0px #000000, 0 0 25px rgba(232, 217, 75, 0.25); }
+  100% { box-shadow: 10px 10px 0px #000000, 0 0 55px rgba(232, 217, 75, 0.5); }
+}
+
+/* ── Pop-Art Sticker Badges ── */
+.portfolios-main-theme .portfolio-card-badge {
+  color: #000000;
+  background: #00F0FF;
+  border: 2.5px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transform: rotate(-2.5deg);
+  transition: transform 0.2s ease;
+}
+
+.portfolios-main-theme .portfolio-card:hover .portfolio-card-badge {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.portfolios-main-theme .portfolio-active-badge {
+  color: #000000;
+  background: #E8D94B;
+  border: 2.5px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transform: rotate(2deg);
+}
+
+/* ── Card Content Typography & Swatches ── */
+.portfolios-main-theme .portfolio-name {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.portfolios-main-theme .portfolio-tagline {
+  color: #E8D94B;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.portfolios-main-theme .portfolio-desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.portfolios-main-theme .portfolio-colors-wrap {
+  background: transparent;
+  border: none;
+  padding: 0;
+  backdrop-filter: none;
+}
+
+.portfolios-main-theme .portfolio-colors-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.portfolios-main-theme .portfolio-swatch {
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolios-main-theme .portfolio-swatch:hover {
+  transform: scale(1.35) translateY(-2px);
+  z-index: 5;
+}
+
+/* ── Features List ── */
+.portfolios-main-theme .portfolio-features-list li {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.portfolios-main-theme .portfolio-features-list li:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.portfolios-main-theme .portfolio-feat-icon {
+  color: #E8D94B;
+  filter: drop-shadow(0 0 4px rgba(232, 217, 75, 0.5));
+}
+
+/* ── Buttons (Tactile Neo-Brutalist Pop-Art) ── */
+.portfolios-main-theme .portfolio-select-btn {
+  color: #000000;
+  background: #E8D94B;
+  border: 3px solid #000000;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0px #000000;
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  padding: 0.95rem 1.8rem;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolios-main-theme .portfolio-select-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 6px 6px 0px #FF0055;
+  transform: translate(-3px, -3px);
+}
+
+.portfolios-main-theme .portfolio-select-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.portfolios-main-theme .portfolio-select-btn.is-current-btn {
+  background: #22c55e;
+  border: 3px solid #000000;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0px #000000;
+  color: #ffffff;
+}
+
+.portfolios-main-theme .portfolio-select-btn.is-current-btn:hover {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 6px 6px 0px #000000;
+  transform: translate(-3px, -3px);
+}
+
+.portfolios-main-theme .portfolio-preview-btn {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 4px 4px 0px #000000;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolios-main-theme .portfolio-preview-btn:hover {
+  background: #00F0FF;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 7px 7px 0px #000000;
+  transform: translate(-3px, -3px);
+}
+
+.portfolios-main-theme .portfolio-preview-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* ── Footer ── */
+.portfolios-main-theme .portfolios-footer {
+  border-top: 2px solid rgba(232, 217, 75, 0.2);
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+}
+

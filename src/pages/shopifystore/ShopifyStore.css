@@ -1,0 +1,377 @@
+/* ============================================
+   ShopifyStore.css — Dedicated Shopify Page Base Layout
+   Location: src/pages/shopifystore/ShopifyStore.css
+   ============================================ */
+
+/* ── Page Wrapper ── */
+.shopify-page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Sticky Navbar ── */
+.sp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 5%;
+  transition: all 0.3s ease;
+}
+
+.sp-nav-inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.sp-hire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.sp-nav-logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Hero Section ── */
+.sp-hero {
+  width: 100%;
+  padding: 140px 5% 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.sp-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.45rem 1.3rem;
+  border-radius: 100px;
+  margin-bottom: 1.8rem;
+}
+
+.sp-hero-title {
+  font-size: clamp(3rem, 7.5vw, 6rem);
+  font-weight: 1000;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.sp-hero-desc {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+/* Hero Stats Grid */
+.sp-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 850px;
+  margin-top: 1rem;
+}
+
+.sp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.3rem 1rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.sp-stat-value {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.sp-stat-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.35rem;
+}
+
+/* ── Tech Stack Marquee ── */
+.sp-stack-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.2rem 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sp-stack-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  animation: sp-marquee-infinite 28s linear infinite;
+  width: max-content;
+}
+
+@keyframes sp-marquee-infinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.sp-stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sp-stack-chip-divider {
+  margin-left: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* ── Projects Container ── */
+.sp-projects-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px 5%;
+}
+
+/* ── Footer ── */
+.sp-footer {
+  padding: 90px 5% 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-footer-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-footer-tagline {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 1000;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.sp-footer-sub {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.sp-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2.4rem;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  margin-bottom: 4rem;
+  transition: all 0.2s ease;
+}
+
+.sp-footer-copy {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 850px) {
+  .sp-nav-logo {
+    white-space: nowrap;
+    font-size: 1.1rem;
+  }
+
+  .sp-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sp-navbar {
+    height: 65px;
+    padding: 0 4%;
+  }
+
+  .sp-nav-logo {
+    display: none;
+  }
+
+  .sp-back-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    gap: 0.35rem;
+  }
+
+  .sp-hire-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    gap: 0.35rem;
+  }
+
+  .sp-hero {
+    padding: 95px 4% 50px;
+  }
+
+  .sp-hero-eyebrow {
+    font-size: 0.72rem;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .sp-hero-title {
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+    margin-bottom: 1.2rem;
+    line-height: 1.08;
+  }
+
+  .sp-hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    padding: 0 0.25rem;
+  }
+
+  .sp-hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .sp-stat {
+    padding: 0.9rem 0.5rem;
+  }
+
+  .sp-stat-value {
+    font-size: 1.6rem;
+  }
+
+  .sp-stat-label {
+    font-size: 0.7rem;
+  }
+
+  .sp-stack-chip {
+    font-size: 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .sp-stack-chip-divider {
+    margin-left: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .sp-projects-container {
+    padding: 40px 4%;
+  }
+
+  .sp-footer {
+    padding: 60px 4% 40px;
+  }
+
+  .sp-footer-tagline {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .sp-footer-sub {
+    font-size: 0.92rem;
+    margin-bottom: 2rem;
+  }
+
+  .sp-footer-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .sp-back-btn,
+  .sp-hire-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.72rem;
+  }
+}
+
