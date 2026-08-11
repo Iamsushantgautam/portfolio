@@ -50,8 +50,8 @@ export default function FeaturedProjects() {
                     src={project.img}
                     alt={project.title}
                     className="theme2-project-img"
-                    loading="lazy"
-                    decoding="async"
+                    loading="eager"
+                    decoding="sync"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = 'https://placehold.co/600x380/f3eeff/8b5cf6?text=' + encodeURIComponent(project.category);

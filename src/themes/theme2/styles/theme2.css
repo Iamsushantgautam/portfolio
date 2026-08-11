@@ -58,7 +58,6 @@
 
 /* Smooth Animations & Image Performance Optimizations */
 .theme2 img {
-  content-visibility: auto;
   transform: translateZ(0);
 }
 

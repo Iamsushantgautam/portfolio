@@ -73,7 +73,8 @@ export default function ShopifyStores() {
                       src={imageSrc}
                       alt={store.subtitle || store.category}
                       className="theme2-shopify-img"
-                      decoding="async"
+                      loading="eager"
+                      decoding="sync"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = `https://placehold.co/600x380/f3eeff/8b5cf6?text=${encodeURIComponent(

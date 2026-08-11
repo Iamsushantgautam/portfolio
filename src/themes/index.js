@@ -27,8 +27,31 @@ export function getActiveThemeKey() {
   return rawKey.toString().toLowerCase().trim()
 }
 
+export const themeColors = {
+  'theme2': '#AF97F4',
+  'theme-2': '#AF97F4',
+  'theme1': '#6366F1',
+  'main-theme': '#E8D94B',
+  'maintheme': '#E8D94B',
+}
+
+export function updateMetaThemeColor(themeKey) {
+  if (typeof document === 'undefined') return;
+  const key = (themeKey || getActiveThemeKey()).toLowerCase().trim();
+  const color = themeColors[key] || (key.includes('theme2') ? '#AF97F4' : key.includes('theme1') ? '#6366F1' : '#E8D94B');
+  
+  let metaEl = document.querySelector('meta[name="theme-color"]');
+  if (!metaEl) {
+    metaEl = document.createElement('meta');
+    metaEl.setAttribute('name', 'theme-color');
+    document.head.appendChild(metaEl);
+  }
+  metaEl.setAttribute('content', color);
+}
+
 export function setActiveThemeKey(themeKey) {
   if (typeof window !== 'undefined') {
+    updateMetaThemeColor(themeKey)
     window.dispatchEvent(new Event('themechange'))
   }
 }
@@ -37,8 +60,11 @@ export function ActiveTheme(props) {
   const [currentKey, setCurrentKey] = useState(getActiveThemeKey())
 
   useEffect(() => {
+    updateMetaThemeColor(currentKey)
     const handleThemeChange = () => {
-      setCurrentKey(getActiveThemeKey())
+      const newKey = getActiveThemeKey()
+      setCurrentKey(newKey)
+      updateMetaThemeColor(newKey)
     }
     window.addEventListener('themechange', handleThemeChange)
     window.addEventListener('popstate', handleThemeChange)
@@ -46,7 +72,7 @@ export function ActiveTheme(props) {
       window.removeEventListener('themechange', handleThemeChange)
       window.removeEventListener('popstate', handleThemeChange)
     }
-  }, [])
+  }, [currentKey])
 
   const ThemeComponent = themes[currentKey] || (currentKey.includes('theme2') ? Theme2 : currentKey.includes('theme1') ? Theme1 : MainTheme)
 
