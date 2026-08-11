@@ -5,6 +5,7 @@ import { getActiveThemeKey } from '../../themes'
 import portfolioData from '../../data/portfolio.json'
 import theme1Img from '../../assets/themes/theme2.png'
 import mainThemeImg from '../../assets/themes/theme1.png'
+import theme2Img from '../../assets/themes/theme3.png'
 import './Portfolios.css'
 import './MainTheme.css'
 import './Theme1Portfolio.css'
@@ -48,7 +49,7 @@ const THEMES_DATA = [
     name: 'Modern Executive & Dark Design',
     tagline: 'Sleek dark theme with gold accents, hero stats & service grid',
     badge: 'EXECUTIVE',
-    image: theme1Img,
+    image: theme2Img,
     bgGradient: 'linear-gradient(135deg, #0d0e12 0%, #161b22 50%, #0f172a 100%)',
     colors: ['#0d0e12', '#d4af37', '#161b22', '#ffffff'],
     description: 'A modern executive dark portfolio theme featuring sophisticated typography, hero stats bar, featured project highlights, service offerings, and interactive client testimonials.',

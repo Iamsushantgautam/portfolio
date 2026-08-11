@@ -105,8 +105,7 @@ export default function UtilityTools() {
                 src={witscraperImg}
                 alt={utilityTools.title}
                 className="theme2-utility-img"
-                loading="eager"
-                fetchPriority="high"
+                loading="lazy"
                 decoding="async"
                 onError={(e) => {
                   e.target.onerror = null;

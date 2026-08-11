@@ -1,7 +1,7 @@
 import React from 'react';
 import portfolioData from '../../../../data/portfolio.json';
 import { ArrowUpRight, Download, Cpu, Activity } from 'lucide-react';
-import mypic3 from '../../../../assets/mypic3.png';
+import mypic3 from '../../../../assets/mypic3.webp';
 import cvFile from '../../../../assets/SushantCV.pdf';
 import './Hero.css';
 
@@ -44,6 +44,7 @@ export default function Hero() {
               src={mypic3}
               alt={personalInfo?.name || 'Sushant Gautam'}
               className="theme2-hero-img"
+              loading="eager"
               decoding="async"
               fetchPriority="high"
             />

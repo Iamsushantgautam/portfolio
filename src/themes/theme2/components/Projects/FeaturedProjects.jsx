@@ -50,8 +50,7 @@ export default function FeaturedProjects() {
                     src={project.img}
                     alt={project.title}
                     className="theme2-project-img"
-                    loading="eager"
-                    fetchPriority="high"
+                    loading="lazy"
                     decoding="async"
                     onError={(e) => {
                       e.target.onerror = null;

@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import portfolioData from '../../../../data/portfolio.json';
-import { Github, Linkedin, Instagram, Send, Heart } from 'lucide-react';
+import { Github, Linkedin, Instagram, Heart, ExternalLink } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
   const { personalInfo } = portfolioData;
-  const [emailInput, setEmailInput] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
 
   const isHomePage = typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '/index.html');
 
@@ -20,7 +18,20 @@ export default function Footer() {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleLinkClick = (e, name, href) => {
+  const pageLinks = [
+    { name: 'Shopify Stores Page', href: '/shopifystore', isPage: true },
+    { name: 'Portfolio Designs Page', href: '/portfolios', isPage: true },
+  ];
+
+  const handleLinkClick = (e, link) => {
+    const { name, href, isPage } = typeof link === 'object' ? link : { name: link, href: arguments[2] };
+
+    if (isPage || href?.startsWith('/')) {
+      e.preventDefault();
+      window.location.href = href;
+      return;
+    }
+
     if (name === 'Home' || href === '#hero') {
       if (isHomePage) {
         e.preventDefault();
@@ -53,25 +64,13 @@ export default function Footer() {
     { name: 'Instagram', href: personalInfo?.instagram || 'https://www.instagram.com/its_sushant01/', Icon: Instagram },
   ];
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (emailInput.trim()) {
-      setSubscribed(true);
-      setEmailInput('');
-      setTimeout(() => setSubscribed(false), 4000);
-    }
-  };
-
   return (
     <footer className="theme2-footer">
       <div className="theme2-container">
         <div className="theme2-footer-grid">
           {/* Col 1: Brand */}
           <div>
-            <a href="/" className="theme2-logo" onClick={(e) => handleLinkClick(e, 'Home', '#hero')}>
-              <div className="theme2-logo-icon">
-                {personalInfo?.name ? personalInfo.name.split(' ').map(n => n[0]).join('').slice(0, 2) : 'SG'}
-              </div>
+            <a href="/" className="theme2-logo" onClick={(e) => handleLinkClick(e, { name: 'Home', href: '#hero' })}>
               <div className="theme2-logo-text">
                 <span className="theme2-logo-name">{personalInfo?.logotext || personalInfo?.name || 'SUSHANT GAUTAM'}</span>
                 <span className="theme2-logo-title">{personalInfo?.role || 'FULL STACK DEVELOPER'}</span>
@@ -87,9 +86,9 @@ export default function Footer() {
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
                   <a
-                    href={isHomePage ? link.href : '/'}
+                    href={link.href}
                     className="theme2-footer-link"
-                    onClick={(e) => handleLinkClick(e, link.name, link.href)}
+                    onClick={(e) => handleLinkClick(e, link)}
                   >
                     {link.name}
                   </a>
@@ -98,7 +97,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Follow Me */}
+          {/* Col 3: Dedicated Pages & Showcase Section */}
+          <div>
+            <h4 className="theme2-footer-title">SHOWCASE & PAGES</h4>
+            <ul className="theme2-footer-links">
+              {pageLinks.map((link, idx) => (
+                <li key={idx}>
+                  <a
+                    href={link.href}
+                    className="theme2-footer-link"
+                    onClick={(e) => handleLinkClick(e, link)}
+                  >
+                    <ExternalLink size={14} />
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Follow Me */}
           <div>
             <h4 className="theme2-footer-title">FOLLOW ME</h4>
             <ul className="theme2-footer-links">
@@ -119,42 +137,6 @@ export default function Footer() {
               })}
             </ul>
           </div>
-
-          {/* Col 4: Newsletter */}
-          <div>
-            <h4 className="theme2-footer-title">NEWSLETTER</h4>
-            <p className="theme2-newsletter-desc">
-              Get development tips & insights straight to your inbox.
-            </p>
-
-            <form onSubmit={handleSubscribe} className="theme2-newsletter-form">
-              <input
-                type="email"
-                placeholder="Your email address"
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-                required
-                className="theme2-newsletter-input"
-              />
-              <button type="submit" className="theme2-newsletter-submit" aria-label="Subscribe">
-                <Send size={15} />
-              </button>
-            </form>
-
-            {subscribed && (
-              <span
-                style={{
-                  fontSize: '0.78rem',
-                  color: '#8B5CF6',
-                  fontWeight: '600',
-                  marginTop: '8px',
-                  display: 'block',
-                }}
-              >
-                Thank you for subscribing!
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Bottom copyright line */}
@@ -168,4 +150,3 @@ export default function Footer() {
     </footer>
   );
 }
-
