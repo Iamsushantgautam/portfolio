@@ -1,0 +1,200 @@
+/* Process / Experience Section Styles for Theme 2 */
+.theme2-process {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.theme2-process-card-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--theme2-border);
+  border-radius: 24px;
+  padding: 36px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.theme2-process-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.theme2-process-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--theme2-primary);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Tabs */
+.theme2-process-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.theme2-process-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--theme2-radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme2-text-muted);
+  background-color: var(--theme2-background-soft);
+  border: 1px solid var(--theme2-border-light);
+  cursor: pointer;
+  transition: var(--theme2-transition);
+}
+
+.theme2-process-tab:hover {
+  color: var(--theme2-primary);
+  background-color: #FFFFFF;
+  border-color: var(--theme2-primary-light);
+}
+
+.theme2-process-tab.active {
+  color: #FFFFFF;
+  background-color: var(--theme2-primary);
+  border-color: var(--theme2-primary);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
+}
+
+/* Timeline Cards List */
+.theme2-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.theme2-timeline-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--theme2-border);
+  border-radius: var(--theme2-radius-md);
+  padding: 24px 28px;
+  transition: var(--theme2-transition);
+}
+
+.theme2-timeline-card:hover {
+  border-color: var(--theme2-primary-light);
+  box-shadow: var(--theme2-shadow-md);
+  transform: translateY(-2px);
+}
+
+.theme2-timeline-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.theme2-timeline-body {
+  flex-grow: 1;
+}
+
+.theme2-timeline-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.theme2-timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--theme2-text);
+  margin: 0 0 4px 0;
+}
+
+.theme2-timeline-org {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--theme2-text-muted);
+}
+
+.theme2-timeline-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--theme2-primary);
+  background-color: var(--theme2-primary-soft);
+  padding: 6px 14px;
+  border-radius: var(--theme2-radius-full);
+}
+
+.theme2-timeline-desc {
+  font-size: 0.92rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+
+.theme2-timeline-points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme2-timeline-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--theme2-text);
+  line-height: 1.5;
+}
+
+.theme2-point-icon {
+  color: var(--theme2-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.theme2-timeline-grade {
+  font-size: 0.9rem;
+  color: var(--theme2-text-muted);
+}
+
+.theme2-timeline-grade strong {
+  color: var(--theme2-primary);
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+  .theme2-process-card-box {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  .theme2-timeline-card {
+    flex-direction: column;
+    padding: 20px 18px;
+    gap: 14px;
+  }
+  .theme2-timeline-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

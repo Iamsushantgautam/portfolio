@@ -1,0 +1,316 @@
+/* Hero Section Styles for Theme 2 */
+.theme2-hero {
+  position: relative;
+  padding: 100px 0 0 0;
+  margin-bottom: 0;
+  background: radial-gradient(circle at 75% 30%, rgba(243, 238, 255, 0.8) 0%, rgba(255, 255, 255, 0) 60%);
+  overflow: hidden;
+}
+
+.theme2-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+/* Left Content */
+.theme2-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  padding-bottom: 40px;
+}
+
+.theme2-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--theme2-text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 12px 0 16px 0;
+}
+
+.theme2-hero-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--theme2-text-secondary);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.theme2-hero-accent-text {
+  color: var(--theme2-primary);
+}
+
+.theme2-hero-desc {
+  font-size: 1.05rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+
+.theme2-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Right Profile Graphic & Cards */
+.theme2-hero-graphic {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  align-self: flex-end;
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+.theme2-hero-avatar-wrapper {
+  position: relative;
+  width: auto;
+  max-width: 420px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* Background Ring */
+.theme2-hero-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  aspect-ratio: 1;
+  border: 1.5px dashed rgba(139, 92, 246, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.theme2-hero-ring::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--theme2-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.theme2-hero-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  display: block;
+  vertical-align: bottom;
+  filter: drop-shadow(0 8px 20px rgba(139, 92, 246, 0.15));
+}
+
+/* Floating Futuristic UI Cards */
+.theme2-float-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: var(--theme2-radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--theme2-shadow-md);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme2-float-card-top {
+  top: 8%;
+  right: -5%;
+  min-width: 180px;
+}
+
+.theme2-float-card-bottom {
+  bottom: 8%;
+  left: -8%;
+  min-width: 190px;
+}
+
+.theme2-float-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--theme2-text-muted);
+  text-transform: uppercase;
+}
+
+.theme2-float-card-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--theme2-text);
+}
+
+.theme2-float-wave {
+  height: 16px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.theme2-float-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.theme2-float-progress-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--theme2-text-muted);
+  font-weight: 600;
+}
+
+.theme2-float-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--theme2-primary);
+}
+
+/* Responsiveness */
+@media (min-width: 1920px) {
+  .theme2-hero-title {
+    font-size: 4.25rem;
+  }
+  .theme2-hero-subtitle {
+    font-size: 2.35rem;
+  }
+  .theme2-hero-desc {
+    font-size: 1.2rem;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .theme2-hero-title {
+    font-size: 3rem;
+  }
+  .theme2-hero-subtitle {
+    font-size: 1.75rem;
+  }
+  .theme2-float-card-top {
+    right: 0%;
+  }
+  .theme2-float-card-bottom {
+    left: 0%;
+  }
+}
+
+@media (max-width: 992px) {
+  .theme2-hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+
+  .theme2-hero-content {
+    display: contents;
+  }
+
+  .theme2-hero-graphic {
+    order: 2;
+    margin: 16px 0 0 0;
+  }
+
+  .theme2-hero-buttons {
+    order: 3;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  .theme2-hero-avatar-wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .theme2-hero {
+    padding: 76px 0 0 0;
+  }
+
+  .theme2-hero-title {
+    font-size: 2.15rem;
+    word-break: break-word;
+  }
+
+  .theme2-hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .theme2-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .theme2-hero-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .theme2-hero-buttons .theme2-btn {
+    width: 100%;
+  }
+
+  .theme2-float-card {
+    display: none; /* Hide floating cards on small mobile to prevent text overflow */
+  }
+}
+
+@media (max-width: 380px) {
+  .theme2-hero {
+    padding: 24px 0 44px 0;
+  }
+
+  .theme2-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .theme2-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .theme2-hero-desc {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .theme2-hero-avatar-wrapper {
+    max-width: 260px;
+  }
+}

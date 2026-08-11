@@ -1,12 +1,13 @@
 /* ============================================
-   Theme1.css — Minimalist HSL Theme Styles (Light & Dark)
-   Location: src/pages/portfolios/Theme1.css
+   Theme1Portfolio.css — Theme 1 Portfolio Page Styles
+   Location: src/pages/portfolios/Theme1Portfolio.css
    ============================================ */
 
 .portfolios-theme1 {
   font-family: 'Poppins', sans-serif;
   background-color: var(--body-color, #121228);
   color: var(--text-color, #fff);
+  min-height: 100vh;
 }
 
 .portfolios-theme1 .portfolios-nav {
@@ -29,6 +30,9 @@ body:not(.dark-theme) .portfolios-theme1 .portfolios-nav {
   background: var(--container-color, #1e1b4b);
   color: var(--title-color, #fff);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 body:not(.dark-theme) .portfolios-theme1 .portfolios-back-btn {
@@ -56,6 +60,7 @@ body:not(.dark-theme) .portfolios-theme1 .portfolios-back-btn {
   color: var(--first-color, #6366f1);
   background: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 50px;
 }
 
 .portfolios-theme1 .portfolios-title {
@@ -73,6 +78,7 @@ body:not(.dark-theme) .portfolios-theme1 .portfolios-back-btn {
 .portfolios-theme1 .portfolio-card {
   background: var(--container-color, #1a1a36);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
 }
 
 body:not(.dark-theme) .portfolios-theme1 .portfolio-card {
@@ -135,6 +141,7 @@ body:not(.dark-theme) .portfolios-theme1 .portfolio-colors-wrap {
   color: #fff;
   background: var(--first-color, #6366f1);
   border: 1px solid var(--first-color, #6366f1);
+  border-radius: 12px;
 }
 
 .portfolios-theme1 .portfolio-select-btn:hover {
@@ -154,6 +161,7 @@ body:not(.dark-theme) .portfolios-theme1 .portfolio-colors-wrap {
   color: var(--title-color, #fff);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
 }
 
 body:not(.dark-theme) .portfolios-theme1 .portfolio-preview-btn {

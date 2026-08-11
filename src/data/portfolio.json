@@ -1,5 +1,10 @@
 {
-  "activeTheme": "main-theme",
+  "activeTheme": "theme2",
+  "themes": [
+    "main-theme",
+    "theme1",
+    "theme2"
+  ],
   "personalInfo": {
     "name": "Sushant Gautam",
     "logotext": "SHK Gautam",

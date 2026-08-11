@@ -1,0 +1,462 @@
+/* ==================================================
+   COMMON PROJECTS & STORES STYLES FOR THEME 2
+   (Featured Projects, Shopify Stores, Utility Tools)
+   ================================================== */
+
+/* Section Outer Wrappers */
+.theme2-projects-section,
+.theme2-shopify-section,
+.theme2-utility-section {
+  padding-top: 0;
+  padding-bottom: 60px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Common Card Box Containers */
+.theme2-projects-card-box,
+.theme2-shopify-card-box,
+.theme2-utility-card-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--theme2-border);
+  border-radius: 24px;
+  padding: 28px 36px 36px 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 2;
+}
+
+.theme2-utility-card-box {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--theme2-background-soft) 100%);
+  padding: 44px 48px;
+}
+
+/* Common Section Headers & Eyebrows */
+.theme2-projects-header,
+.theme2-shopify-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.theme2-section-eyebrow,
+.theme2-shopify-eyebrow,
+.theme2-utility-eyebrow {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--theme2-primary);
+  text-transform: uppercase;
+  display: block;
+}
+
+.theme2-shopify-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--theme2-primary);
+  background-color: var(--theme2-primary-soft);
+  padding: 6px 14px;
+  border-radius: var(--theme2-radius-full);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Grids */
+.theme2-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.theme2-shopify-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.theme2-utility-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Card Boxes & Base Styling */
+.theme2-project-card,
+.theme2-shopify-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--theme2-border);
+  border-radius: var(--theme2-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--theme2-transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card Image Area */
+.theme2-project-img-wrapper,
+.theme2-shopify-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--theme2-background-soft);
+}
+
+.theme2-shopify-img-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.theme2-project-img,
+.theme2-shopify-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Utility Tool Clean Image (No Container, No Shadow, No Effects) */
+.theme2-utility-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  filter: none;
+}
+
+/* Password Badge */
+.theme2-shopify-pass-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: var(--theme2-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.theme2-shopify-pass-badge strong {
+  color: #A78BFA;
+}
+
+/* Card Bodies & Meta */
+.theme2-project-body,
+.theme2-shopify-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.theme2-project-meta,
+.theme2-shopify-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.theme2-project-category,
+.theme2-shopify-cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--theme2-primary);
+}
+
+.theme2-project-icon-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--theme2-transition);
+}
+
+.theme2-project-icon-link:hover {
+  background-color: var(--theme2-primary);
+  color: #FFFFFF;
+}
+
+/* Header pill buttons for meta section */
+.theme2-project-header-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme2-project-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+  transition: var(--theme2-transition);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.theme2-project-header-btn:hover {
+  background-color: var(--theme2-primary);
+  color: #FFFFFF;
+  border-color: var(--theme2-primary);
+  transform: translateY(-1px);
+}
+
+/* Project Card Bottom Action Buttons */
+.theme2-project-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--theme2-border-light);
+}
+
+.theme2-project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--theme2-radius-sm);
+  text-decoration: none;
+  transition: var(--theme2-transition);
+  flex: 1;
+  cursor: pointer;
+}
+
+.theme2-project-btn-live {
+  background-color: var(--theme2-primary);
+  color: #ffffff;
+  border: 1px solid var(--theme2-primary);
+}
+
+.theme2-project-btn-live:hover {
+  background-color: var(--theme2-primary-hover);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+  transform: translateY(-1px);
+}
+
+.theme2-project-btn-code {
+  background-color: var(--theme2-background-soft);
+  color: var(--theme2-text);
+  border: 1px solid var(--theme2-border);
+}
+
+.theme2-project-btn-code:hover {
+  background-color: #ffffff;
+  color: var(--theme2-primary);
+  border-color: var(--theme2-primary-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.theme2-project-title,
+.theme2-shopify-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--theme2-text);
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+
+.theme2-project-desc,
+.theme2-shopify-desc,
+.theme2-utility-desc {
+  font-size: 0.875rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.55;
+  margin: 0 0 16px 0;
+}
+
+.theme2-project-desc,
+.theme2-shopify-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Common Project Tags */
+.theme2-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.theme2-project-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--theme2-text-secondary);
+  background-color: var(--theme2-background-soft);
+  padding: 4px 10px;
+  border-radius: var(--theme2-radius-sm);
+  border: 1px solid var(--theme2-border-light);
+}
+
+/* Utility Tool Content Styles */
+.theme2-utility-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.theme2-utility-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.theme2-utility-period {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--theme2-primary);
+  background-color: var(--theme2-primary-soft);
+  padding: 3px 10px;
+  border-radius: var(--theme2-radius-full);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.theme2-utility-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--theme2-primary);
+  margin: 0 0 16px 0;
+}
+
+.theme2-utility-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.theme2-utility-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--theme2-text);
+  line-height: 1.5;
+}
+
+.theme2-point-icon {
+  color: var(--theme2-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.theme2-utility-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.theme2-utility-feature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--theme2-text-secondary);
+  background-color: var(--theme2-background-soft);
+  padding: 5px 12px;
+  border-radius: var(--theme2-radius-sm);
+  border: 1px solid var(--theme2-border-light);
+}
+
+.theme2-feature-icon {
+  color: var(--theme2-primary);
+}
+
+.theme2-utility-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.theme2-utility-preview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .theme2-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .theme2-shopify-grid {
+    grid-template-columns: 1fr;
+  }
+  .theme2-utility-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .theme2-projects-section,
+  .theme2-shopify-section,
+  .theme2-utility-section {
+    padding-bottom: 40px;
+  }
+  .theme2-projects-card-box,
+  .theme2-shopify-card-box,
+  .theme2-utility-card-box {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  .theme2-projects-header,
+  .theme2-shopify-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .theme2-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

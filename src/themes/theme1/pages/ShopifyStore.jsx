@@ -1,19 +1,14 @@
-import { useEffect, useState, useRef, Suspense, lazy } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useEffect, useState, Suspense, lazy } from 'react'
 import { ArrowLeft, ArrowRight, ShoppingBag, Globe, Lock, Copy, Check, Moon, Sun } from 'lucide-react'
 import Lenis from 'lenis'
-import { getActiveThemeKey } from '../../themes'
-import portfolioData from '../../data/portfolio.json'
-import storeTaansh from '../../assets/shopify-store/store1-full.png'
-import storeWelthCo from '../../assets/shopify-store/store2-full.png'
-import storeSkinora from '../../assets/shopify-store/store3-full.png'
-import storeZynr from '../../assets/shopify-store/store4-full.png'
-
-import './ShopifyStore.css'
-import './MainTheme.css'
-import './Theme1.css'
-
-const ShopifyProjects = lazy(() => import('../../themes/main-theme/components/ShopifyProjects'))
+import portfolioData from '../../../data/portfolio.json'
+import storeTaansh   from '../../../assets/shopify-store/store1-full.png'
+import storeWelthCo  from '../../../assets/shopify-store/store2-full.png'
+import storeSkinora  from '../../../assets/shopify-store/store3-full.png'
+import storeZynr     from '../../../assets/shopify-store/store4-full.png'
+import { motion } from 'framer-motion'
+import '../newcss.css'
+import './Theme1ShopifyStore.css'
 
 const imgMap = {
   '/assets/shopify-store/store1-full.png': storeTaansh,
@@ -33,87 +28,81 @@ const STACK_ITEMS = [
 ]
 
 export default function ShopifyStorePage() {
-  const [activeTheme] = useState(getActiveThemeKey())
-  const isTheme1 = activeTheme.includes('theme1')
   const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('selected-theme')
-    if (saved !== null) return saved === 'dark'
-    return false
+    return saved !== null ? saved === 'dark' : false
   })
 
+  // Scroll listener for navbar shadow
   useEffect(() => {
-    if (isTheme1) {
-      if (isDark) {
-        document.body.classList.add('dark-theme')
-      } else {
-        document.body.classList.remove('dark-theme')
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Dark / light mode sync with theme1 CSS vars
+  useEffect(() => {
+    if (isDark) {
+      document.body.classList.add('dark-theme')
+    } else {
+      document.body.classList.remove('dark-theme')
+    }
+    localStorage.setItem('selected-theme', isDark ? 'dark' : 'light')
+    return () => document.body.classList.remove('dark-theme')
+  }, [isDark])
+
+  // Lenis smooth scroll
+  useEffect(() => {
+    let lenis
+    let reqId
+    try {
+      lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+      })
+      const raf = (time) => {
+        if (lenis) {
+          lenis.raf(time)
+          reqId = requestAnimationFrame(raf)
+        }
       }
-      localStorage.setItem('selected-theme', isDark ? 'dark' : 'light')
+      reqId = requestAnimationFrame(raf)
+    } catch (err) {
+      console.warn('Lenis scroll error:', err)
     }
-  }, [isDark, isTheme1])
-
-  const toggleTheme = () => setIsDark(prev => !prev)
-
-  // Lenis Smooth Scroll
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.08,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      syncTouch: true,
-      syncTouchLerp: 0.08,
-      touchMultiplier: 1.2,
-      wheelMultiplier: 1.0,
-    })
-
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+    return () => {
+      if (reqId) cancelAnimationFrame(reqId)
+      try { if (lenis) lenis.destroy() } catch (_) {}
     }
-    requestAnimationFrame(raf)
-
-    return () => lenis.destroy()
   }, [])
 
   return (
-    <div className={`shopify-page ${isTheme1 ? 'shopify-theme1' : 'shopify-main-theme'}`}>
+    <div className="shopify-page shopify-theme1">
       {/* Navbar */}
       <nav className={`sp-navbar ${scrolled ? 'sp-scrolled' : ''}`}>
         <div className="sp-nav-inner">
           <button className="sp-back-btn" onClick={() => window.location.href = '/'}>
-            <ArrowLeft size={16} strokeWidth={2.5} />
-            Back
+            <ArrowLeft size={16} strokeWidth={2.5} /> Back
           </button>
 
           <a href="/" className="sp-nav-logo">
-            {portfolioData.personalInfo.logotext || 'SHK Gautam'}
+            {portfolioData.personalInfo.logotext || portfolioData.personalInfo.name}
             <span className="logo-dot">.</span>
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-            {isTheme1 && (
-              <button
-                className="change-theme"
-                onClick={toggleTheme}
-                title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                aria-label="Toggle theme"
-                style={{ background: 'none', border: 'none', padding: '0.25rem', cursor: 'pointer' }}
-              >
-                {isDark ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
-              </button>
-            )}
+            <button
+              className="change-theme"
+              onClick={() => setIsDark(p => !p)}
+              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle theme"
+              style={{ background: 'none', border: 'none', padding: '0.25rem', cursor: 'pointer' }}
+            >
+              {isDark ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
+            </button>
 
-            <a href="mailto:iamsushantgautam@gmail.com" className="sp-hire-btn">
+            <a href={`mailto:${portfolioData.personalInfo.email}`} className="sp-hire-btn">
               Hire Me <ArrowRight size={16} strokeWidth={2.5} />
             </a>
           </div>
@@ -132,15 +121,16 @@ export default function ShopifyStorePage() {
           </h1>
 
           <p className="sp-hero-desc">
-            Crafting conversion-focused, visually stunning Shopify storefronts with custom Liquid templating, performance optimization, and brand-aligned design systems.
+            Crafting conversion-focused, visually stunning Shopify storefronts with custom Liquid
+            templating, performance optimization, and brand-aligned design systems.
           </p>
 
           <div className="sp-hero-stats">
             {[
-              { value: '4+', label: 'Live Stores' },
-              { value: '100%', label: 'Custom Themes' },
-              { value: '3x', label: 'Conversion Lift' },
-              { value: '4.9★', label: 'Client Rating' },
+              { value: '4+',   label: 'Live Stores'     },
+              { value: '100%', label: 'Custom Themes'   },
+              { value: '3x',   label: 'Conversion Lift' },
+              { value: '4.9★', label: 'Client Rating'   },
             ].map(s => (
               <div key={s.label} className="sp-stat">
                 <span className="sp-stat-value">{s.value}</span>
@@ -163,37 +153,37 @@ export default function ShopifyStorePage() {
         </div>
       </div>
 
-      {/* Projects Grid */}
+      {/* Projects */}
       <section className="sp-projects-container">
-        {isTheme1 ? (
-          <div className="t1sp-projects-grid">
-            {projects.map((project, index) => (
-              <ProjectCardTheme1 key={project.id || index} project={project} index={index} />
-            ))}
-          </div>
-        ) : (
-          <Suspense fallback={<div className="section-loader" />}>
-            <ShopifyProjects />
-          </Suspense>
-        )}
+        <div className="t1sp-projects-grid">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.number || index} project={project} index={index} />
+          ))}
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="sp-footer">
         <div className="sp-footer-inner">
-          <h2 className="sp-footer-tagline">Need a <span>Shopify</span> Store?</h2>
-          <p className="sp-footer-sub">Let's build something remarkable together. Custom themes, integrations & beyond.</p>
-          <a href="mailto:iamsushantgautam@gmail.com" className="sp-footer-cta">
+          <h2 className="sp-footer-tagline">
+            Need a <span>Shopify</span> Store?
+          </h2>
+          <p className="sp-footer-sub">
+            Let's build something remarkable together. Custom themes, integrations & beyond.
+          </p>
+          <a href={`mailto:${portfolioData.personalInfo.email}`} className="sp-footer-cta">
             <Globe size={18} /> Let's Work Together <ArrowRight size={18} />
           </a>
-          <p className="sp-footer-copy">© 2026 {portfolioData.personalInfo.name} · All Rights Reserved</p>
+          <p className="sp-footer-copy">
+            © 2026 {portfolioData.personalInfo.name} · All Rights Reserved
+          </p>
         </div>
       </footer>
     </div>
   )
 }
 
-function ProjectCardTheme1({ project, index }) {
+function ProjectCard({ project, index }) {
   const [copied, setCopied] = useState(false)
   const isEven = index % 2 !== 0
 

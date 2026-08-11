@@ -1,0 +1,176 @@
+/* ============================================
+   Theme2Portfolio.css — Modern Executive Light Portfolio Page Styles
+   Location: src/pages/portfolios/Theme2Portfolio.css
+   ============================================ */
+
+.portfolios-theme2 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  background-color: #FAFAFD;
+  color: #0F172A;
+  min-height: 100vh;
+}
+
+.portfolios-theme2 .portfolios-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.portfolios-theme2 .portfolios-back-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  white-space: nowrap;
+  background: #FFFFFF;
+  color: #0F172A;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.portfolios-theme2 .portfolios-back-btn:hover {
+  background: #8B5CF6;
+  color: #FFFFFF;
+  border-color: #8B5CF6;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.portfolios-theme2 .portfolios-nav-logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+
+.portfolios-theme2 .portfolios-nav-logo .logo-dot {
+  color: #8B5CF6;
+}
+
+.portfolios-theme2 .portfolios-hero-eyebrow {
+  color: #8B5CF6;
+  background: #F3EEFF;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.45rem 1.1rem;
+}
+
+.portfolios-theme2 .portfolios-title {
+  color: #0F172A;
+  font-weight: 800;
+}
+
+.portfolios-theme2 .portfolios-title-accent {
+  color: #8B5CF6;
+}
+
+.portfolios-theme2 .portfolios-subtitle {
+  color: #64748B;
+}
+
+.portfolios-theme2 .portfolio-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.portfolios-theme2 .portfolio-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.1);
+}
+
+.portfolios-theme2 .portfolio-card.is-active-card {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.2);
+}
+
+.portfolios-theme2 .portfolio-card-badge {
+  color: #8B5CF6;
+  background: #F3EEFF;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.portfolios-theme2 .portfolio-active-badge {
+  color: #FFFFFF;
+  background: #8B5CF6;
+  border-radius: 9999px;
+}
+
+.portfolios-theme2 .portfolio-name {
+  color: #0F172A;
+  font-weight: 800;
+}
+
+.portfolios-theme2 .portfolio-tagline {
+  color: #8B5CF6;
+  font-weight: 600;
+}
+
+.portfolios-theme2 .portfolio-desc {
+  color: #64748B;
+  line-height: 1.6;
+}
+
+.portfolios-theme2 .portfolio-features-list li {
+  color: #334155;
+}
+
+.portfolios-theme2 .portfolio-feat-icon {
+  color: #8B5CF6;
+}
+
+.portfolios-theme2 .portfolio-select-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #FFFFFF;
+  background: #8B5CF6;
+  border: 1px solid #8B5CF6;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+}
+
+.portfolios-theme2 .portfolio-select-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.35);
+  background: #7C3AED;
+}
+
+.portfolios-theme2 .portfolio-select-btn.is-current-btn {
+  background: #22C55E;
+  border-color: #22C55E;
+  color: #FFFFFF;
+}
+
+.portfolios-theme2 .portfolio-preview-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #0F172A;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.portfolios-theme2 .portfolio-preview-btn:hover {
+  border-color: #8B5CF6;
+  color: #8B5CF6;
+  background: #F3EEFF;
+}
+
+.portfolios-theme2 .portfolios-footer {
+  color: #64748B;
+  border-top: 1px solid #E2E8F0;
+}

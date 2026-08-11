@@ -1,0 +1,164 @@
+/* Footer Section Styles for Theme 2 */
+.theme2-footer {
+  background-color: var(--theme2-background);
+  border-t: 1px solid var(--theme2-border);
+  padding: 70px 0 30px 0;
+}
+
+.theme2-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.theme2-footer-col-desc {
+  font-size: 0.875rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.6;
+  margin-top: 16px;
+  max-width: 320px;
+}
+
+.theme2-footer-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--theme2-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.theme2-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theme2-footer-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--theme2-text-secondary);
+  text-decoration: none;
+  transition: var(--theme2-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme2-footer-link:hover {
+  color: var(--theme2-primary);
+  transform: translateX(3px);
+}
+
+/* Newsletter Input Form */
+.theme2-newsletter-desc {
+  font-size: 0.875rem;
+  color: var(--theme2-text-muted);
+  margin-bottom: 16px;
+}
+
+.theme2-newsletter-form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.theme2-newsletter-input {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  font-size: 0.875rem;
+  border: 1px solid var(--theme2-border);
+  border-radius: var(--theme2-radius-md);
+  outline: none;
+  background-color: var(--theme2-background-soft);
+  transition: var(--theme2-transition);
+}
+
+.theme2-newsletter-input:focus {
+  border-color: var(--theme2-primary);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.theme2-newsletter-submit {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--theme2-radius-sm);
+  background-color: var(--theme2-primary);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--theme2-transition);
+}
+
+.theme2-newsletter-submit:hover {
+  background-color: var(--theme2-primary-hover);
+}
+
+/* Footer Bottom Bar */
+.theme2-footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--theme2-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--theme2-text-muted);
+}
+
+.theme2-heart {
+  color: var(--theme2-primary);
+}
+
+/* Responsiveness */
+@media (min-width: 1920px) {
+  .theme2-footer {
+    padding: 90px 0 40px 0;
+  }
+  .theme2-footer-grid {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .theme2-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .theme2-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .theme2-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .theme2-footer {
+    padding: 50px 0 20px 0;
+  }
+  .theme2-footer-grid {
+    gap: 20px;
+  }
+  .theme2-footer-col-desc {
+    font-size: 0.8rem;
+  }
+}

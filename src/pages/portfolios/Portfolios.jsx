@@ -7,7 +7,8 @@ import theme1Img from '../../assets/themes/theme2.png'
 import mainThemeImg from '../../assets/themes/theme1.png'
 import './Portfolios.css'
 import './MainTheme.css'
-import './Theme1.css'
+import './Theme1Portfolio.css'
+import './Theme2Portfolio.css'
 
 const THEMES_DATA = [
   {
@@ -41,6 +42,22 @@ const THEMES_DATA = [
       'Interactive Work & Education Timeline Tabs',
       'Responsive Grid Layout & Vector Iconography',
     ]
+  },
+  {
+    id: 'theme2',
+    name: 'Modern Executive & Dark Design',
+    tagline: 'Sleek dark theme with gold accents, hero stats & service grid',
+    badge: 'EXECUTIVE',
+    image: theme1Img,
+    bgGradient: 'linear-gradient(135deg, #0d0e12 0%, #161b22 50%, #0f172a 100%)',
+    colors: ['#0d0e12', '#d4af37', '#161b22', '#ffffff'],
+    description: 'A modern executive dark portfolio theme featuring sophisticated typography, hero stats bar, featured project highlights, service offerings, and interactive client testimonials.',
+    features: [
+      'Modern Executive Dark Aesthetic & Gold Accents',
+      'Hero Statistics Bar & Key Performance Metrics',
+      'Featured Projects & Interactive Case Studies',
+      'Services Grid, Testimonials & Work Process',
+    ]
   }
 ]
 
@@ -53,6 +70,7 @@ export default function PortfoliosPage() {
 
   const activeTheme = getActiveThemeKey()
   const isTheme1 = activeTheme.includes('theme1')
+  const isTheme2 = activeTheme.includes('theme2')
 
   useEffect(() => {
     if (isTheme1) {
@@ -68,12 +86,11 @@ export default function PortfoliosPage() {
   const toggleTheme = () => setIsDark(prev => !prev)
 
   const handlePreviewTheme = (themeId) => {
-    sessionStorage.setItem('preview-theme', themeId)
     window.open(`/?theme=${themeId}`, '_blank')
   }
 
   return (
-    <div className={`portfolios-page ${isTheme1 ? 'portfolios-theme1' : 'portfolios-main-theme'}`}>
+    <div className={`portfolios-page ${isTheme1 ? 'portfolios-theme1' : isTheme2 ? 'portfolios-theme2' : 'portfolios-main-theme'}`}>
       {/* Top Navbar */}
       <nav className="portfolios-nav">
         <div className="portfolios-nav-inner">

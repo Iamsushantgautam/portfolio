@@ -1,0 +1,268 @@
+/* CTA Section Styles for Theme 2 */
+.theme2-cta-card {
+  background: linear-gradient(135deg, #F3EEFF 0%, #FAF8FF 100%);
+  border: 1px solid var(--theme2-border-accent);
+  border-radius: var(--theme2-radius-lg);
+  padding: 50px 60px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 360px;
+}
+
+.theme2-cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.theme2-cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--theme2-text);
+  margin: 12px 0 16px 0;
+  line-height: 1.2;
+}
+
+.theme2-cta-desc {
+  font-size: 1rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+/* Contact Info Column */
+.theme2-cta-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.theme2-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 12px 18px;
+  border-radius: var(--theme2-radius-md);
+  border: 1px solid var(--theme2-border-light);
+  box-shadow: var(--theme2-shadow-sm);
+}
+
+.theme2-contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--theme2-radius-sm);
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.theme2-contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme2-contact-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--theme2-text-muted);
+  text-transform: uppercase;
+}
+
+.theme2-contact-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--theme2-text);
+  text-decoration: none;
+}
+
+.theme2-contact-value:hover {
+  color: var(--theme2-primary);
+}
+
+.theme2-copy-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--theme2-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--theme2-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--theme2-transition);
+  flex-shrink: 0;
+}
+
+.theme2-copy-btn:hover {
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+}
+
+.theme2-copy-btn.copied {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+/* Paper Plane Background SVG Illustration */
+.theme2-cta-paperplane {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 240px;
+  height: 240px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+/* Contact Form & Info Right Box */
+.theme2-cta-right-box {
+  z-index: 2;
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.theme2-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 18px 20px;
+  border-radius: var(--theme2-radius-md);
+  border: 1px solid var(--theme2-border-light);
+  box-shadow: var(--theme2-shadow-md);
+}
+
+.theme2-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.theme2-form-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--theme2-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.theme2-form-input {
+  width: 100%;
+  padding: 7px 12px;
+  border-radius: var(--theme2-radius-sm);
+  border: 1px solid var(--theme2-border);
+  font-size: 0.84rem;
+  font-family: inherit;
+  color: var(--theme2-text);
+  background-color: #FFFFFF;
+  transition: var(--theme2-transition);
+}
+
+.theme2-form-input:focus {
+  outline: none;
+  border-color: var(--theme2-primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.theme2-form-textarea {
+  resize: none;
+  height: 65px;
+}
+
+.theme2-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 24px;
+  border-radius: var(--theme2-radius-md);
+  border: 1px solid var(--theme2-border-light);
+  box-shadow: var(--theme2-shadow-md);
+}
+
+.theme2-success-icon {
+  color: #10B981;
+  margin-bottom: 12px;
+}
+
+.theme2-form-success h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--theme2-text);
+  margin: 0 0 6px 0;
+}
+
+.theme2-form-success p {
+  font-size: 0.88rem;
+  color: var(--theme2-text-muted);
+  margin: 0 0 12px 0;
+}
+
+/* Responsiveness */
+@media (min-width: 1920px) {
+  .theme2-cta-card {
+    padding: 60px 80px;
+  }
+  .theme2-cta-title {
+    font-size: 2.85rem;
+  }
+  .theme2-cta-desc {
+    font-size: 1.15rem;
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 992px) {
+  .theme2-cta-card {
+    grid-template-columns: 1fr;
+    padding: 36px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .theme2-cta-card {
+    padding: 28px 20px;
+  }
+  .theme2-cta-title {
+    font-size: 1.75rem;
+  }
+  .theme2-contact-item {
+    padding: 10px 14px;
+    gap: 12px;
+  }
+  .theme2-contact-value {
+    font-size: 0.8rem;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 380px) {
+  .theme2-cta-card {
+    padding: 20px 14px;
+  }
+  .theme2-cta-title {
+    font-size: 1.45rem;
+  }
+  .theme2-contact-icon {
+    width: 34px;
+    height: 34px;
+  }
+}

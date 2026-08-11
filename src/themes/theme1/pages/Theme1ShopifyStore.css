@@ -1,0 +1,515 @@
+/* ============================================
+   Theme1ShopifyStore.css — Theme 1 Shopify Store Dedicated Styles
+   Location: src/themes/theme1/pages/Theme1ShopifyStore.css
+   ============================================ */
+
+.shopify-theme1 {
+  --sp-bg: #f8fafc;
+  --sp-card-bg: #ffffff;
+  --sp-text: #0f172a;
+  --sp-text-muted: #64748b;
+  --sp-primary: #6366f1;
+  --sp-primary-alt: #4f46e5;
+  --sp-border: rgba(99, 102, 241, 0.15);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--sp-bg);
+  color: var(--sp-text);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .shopify-theme1,
+.shopify-theme1.dark-theme {
+  --sp-bg: #0f172a;
+  --sp-card-bg: #1e1b4b;
+  --sp-text: #ffffff;
+  --sp-text-muted: rgba(255, 255, 255, 0.7);
+  --sp-primary: #6366f1;
+  --sp-primary-alt: #818cf8;
+  --sp-border: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Navbar ── */
+.shopify-theme1 .sp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 1000;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.shopify-theme1 .sp-navbar.sp-scrolled {
+  background: rgba(248, 250, 252, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sp-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme .shopify-theme1 .sp-navbar.sp-scrolled {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.shopify-theme1 .sp-nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopify-theme1 .sp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 50px;
+  background: var(--sp-card-bg);
+  color: var(--sp-text);
+  border: 1px solid var(--sp-border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.shopify-theme1 .sp-back-btn:hover {
+  background: var(--sp-primary);
+  color: #ffffff;
+  border-color: var(--sp-primary);
+  transform: translateY(-2px);
+}
+
+.shopify-theme1 .sp-nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--sp-text);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.shopify-theme1 .sp-nav-logo .logo-dot {
+  color: var(--sp-primary);
+}
+
+.shopify-theme1 .change-theme {
+  color: var(--sp-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.shopify-theme1 .change-theme:hover {
+  transform: rotate(20deg) scale(1.1);
+  color: var(--sp-primary);
+}
+
+.shopify-theme1 .sp-hire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 50px;
+  background: var(--sp-primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.shopify-theme1 .sp-hire-btn:hover {
+  background: var(--sp-primary-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* ── Hero Section ── */
+.shopify-theme1 .sp-hero {
+  padding: 130px 2rem 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--sp-bg);
+}
+
+.shopify-theme1 .sp-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shopify-theme1 .sp-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--sp-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  margin-bottom: 1.5rem;
+}
+
+.shopify-theme1 .sp-hero-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--sp-text);
+  line-height: 1.15;
+  margin: 0 0 1.2rem 0;
+  letter-spacing: -0.02em;
+}
+
+.shopify-theme1 .sp-hero-title-accent {
+  color: var(--sp-primary);
+}
+
+.shopify-theme1 .sp-hero-desc {
+  font-size: 1.05rem;
+  color: var(--sp-text-muted);
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Stats */
+.shopify-theme1 .sp-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 820px;
+}
+
+.shopify-theme1 .sp-stat {
+  background: var(--sp-card-bg);
+  border: 1px solid var(--sp-border);
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.shopify-theme1 .sp-stat:hover {
+  transform: translateY(-3px);
+  border-color: var(--sp-primary);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+}
+
+.shopify-theme1 .sp-stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--sp-primary);
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.shopify-theme1 .sp-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sp-text-muted);
+}
+
+/* ── Stack Marquee ── */
+.shopify-theme1 .sp-stack-marquee {
+  overflow: hidden;
+  background: var(--sp-card-bg);
+  border-top: 1px solid var(--sp-border);
+  border-bottom: 1px solid var(--sp-border);
+  padding: 1.1rem 0;
+  margin-bottom: 3rem;
+}
+
+.shopify-theme1 .sp-stack-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: spMarqueeTheme1 35s linear infinite;
+}
+
+.shopify-theme1 .sp-stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sp-text);
+  white-space: nowrap;
+}
+
+.shopify-theme1 .sp-stack-chip-divider {
+  color: var(--sp-primary);
+  margin-left: 1rem;
+}
+
+@keyframes spMarqueeTheme1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+/* ── Projects Container ── */
+.shopify-theme1 .sp-projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 2rem 80px;
+}
+
+.shopify-theme1 .t1sp-projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.shopify-theme1 .t1sp-project-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--sp-card-bg);
+  border: 1px solid var(--sp-border);
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.shopify-theme1 .t1sp-project-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-4px);
+}
+
+.shopify-theme1 .t1sp-project-card--reverse {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.shopify-theme1 .t1sp-project-card--reverse .t1sp-img-box {
+  order: 2;
+}
+
+.shopify-theme1 .t1sp-project-card--reverse .t1sp-data {
+  order: 1;
+}
+
+.shopify-theme1 .t1sp-img-box {
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 380px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--sp-border);
+}
+
+.shopify-theme1 .t1sp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.shopify-theme1 .t1sp-project-card:hover .t1sp-img {
+  transform: scale(1.02);
+}
+
+.shopify-theme1 .t1sp-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.shopify-theme1 .t1sp-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--sp-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.shopify-theme1 .t1sp-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--sp-text);
+  margin: 0 0 0.3rem 0;
+  line-height: 1.2;
+}
+
+.shopify-theme1 .t1sp-subtitle {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sp-primary);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.shopify-theme1 .t1sp-description {
+  font-size: 0.94rem;
+  color: var(--sp-text-muted);
+  line-height: 1.65;
+  margin: 0 0 1.2rem 0;
+}
+
+.shopify-theme1 .t1sp-password-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--sp-text);
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.shopify-theme1 .t1sp-password-box:hover {
+  background: rgba(99, 102, 241, 0.16);
+}
+
+.shopify-theme1 .t1sp-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shopify-theme1 .t1sp-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 12px;
+  background: var(--sp-primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+}
+
+.shopify-theme1 .t1sp-preview-btn:hover {
+  background: var(--sp-primary-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+}
+
+/* ── Footer ── */
+.shopify-theme1 .sp-footer {
+  padding: 70px 2rem 50px;
+  text-align: center;
+  background: var(--sp-bg);
+  border-top: 1px solid var(--sp-border);
+}
+
+.shopify-theme1 .sp-footer-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.shopify-theme1 .sp-footer-tagline {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--sp-text);
+  margin: 0 0 0.8rem 0;
+}
+
+.shopify-theme1 .sp-footer-tagline span {
+  color: var(--sp-primary);
+}
+
+.shopify-theme1 .sp-footer-sub {
+  font-size: 1rem;
+  color: var(--sp-text-muted);
+  margin: 0 0 2.2rem 0;
+  line-height: 1.6;
+}
+
+.shopify-theme1 .sp-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  background: var(--sp-primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.shopify-theme1 .sp-footer-cta:hover {
+  background: var(--sp-primary-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.shopify-theme1 .sp-footer-copy {
+  margin-top: 3.5rem;
+  font-size: 0.85rem;
+  color: var(--sp-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .shopify-theme1 .t1sp-project-card,
+  .shopify-theme1 .t1sp-project-card--reverse {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .shopify-theme1 .t1sp-project-card--reverse .t1sp-img-box {
+    order: 1;
+  }
+
+  .shopify-theme1 .t1sp-project-card--reverse .t1sp-data {
+    order: 2;
+  }
+
+  .shopify-theme1 .sp-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .shopify-theme1 .sp-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .shopify-theme1 .sp-hero-title {
+    font-size: 2.1rem;
+  }
+
+  .shopify-theme1 .t1sp-project-card {
+    padding: 1.4rem;
+    border-radius: 18px;
+  }
+}
