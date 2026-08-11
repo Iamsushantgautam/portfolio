@@ -57,7 +57,7 @@ export default function Header() {
         <a href="/" className="theme2-logo" onClick={(e) => handleNavClick(e, 'Home', '#hero')}>
           <div className="theme2-logo-text">
             <span className="theme2-logo-name">{personalInfo?.logotext || personalInfo?.name || 'SUSHANT GAUTAM'}</span>
-            <span className="theme2-logo-title">{personalInfo?.role || 'FULL STACK DEVELOPER'}</span>
+            <span className="theme2-logo-title">{personalInfo?.logoRole || 'FULL STACK DEVELOPER'}</span>
           </div>
         </a>
 

@@ -46,18 +46,18 @@ const THEMES_DATA = [
   },
   {
     id: 'theme2',
-    name: 'Modern Executive & Dark Design',
-    tagline: 'Sleek dark theme with gold accents, hero stats & service grid',
-    badge: 'EXECUTIVE',
+    name: 'Modern Full-Stack & Purple Design',
+    tagline: 'Sleek, vibrant violet design with hero specialties & project showcase',
+    badge: 'FULL STACK',
     image: theme2Img,
-    bgGradient: 'linear-gradient(135deg, #0d0e12 0%, #161b22 50%, #0f172a 100%)',
-    colors: ['#0d0e12', '#d4af37', '#161b22', '#ffffff'],
-    description: 'A modern executive dark portfolio theme featuring sophisticated typography, hero stats bar, featured project highlights, service offerings, and interactive client testimonials.',
+    bgGradient: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #4C1D95 100%)',
+    colors: ['#8B5CF6', '#7C3AED', '#F3EEFF', '#FFFFFF', '#0F172A'],
+    description: 'A modern full-stack developer portfolio featuring vibrant purple accents, interactive specialty badges, featured projects, dedicated Shopify stores showcase, and work process steps.',
     features: [
-      'Modern Executive Dark Aesthetic & Gold Accents',
-      'Hero Statistics Bar & Key Performance Metrics',
-      'Featured Projects & Interactive Case Studies',
-      'Services Grid, Testimonials & Work Process',
+      'Clean Violet Aesthetic & Modern Typography',
+      'Hero Section with Floating Specialty Cards',
+      'Featured Projects, Shopify Stores & Utility Tools',
+      'Comprehensive Skills & Work Process Timeline',
     ]
   }
 ]

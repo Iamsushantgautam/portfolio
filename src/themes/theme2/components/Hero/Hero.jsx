@@ -1,15 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import portfolioData from '../../../../data/portfolio.json';
-import { ArrowUpRight, Download, Cpu, Activity } from 'lucide-react';
+import { ArrowUpRight, Download, Cpu, Activity, Loader2, Check } from 'lucide-react';
+import { SiLaravel, SiReact, SiShopify, SiCanva, SiMongodb, SiMysql } from 'react-icons/si';
 import mypic3 from '../../../../assets/mypic3.webp';
 import cvFile from '../../../../assets/SushantCV.pdf';
 import './Hero.css';
 
 export default function Hero() {
   const { personalInfo } = portfolioData;
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloaded, setDownloaded] = useState(false);
+
+  const handleDownloadCV = (e) => {
+    e.preventDefault();
+    if (isDownloading) return;
+
+    setIsDownloading(true);
+    setDownloaded(false);
+
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = cvFile || '/assets/SushantCV.pdf';
+      link.download = 'SushantCV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setIsDownloading(false);
+      setDownloaded(true);
+
+      setTimeout(() => {
+        setDownloaded(false);
+      }, 2500);
+    }, 1200);
+  };
 
   return (
     <section id="hero" className="theme2-hero">
+      {/* Background Decorative Grid & Ambient Glow Orbs */}
+      <div className="theme2-hero-bg-grid" aria-hidden="true"></div>
+      <div className="theme2-hero-glow-orb theme2-hero-glow-1" aria-hidden="true"></div>
+      <div className="theme2-hero-glow-orb theme2-hero-glow-2" aria-hidden="true"></div>
+
       <div className="theme2-container theme2-hero-grid">
         {/* Left Column Text */}
         <div className="theme2-hero-content">
@@ -25,19 +57,59 @@ export default function Hero() {
             <a href="#projects" className="theme2-btn theme2-btn-primary">
               VIEW WORK <ArrowUpRight size={18} />
             </a>
-            <a
-              href={cvFile || '/assets/SushantCV.pdf'}
-              download="Sushant_Kumar_Gautam_CV.pdf"
-              className="theme2-btn theme2-btn-secondary"
+            <button
+              onClick={handleDownloadCV}
+              disabled={isDownloading}
+              className={`theme2-btn theme2-btn-secondary ${isDownloading ? 'theme2-btn-loading' : ''} ${downloaded ? 'theme2-btn-success' : ''}`}
+              title="Download CV (PDF)"
             >
-              DOWNLOAD CV <Download size={16} />
-            </a>
+              {isDownloading ? (
+                <>
+                  DOWNLOADING... <Loader2 size={16} className="theme2-spin-fast" />
+                </>
+              ) : downloaded ? (
+                <>
+                  DOWNLOADED! <Check size={16} color="#10B981" />
+                </>
+              ) : (
+                <>
+                  DOWNLOAD CV <Download size={16} />
+                </>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Right Column Profile Image with Futuristic Elements */}
+        {/* Right Column Profile Image with Floating Tech Badges & UI Cards */}
         <div className="theme2-hero-graphic">
+          <div className="theme2-hero-glow-center"></div>
           <div className="theme2-hero-ring"></div>
+          <div className="theme2-hero-ring-inner"></div>
+
+          {/* Floating Tech Stack Badges */}
+          <div className="theme2-float-tech-badge theme2-float-tech-laravel" title="Laravel">
+            <SiLaravel color="#FF2D20" className="theme2-tech-icon-svg" />
+          </div>
+
+          <div className="theme2-float-tech-badge theme2-float-tech-react" title="React">
+            <SiReact color="#61DAFB" className="theme2-tech-icon-svg theme2-spin-slow" />
+          </div>
+
+          <div className="theme2-float-tech-badge theme2-float-tech-shopify" title="Shopify">
+            <SiShopify color="#96BF48" className="theme2-tech-icon-svg" />
+          </div>
+
+          <div className="theme2-float-tech-badge theme2-float-tech-canva" title="Canva">
+            <SiCanva color="#00C4CC" className="theme2-tech-icon-svg" />
+          </div>
+
+          <div className="theme2-float-tech-badge theme2-float-tech-mongodb" title="MongoDB">
+            <SiMongodb color="#47A248" className="theme2-tech-icon-svg" />
+          </div>
+
+          <div className="theme2-float-tech-badge theme2-float-tech-mysql" title="MySQL">
+            <SiMysql color="#4479A1" className="theme2-tech-icon-svg" />
+          </div>
 
           <div className="theme2-hero-avatar-wrapper">
             <img

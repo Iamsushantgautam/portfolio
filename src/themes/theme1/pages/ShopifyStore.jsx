@@ -2,10 +2,10 @@ import { useEffect, useState, Suspense, lazy } from 'react'
 import { ArrowLeft, ArrowRight, ShoppingBag, Globe, Lock, Copy, Check, Moon, Sun } from 'lucide-react'
 import Lenis from 'lenis'
 import portfolioData from '../../../data/portfolio.json'
-import storeTaansh   from '../../../assets/shopify-store/store1-full.png'
-import storeWelthCo  from '../../../assets/shopify-store/store2-full.png'
-import storeSkinora  from '../../../assets/shopify-store/store3-full.png'
-import storeZynr     from '../../../assets/shopify-store/store4-full.png'
+import storeTaansh from '../../../assets/shopify-store/store1-full.png'
+import storeWelthCo from '../../../assets/shopify-store/store2-full.png'
+import storeSkinora from '../../../assets/shopify-store/store3-full.png'
+import storeZynr from '../../../assets/shopify-store/store4-full.png'
 import { motion } from 'framer-motion'
 import '../newcss.css'
 import './Theme1ShopifyStore.css'
@@ -73,7 +73,7 @@ export default function ShopifyStorePage() {
     }
     return () => {
       if (reqId) cancelAnimationFrame(reqId)
-      try { if (lenis) lenis.destroy() } catch (_) {}
+      try { if (lenis) lenis.destroy() } catch (_) { }
     }
   }, [])
 
@@ -127,10 +127,10 @@ export default function ShopifyStorePage() {
 
           <div className="sp-hero-stats">
             {[
-              { value: '4+',   label: 'Live Stores'     },
-              { value: '100%', label: 'Custom Themes'   },
-              { value: '3x',   label: 'Conversion Lift' },
-              { value: '4.9★', label: 'Client Rating'   },
+              { value: '4+', label: 'Live Stores' },
+              { value: '100%', label: 'Custom Themes' },
+              { value: '3x', label: 'Conversion Lift' },
+              { value: '4.9★', label: 'Client Rating' },
             ].map(s => (
               <div key={s.label} className="sp-stat">
                 <span className="sp-stat-value">{s.value}</span>

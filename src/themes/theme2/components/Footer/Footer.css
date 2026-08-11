@@ -1,15 +1,20 @@
 /* Footer Section Styles for Theme 2 */
 .theme2-footer {
   background-color: var(--theme2-background);
-  border-t: 1px solid var(--theme2-border);
-  padding: 70px 0 30px 0;
+  border-top: 1px solid var(--theme2-border);
+  padding: 75px 0 35px 0;
 }
 
 .theme2-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1.8fr 1fr 1.2fr;
+  gap: 60px;
   margin-bottom: 50px;
+}
+
+.theme2-footer-brand-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .theme2-footer-col-desc {
@@ -17,7 +22,35 @@
   color: var(--theme2-text-muted);
   line-height: 1.6;
   margin-top: 16px;
-  max-width: 320px;
+  max-width: 380px;
+}
+
+.theme2-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.theme2-footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--theme2-radius-md);
+  background-color: var(--theme2-primary-soft);
+  color: var(--theme2-primary);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  text-decoration: none;
+  transition: var(--theme2-transition);
+}
+
+.theme2-footer-social-btn:hover {
+  background-color: var(--theme2-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .theme2-footer-title {
@@ -75,38 +108,31 @@
     padding: 90px 0 40px 0;
   }
   .theme2-footer-grid {
-    gap: 60px;
+    gap: 80px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
   .theme2-footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .theme2-footer-brand-col {
+    grid-column: span 2;
   }
 }
 
 @media (max-width: 576px) {
   .theme2-footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 30px;
   }
-
+  .theme2-footer-brand-col {
+    grid-column: span 1;
+  }
   .theme2-footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
-  }
-}
-
-@media (max-width: 380px) {
-  .theme2-footer {
-    padding: 50px 0 20px 0;
-  }
-  .theme2-footer-grid {
-    gap: 20px;
-  }
-  .theme2-footer-col-desc {
-    font-size: 0.8rem;
   }
 }

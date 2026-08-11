@@ -1,6 +1,7 @@
 import React from 'react';
 import portfolioData from '../../../../data/portfolio.json';
-import { Github, Linkedin, Instagram, Heart, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Instagram, Heart, ExternalLink, Download, Mail } from 'lucide-react';
+import cvFile from '../../../../assets/SushantCV.pdf';
 import './Footer.css';
 
 export default function Footer() {
@@ -16,11 +17,6 @@ export default function Footer() {
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#process' },
     { name: 'Contact', href: '#contact' },
-  ];
-
-  const pageLinks = [
-    { name: 'Shopify Stores Page', href: '/shopifystore', isPage: true },
-    { name: 'Portfolio Designs Page', href: '/portfolios', isPage: true },
   ];
 
   const handleLinkClick = (e, link) => {
@@ -68,20 +64,40 @@ export default function Footer() {
     <footer className="theme2-footer">
       <div className="theme2-container">
         <div className="theme2-footer-grid">
-          {/* Col 1: Brand */}
-          <div>
+
+          {/* Col 1: Brand Info & Socials */}
+          <div className="theme2-footer-brand-col">
             <a href="/" className="theme2-logo" onClick={(e) => handleLinkClick(e, { name: 'Home', href: '#hero' })}>
               <div className="theme2-logo-text">
                 <span className="theme2-logo-name">{personalInfo?.logotext || personalInfo?.name || 'SUSHANT GAUTAM'}</span>
                 <span className="theme2-logo-title">{personalInfo?.role || 'FULL STACK DEVELOPER'}</span>
               </div>
             </a>
+
             <p className="theme2-footer-col-desc">{personalInfo?.description}</p>
+
+            <div className="theme2-footer-socials">
+              {socialLinks.map((social, idx) => {
+                const IconComp = social.Icon;
+                return (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="theme2-footer-social-btn"
+                    title={social.name}
+                  >
+                    <IconComp size={16} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Col 2: Quick Links */}
+          {/* Col 2: Navigation Links */}
           <div>
-            <h4 className="theme2-footer-title">QUICK LINKS</h4>
+            <h4 className="theme2-footer-title">NAVIGATION</h4>
             <ul className="theme2-footer-links">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
@@ -97,49 +113,42 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Dedicated Pages & Showcase Section */}
+          {/* Col 3: Explore & Resources */}
           <div>
-            <h4 className="theme2-footer-title">SHOWCASE & PAGES</h4>
+            <h4 className="theme2-footer-title">EXPLORE & RESOURCES</h4>
             <ul className="theme2-footer-links">
-              {pageLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a
-                    href={link.href}
-                    className="theme2-footer-link"
-                    onClick={(e) => handleLinkClick(e, link)}
-                  >
-                    <ExternalLink size={14} />
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/portfolios"
+                  className="theme2-footer-link"
+                  onClick={(e) => handleLinkClick(e, { href: '/portfolios', isPage: true })}
+                >
+                  <ExternalLink size={14} /> Portfolio Designs Page
+                </a>
+              </li>
+              <li>
+                <a
+                  href={cvFile || '/assets/SushantCV.pdf'}
+                  download="SushantCV.pdf"
+                  className="theme2-footer-link"
+                >
+                  <Download size={14} /> Download Resume (CV)
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${personalInfo?.email || 'iamsushantgautam@gmail.com'}`}
+                  className="theme2-footer-link"
+                >
+                  <Mail size={14} /> Hire & Get in Touch
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Follow Me */}
-          <div>
-            <h4 className="theme2-footer-title">FOLLOW ME</h4>
-            <ul className="theme2-footer-links">
-              {socialLinks.map((social, idx) => {
-                const IconComp = social.Icon;
-                return (
-                  <li key={idx}>
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="theme2-footer-link"
-                    >
-                      <IconComp size={16} /> {social.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
         </div>
 
-        {/* Bottom copyright line */}
+        {/* Bottom copyright bar */}
         <div className="theme2-footer-bottom">
           <span>© {new Date().getFullYear()} {personalInfo?.name || 'Sushant Gautam'}. All Rights Reserved.</span>
           <span>
