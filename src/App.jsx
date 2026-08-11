@@ -1,5 +1,5 @@
-import React, { Component, Suspense, lazy } from 'react'
-import ActiveTheme, { getActiveThemeKey } from './themes'
+import React, { Component, Suspense, lazy, useEffect } from 'react'
+import ActiveTheme, { getActiveThemeKey, updateMetaThemeColor } from './themes'
 import portfolioData from './data/portfolio.json'
 
 // Maps route segment → exact PascalCase filename in pages/ folders
@@ -83,6 +83,10 @@ class RouteErrorBoundary extends Component {
 function App() {
   const path = window.location.pathname
   const PageComponent = ROUTES[path]
+
+  useEffect(() => {
+    updateMetaThemeColor()
+  }, [path])
 
   // Matched route → render the page
   if (PageComponent) {
