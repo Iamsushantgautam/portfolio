@@ -73,7 +73,6 @@ export default function ShopifyStores() {
                       src={imageSrc}
                       alt={store.subtitle || store.category}
                       className="theme2-shopify-img"
-                      loading="lazy"
                       decoding="async"
                       onError={(e) => {
                         e.target.onerror = null;

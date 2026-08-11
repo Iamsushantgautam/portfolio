@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import portfolioData from '../../../../data/portfolio.json';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Home,
+  User,
+  Briefcase,
+  ShoppingBag,
+  Code,
+  Sparkles,
+  Mail,
+  ChevronRight,
+  Github,
+  Linkedin,
+  Instagram
+} from 'lucide-react';
 import './Header.css';
 
 export default function Header() {
@@ -11,13 +26,13 @@ export default function Header() {
   const isHomePage = typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '/index.html');
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Shopify Stores', href: '#shopify' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#process' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '#hero', icon: Home },
+    { name: 'About', href: '#about', icon: User },
+    { name: 'Projects', href: '#projects', icon: Briefcase },
+    { name: 'Shopify Stores', href: '#shopify', icon: ShoppingBag },
+    { name: 'Skills', href: '#skills', icon: Code },
+    { name: 'Experience', href: '#process', icon: Sparkles },
+    { name: 'Contact', href: '#contact', icon: Mail }
   ];
 
   const handleNavClick = (e, name, href) => {
@@ -96,18 +111,91 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`theme2-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={isHomePage ? link.href : '/'}
-            className="theme2-mobile-link"
-            onClick={(e) => handleNavClick(e, link.name, link.href)}
+      {/* Backdrop Overlay when side drawer is open */}
+      {mobileMenuOpen && (
+        <div
+          className="theme2-mobile-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Side Navigation Drawer */}
+      <div className={`theme2-mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="theme2-drawer-top">
+          <div className="theme2-logo-text">
+            <span className="theme2-logo-name">{personalInfo?.logotext || personalInfo?.name || 'SUSHANT GAUTAM'}</span>
+            <span className="theme2-logo-title">{personalInfo?.logoRole || 'FULL STACK DEVELOPER'}</span>
+          </div>
+
+          <button
+            className="theme2-drawer-close-btn"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close navigation menu"
           >
-            {link.name}
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="theme2-mobile-menu-header">
+        </div>
+
+        <div className="theme2-mobile-nav-list">
+          {navLinks.map((link) => {
+            const IconComponent = link.icon;
+            const isActive = activeNav === link.name;
+            return (
+              <a
+                key={link.name}
+                href={isHomePage ? link.href : '/'}
+                className={`theme2-mobile-link ${isActive ? 'active' : ''}`}
+                onClick={(e) => handleNavClick(e, link.name, link.href)}
+              >
+                <div className="theme2-mobile-link-content">
+                  <span className="theme2-mobile-link-icon">
+                    <IconComponent size={18} />
+                  </span>
+                  <span className="theme2-mobile-link-name">{link.name}</span>
+                </div>
+                <ChevronRight size={16} className="theme2-mobile-link-arrow" />
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Drawer Footer Actions & Socials */}
+        <div className="theme2-mobile-menu-footer">
+          <a
+            href={isHomePage ? '#contact' : '/'}
+            className="theme2-btn theme2-btn-primary theme2-mobile-cta"
+            onClick={(e) => handleNavClick(e, 'Contact', '#contact')}
+          >
+            LET'S TALK <ArrowUpRight size={18} />
           </a>
-        ))}
+
+          <div className="theme2-mobile-socials">
+            {personalInfo?.github && (
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="github">
+                <Github size={16} />
+              </a>
+            )}
+            {personalInfo?.linkedin && (
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="linkedin">
+                <Linkedin size={16} />
+              </a>
+            )}
+            {personalInfo?.instagram && (
+              <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="instagram">
+                <Instagram size={16} />
+              </a>
+            )}
+            {personalInfo?.email && (
+              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="email">
+                <Mail size={16} />
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </header>
   );
