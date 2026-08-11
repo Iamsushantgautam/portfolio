@@ -26,7 +26,7 @@ function loadPage(pageName) {
     const rawKey = getActiveThemeKey()
     const activeTheme = rawKey.includes('theme2') ? 'theme2' : rawKey.includes('theme1') ? 'theme1' : 'main-theme'
 
-    // 1. Try active theme's page
+    // 1. Try active theme's own page
     const themePath = `./themes/${activeTheme}/pages/${PascalName}.jsx`
     if (themePageModules[themePath]) {
       return themePageModules[themePath]()
@@ -38,7 +38,7 @@ function loadPage(pageName) {
       return sharedPageModules[sharedPath]()
     }
 
-    // 3. If page is not available, redirect to home page
+    // 3. If active theme does not have its own page, redirect to home page
     if (typeof window !== 'undefined') {
       window.location.replace('/')
     }

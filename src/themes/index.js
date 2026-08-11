@@ -14,15 +14,36 @@ const themes = {
 
 export function getActiveThemeKey() {
   if (typeof window !== 'undefined') {
-    // URL parameter override (e.g. /?theme=theme2)
+    // 1. URL parameter override (e.g. /?theme=theme1)
     const params = new URLSearchParams(window.location.search)
     const urlTheme = params.get('theme') || params.get('preview')
     if (urlTheme && themes[urlTheme.toLowerCase().trim()]) {
-      return urlTheme.toLowerCase().trim()
+      const selectedTheme = urlTheme.toLowerCase().trim()
+      try {
+        sessionStorage.setItem('activePreviewTheme', selectedTheme)
+        params.delete('theme')
+        params.delete('preview')
+        const newSearch = params.toString()
+        const cleanUrl = window.location.pathname + (newSearch ? `?${newSearch}` : '') + window.location.hash
+        window.history.replaceState(null, '', cleanUrl)
+      } catch (err) {
+        // Silent fallback
+      }
+      return selectedTheme
+    }
+
+    // 2. Active preview session override
+    try {
+      const savedPreview = sessionStorage.getItem('activePreviewTheme')
+      if (savedPreview && themes[savedPreview.toLowerCase().trim()]) {
+        return savedPreview.toLowerCase().trim()
+      }
+    } catch (err) {
+      // Silent fallback
     }
   }
 
-  // Strictly follow portfolio.json activeTheme setting (no cache/localStorage)
+  // 3. Follow portfolio.json activeTheme setting
   const rawKey = (portfolioData && (portfolioData.activeTheme || portfolioData.theme)) || 'main-theme'
   return rawKey.toString().toLowerCase().trim()
 }
@@ -51,6 +72,11 @@ export function updateMetaThemeColor(themeKey) {
 
 export function setActiveThemeKey(themeKey) {
   if (typeof window !== 'undefined') {
+    if (themeKey) {
+      try {
+        sessionStorage.setItem('activePreviewTheme', themeKey.toLowerCase().trim())
+      } catch (e) {}
+    }
     updateMetaThemeColor(themeKey)
     window.dispatchEvent(new Event('themechange'))
   }
