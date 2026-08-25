@@ -1,5 +1,5 @@
 {
-  "activeTheme": "main-theme",
+  "activeTheme": "theme1",
   "themes": [
     "main-theme",
     "theme1",
@@ -429,6 +429,40 @@
       ]
     }
   ],
+  "fiverr": {
+    "badge": "Featured Service",
+    "title": "My Fiverr Profile",
+    "titleAccent": "Profile",
+    "category": "Shopify Expert",
+    "subtitle": "I will design and redesign a professional Shopify store, dropshipping store, or e-commerce website.",
+    "descriptions": [
+      "Looking for a high-converting, premium Shopify store? I specialize in creating storefronts that don't just look good but are optimized for sales. Whether it's a new build or a complete redesign, I bring your brand to life with modern UI/UX principles.",
+      "With over 100+ stores built and optimized, I focus on performance, mobile-first design, and seamless user journeys. My goal is to transform your vision into a profitable online business using the best practices in e-commerce strategy.",
+      "Ready to start your dropshipping journey or scale your current brand? Let's collaborate and create something exceptional. Click below to view my full portfolio and reviews directly on Fiverr."
+    ],
+    "image": "/assets/fiverr/shopify-fiverr.png",
+    "bgText": "FIVERR // SHOPIFY EXPERT // FREELANCE // TOP RATED // DESIGN // REDESIGN //",
+    "buttonText": "Hire Me on Fiverr",
+    "link": "https://www.fiverr.com/sushantkumardev/design-and-redesign-a-shopify-store-dropshipping-store-or-ecommerce-website",
+    "features": [
+      {
+        "icon": "Layout",
+        "text": "Custom Shopify Design"
+      },
+      {
+        "icon": "Zap",
+        "text": "High-Converting Layouts"
+      },
+      {
+        "icon": "RefreshCw",
+        "text": "WooCommerce Migration"
+      },
+      {
+        "icon": "ShoppingBag",
+        "text": "Dropshipping Automation"
+      }
+    ]
+  },
   "fiverrFeatures": [
     {
       "icon": "Layout",

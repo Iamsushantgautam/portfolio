@@ -460,3 +460,137 @@
     gap: 20px;
   }
 }
+
+/* ==================================================
+   FIVERR SECTION (THEME 2)
+   ================================================== */
+.theme2-fiverr-section {
+  padding-top: 0;
+  padding-bottom: 60px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.theme2-fiverr-card-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--theme2-border);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 2;
+}
+
+.theme2-fiverr-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.theme2-fiverr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.theme2-fiverr-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--theme2-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--theme2-border-accent);
+  box-shadow: var(--theme2-shadow-lg);
+  background-color: var(--theme2-primary-soft);
+  transition: var(--theme2-transition);
+}
+
+.theme2-fiverr-img-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(139, 92, 246, 0.18);
+}
+
+.theme2-fiverr-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.theme2-fiverr-subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--theme2-text);
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+}
+
+.theme2-fiverr-desc {
+  font-size: 0.88rem;
+  color: var(--theme2-text-muted);
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+
+.theme2-fiverr-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.theme2-fiverr-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: var(--theme2-primary-soft);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--theme2-radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--theme2-primary-hover);
+  transition: var(--theme2-transition);
+}
+
+.theme2-fiverr-feature-pill:hover {
+  background-color: var(--theme2-primary);
+  color: #ffffff;
+}
+
+.theme2-fiverr-feature-pill:hover .theme2-fiverr-feature-icon {
+  color: #ffffff;
+}
+
+.theme2-fiverr-feature-icon {
+  color: var(--theme2-primary);
+}
+
+.theme2-fiverr-actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .theme2-fiverr-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .theme2-fiverr-section {
+    padding-bottom: 40px;
+  }
+  .theme2-fiverr-card-box {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  .theme2-fiverr-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+

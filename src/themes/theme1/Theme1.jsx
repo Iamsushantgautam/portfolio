@@ -11,6 +11,7 @@ import AboutSection from './components/AboutSection'
 import SkillsSection from './components/SkillsSection'
 import QualificationSection from './components/QualificationSection'
 import ProjectsSection from './components/ProjectsSection'
+import FiverrSection from './components/FiverrSection'
 import ContactSection from './components/ContactSection'
 import FooterSection from './components/FooterSection'
 import ScrollUp from './components/ScrollUp'
@@ -300,6 +301,7 @@ export default function Theme1() {
           handlePrevProject={handlePrevProject}
           handleNextProject={handleNextProject}
         />
+        <FiverrSection />
         <ContactSection
           personalInfo={personalInfo}
           formState={formState}

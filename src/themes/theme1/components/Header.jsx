@@ -9,6 +9,7 @@ import {
   Award,
   GraduationCap,
   Layout,
+  ShoppingBag,
   Send,
   X,
   LayoutGrid
@@ -95,6 +96,15 @@ export default function Header({
                 className={`nav__link ${activeNavSection === 'portfolio' ? 'active-link' : ''}`}
               >
                 <Layout size={18} className="nav__icon" />Projects
+              </a>
+            </li>
+            <li className="nav__item">
+              <a
+                href="#fiverr"
+                onClick={(e) => scrollToSection(e, '#fiverr')}
+                className={`nav__link ${activeNavSection === 'fiverr' ? 'active-link' : ''}`}
+              >
+                <ShoppingBag size={18} className="nav__icon" />Fiverr
               </a>
             </li>
             <li className="nav__item">

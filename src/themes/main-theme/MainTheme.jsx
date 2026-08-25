@@ -8,16 +8,17 @@ import './styles/App.css'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import FiverrSection from './components/FiverrSection'
 
 // ─── Lazy (below-the-fold, code-split for faster initial load) ────────────────
-const AboutSection       = lazy(() => import('./components/AboutSection'))
-const EducationSection   = lazy(() => import('./components/EducationSection'))
-const ExperienceSection  = lazy(() => import('./components/ExperienceSection'))
-const SkillsSection      = lazy(() => import('./components/SkillsSection'))
-const Projects           = lazy(() => import('./components/Projects'))
+const AboutSection = lazy(() => import('./components/AboutSection'))
+const EducationSection = lazy(() => import('./components/EducationSection'))
+const ExperienceSection = lazy(() => import('./components/ExperienceSection'))
+const SkillsSection = lazy(() => import('./components/SkillsSection'))
+const Projects = lazy(() => import('./components/Projects'))
 const UtilityToolsSection = lazy(() => import('./components/UtilityToolsSection'))
-const ContactSection     = lazy(() => import('./components/ContactSection'))
-const FooterSection      = lazy(() => import('./components/FooterSection'))
+const ContactSection = lazy(() => import('./components/ContactSection'))
+const FooterSection = lazy(() => import('./components/FooterSection'))
 
 // ─── Skeleton fallback shown while lazy sections load ─────────────────────────
 function SectionLoader() {
@@ -48,9 +49,9 @@ export default function MainTheme() {
     // Remove dark-theme class from body when main-theme mounts
     document.body.classList.remove('dark-theme')
 
-    const isMobile  = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-    const isTouch   = window.matchMedia('(pointer: coarse)').matches
-    const isTablet  = isTouch && window.innerWidth >= 768
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    const isTouch = window.matchMedia('(pointer: coarse)').matches
+    const isTablet = isTouch && window.innerWidth >= 768
 
     // ── Device-adaptive Lenis config ────────────────────────────────
     const lenis = new Lenis({
@@ -124,6 +125,10 @@ export default function MainTheme() {
 
       <Suspense fallback={<SectionLoader />}>
         <UtilityToolsSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <FiverrSection />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>

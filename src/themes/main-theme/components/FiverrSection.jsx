@@ -22,14 +22,17 @@ function FiverrSection() {
   })
 
   const xLeft = useTransform(scrollYProgress, [0, 1], [-100, 100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+
+  const fiverr = portfolioData.fiverr || {}
+  const features = fiverr.features || portfolioData.fiverrFeatures || []
+  const descriptions = fiverr.descriptions || []
 
   return (
-    <section className="projects-list-section fiverr-section" ref={containerRef}>
+    <section className="projects-list-section fiverr-section" id="fiverr" ref={containerRef}>
       {/* Giant Background Text */}
       <div className="plist-bg-text-container">
         <motion.span className="plist-bg-text" style={{ x: xLeft }}>
-          FIVERR // SHOPIFY EXPERT // FREELANCE // TOP RATED // DESIGN // REDESIGN //
+          {fiverr.bgText || 'FIVERR // SHOPIFY EXPERT // FREELANCE // TOP RATED // DESIGN // REDESIGN //'}
         </motion.span>
       </div>
 
@@ -41,14 +44,14 @@ function FiverrSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="fiverr-badge">Featured Service</span>
-          <h1 className="plist-section-title">My Fiverr <span className="plist-title-accent">Profile</span></h1>
+          <span className="fiverr-badge">{fiverr.badge || 'Featured Service'}</span>
+          <h1 className="plist-section-title">
+            My Fiverr <span className="plist-title-accent">{fiverr.titleAccent || 'Profile'}</span>
+          </h1>
         </motion.div>
 
         <div className="fiverr-card-wrapper">
-          <motion.div
-            className="fiverr-image-container"
-          >
+          <motion.div className="fiverr-image-container">
             <div className="fiverr-img-frame">
               <img src={fiverrImg} alt="Shopify Fiverr Gig" className="fiverr-img" />
             </div>
@@ -61,19 +64,17 @@ function FiverrSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="plist-category">Shopify Expert</h2>
-            <h3 className="plist-subtitle">I will design and redesign a professional Shopify store, dropshipping store, or e-commerce website.</h3>
+            <h2 className="plist-category">{fiverr.category || 'Shopify Expert'}</h2>
+            <h3 className="plist-subtitle">{fiverr.subtitle}</h3>
 
-            <p className="plist-description">
-              Looking for a high-converting, premium Shopify store? I specialize in creating storefronts that don't just look good but are optimized for sales. Whether it's a new build or a complete redesign, I bring your brand to life with modern UI/UX principles.
-            </p>
-
-            <p className="plist-description">
-              With over 100+ stores built and optimized, I focus on performance, mobile-first design, and seamless user journeys. My goal is to transform your vision into a profitable online business using the best practices in e-commerce strategy.
-            </p>
+            {descriptions.slice(0, 2).map((desc, idx) => (
+              <p key={idx} className="plist-description">
+                {desc}
+              </p>
+            ))}
 
             <div className="fiverr-features">
-              {(portfolioData.fiverrFeatures || []).map((feature, idx) => {
+              {features.map((feature, idx) => {
                 const IconComponent = iconMap[feature.icon] || Zap
                 return (
                   <div key={idx} className="fiverr-feature-item">
@@ -84,18 +85,20 @@ function FiverrSection() {
               })}
             </div>
 
-            <p className="plist-description">
-              Ready to start your dropshipping journey or scale your current brand? Let's collaborate and create something exceptional. Click below to view my full portfolio and reviews directly on Fiverr.
-            </p>
+            {descriptions.slice(2).map((desc, idx) => (
+              <p key={idx} className="plist-description">
+                {desc}
+              </p>
+            ))}
 
             <div className="plist-btn-group">
               <a
-                href="https://www.fiverr.com/sushantkumardev/design-and-redesign-a-shopify-store-dropshipping-store-or-ecommerce-website"
+                href={fiverr.link || 'https://www.fiverr.com/sushantkumardev'}
                 target="_blank"
                 rel="noreferrer"
                 className="fiverr-btn"
               >
-                Hire Me on Fiverr <ExternalLink size={20} />
+                {fiverr.buttonText || 'Hire Me on Fiverr'} <ExternalLink size={20} />
               </a>
             </div>
           </motion.div>

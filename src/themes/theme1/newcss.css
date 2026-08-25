@@ -1630,3 +1630,335 @@ body.dark-theme .portfolio__img-box {
     bottom: -4.5rem;
   }
 }
+
+/*===================== FIVERR SECTION (THEME 1) ==================*/
+.fiverr__container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.fiverr__card {
+
+  padding: 2.25rem;
+
+
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-theme .fiverr__card {
+
+  border-color: rgba(110, 87, 224, 0.25);
+}
+
+.fiverr__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 868px) {
+  .fiverr__grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Visual Column */
+.fiverr__visual-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fiverr__img-wrapper {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: none;
+  border: 2px solid var(--first-color-lighter);
+  background: var(--body-color);
+}
+
+.fiverr__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Badges on image */
+.fiverr__gig-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  background: rgba(15, 23, 42, 0.85);
+  color: #fbbf24;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: none;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.fiverr__top-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: #1dbf73;
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.725rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: none;
+  z-index: 2;
+}
+
+/* Quick Stats Bar */
+.fiverr__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.fiverr__stat-card {
+  background-color: var(--body-color);
+  border: 1px solid rgba(110, 87, 224, 0.12);
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.85rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: border-color 0.2s ease;
+}
+
+body.dark-theme .fiverr__stat-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.fiverr__stat-card:hover {
+  border-color: var(--first-color);
+}
+
+.fiverr__stat-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--first-color);
+}
+
+.fiverr__stat-label {
+  font-size: 0.725rem;
+  color: var(--text-color-light);
+  font-weight: 500;
+}
+
+/* Data Column */
+.fiverr__info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.fiverr__category-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.fiverr__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.fiverr__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--first-color);
+  background-color: var(--first-color-lighter);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fiverr__availability {
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+  font-weight: 500;
+}
+
+.fiverr__subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
+}
+
+.fiverr__descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.fiverr__description {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.fiverr__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.fiverr__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--body-color);
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--title-color);
+  transition: border-color 0.2s ease;
+}
+
+body.dark-theme .fiverr__feature-item {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.fiverr__feature-item:hover {
+  border-color: var(--first-color);
+}
+
+.fiverr__feature-icon-wrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--first-color-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fiverr__feature-icon {
+  color: var(--first-color);
+}
+
+.fiverr__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fiverr__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #1dbf73;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.925rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 0.85rem;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.fiverr__cta-btn:hover {
+  background: #10b981;
+  color: #ffffff !important;
+}
+
+.fiverr__btn-icon {
+  flex-shrink: 0;
+}
+
+.fiverr__trust-note {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+}
+
+.fiverr__shield-icon {
+  color: #1dbf73;
+  flex-shrink: 0;
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 767px) {
+  .fiverr__card {
+    padding: 1.25rem;
+  }
+
+  .fiverr__cta-btn {
+    width: 100%;
+  }
+
+  .fiverr__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .fiverr__features {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .fiverr__gig-badge {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .fiverr__top-badge {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .fiverr__stats-grid {
+    gap: 0.4rem;
+  }
+
+  .fiverr__stat-card {
+    padding: 0.5rem 0.25rem;
+  }
+
+  .fiverr__stat-number {
+    font-size: 0.95rem;
+  }
+
+  .fiverr__stat-label {
+    font-size: 0.675rem;
+  }
+}

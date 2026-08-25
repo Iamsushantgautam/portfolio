@@ -30,6 +30,7 @@ export default function Header() {
     { name: 'About', href: '#about', icon: User },
     { name: 'Projects', href: '#projects', icon: Briefcase },
     { name: 'Shopify Stores', href: '#shopify', icon: ShoppingBag },
+    { name: 'Fiverr', href: '#fiverr', icon: ShoppingBag },
     { name: 'Skills', href: '#skills', icon: Code },
     { name: 'Experience', href: '#process', icon: Sparkles },
     { name: 'Contact', href: '#contact', icon: Mail }

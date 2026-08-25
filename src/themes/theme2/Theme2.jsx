@@ -6,6 +6,7 @@ import About from './components/About/About';
 import FeaturedProjects from './components/Projects/FeaturedProjects';
 import ShopifyStores from './components/Projects/ShopifyStores';
 import UtilityTools from './components/Projects/UtilityTools';
+import FiverrSection from './components/Projects/FiverrSection';
 import Skills from './components/Skills/Skills';
 import Process from './components/Process/Process';
 import CTA from './components/CTA/CTA';
@@ -37,6 +38,7 @@ export default function Theme2() {
         <FeaturedProjects />
         <ShopifyStores />
         <UtilityTools />
+        <FiverrSection />
         <Skills />
         <Process />
         <CTA />
