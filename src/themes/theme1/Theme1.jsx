@@ -32,7 +32,7 @@ import scraperImg from '../../assets/utility-tools/witcraper.png'
 const imgMap = {
   '/assets/Projects/pawpertio.png': pawpertioImg,
   '/assets/Projects/D-Home.png': skillnearImg,
-  '/assets/Projects/wittool.png': wittoolImg,
+  '/assets/Projects/wittool.webp': wittoolImg,
   '/assets/Projects/witcet.png': witcetMernImg,
   '/assets/shopify-store/store1-full.png': store1Img,
   '/assets/shopify-store/store2-full.png': store2Img,

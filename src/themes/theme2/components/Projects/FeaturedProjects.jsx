@@ -6,7 +6,7 @@ import './Projects.css';
 // Static image imports for instant pre-cached loading
 import pawpertioImg from '../../../../assets/Projects/pawpertio.png';
 import dhomeImg from '../../../../assets/Projects/D-Home.png';
-import wittoolImg from '../../../../assets/Projects/wittool.png';
+import wittoolImg from '../../../../assets/Projects/wittool.webp';
 import witcetImg from '../../../../assets/Projects/witcet.png';
 
 const projectImages = [pawpertioImg, dhomeImg, wittoolImg, witcetImg];

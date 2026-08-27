@@ -6,13 +6,13 @@ import portfolioData from '../../../data/portfolio.json'
 
 import witcetImg from '../../../assets/Projects/witcet.png'
 import expenseTrackerImg from '../../../assets/Projects/portfolio3-full.png'
-import wittoolImg from '../../../assets/Projects/wittool.png'
+import wittoolImg from '../../../assets/Projects/wittool.webp'
 import skillnearImg from '../../../assets/Projects/D-Home.png'
 import pawpertioImg from '../../../assets/Projects/pawpertio.png'
 const imgMap = {
   '/assets/Projects/witcet.png': witcetImg,
   '/assets/Projects/portfolio3-full.png': expenseTrackerImg,
-  '/assets/Projects/wittool.png': wittoolImg,
+  '/assets/Projects/wittool.webp': wittoolImg,
   '/assets/Projects/D-Home.png': skillnearImg,
   '/assets/Projects/pawpertio.png': pawpertioImg,
 }

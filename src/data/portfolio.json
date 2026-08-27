@@ -199,7 +199,7 @@
       "subtitle": "Wit Tools: All-in-One Suite",
       "period": "October 2025",
       "description": "Developed a web utility platform with PDF, image, and file management tools for productivity and document processing. Implemented features including PDF merge, split, compress, watermark, password protection, and format conversion. Built image processing tools such as background removal, compression, resizing, cropping, and format conversion.",
-      "img": "/assets/Projects/wittool.png",
+      "img": "/assets/Projects/wittool.webp",
       "live": "https://wit-tools.sushant.online",
       "github": "https://github.com/Iamsushantgautam/Wit-Tools",
       "tech": "React",
